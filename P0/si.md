@@ -23,9 +23,12 @@ Texto escrito en *cursiva*
 Texto escrito en **negrita**
 
 # Representar codigo  con ```
-```
-# --- ejemplo python
+```python
+# -- Ejemplo de código en python
 a = 2
-print("Programa")
-pritn(f"variable a vale {a}")
+print("Programa en python")
+print(f"La variable a vale {a}")
 ```
+
+# codigo en una linea
+En python la expresión `print(f" a + b = {2 + 1} ")` produce como resultado `a + b = 3` 
