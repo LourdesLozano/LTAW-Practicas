@@ -8,4 +8,11 @@ esto es un texto normal
 * segundo elemento
     * Elemento anidado 1
     * Elemento anidado 2
-        * Elemento anidado 3    
+        * Elemento anidado 3
+
+# Listas ordenadas
+Esta será la siguiente lista
+1. Leer documento
+2. Practicar
+3. Seguir practicando
+
