@@ -32,3 +32,12 @@ print(f"La variable a vale {a}")
 
 # codigo en una linea
 En python la expresión `print(f" a + b = {2 + 1} ")` produce como resultado `a + b = 3` 
+
+# Enlaces internos y externos
+## Enlaces externos
+
+En wikipedia encontramos más información sobre [markdown](https://es.wikipedia.org/wiki/Markdown)
+
+## Enlaces internos
+
+Aquí hay información sobre [los enlaces](#Enlaces) en markdwon
