@@ -41,3 +41,13 @@ En wikipedia encontramos más información sobre [markdown](https://es.wikipedia
 ## Enlaces internos
 
 Aquí hay información sobre [los enlaces](#Enlaces) en markdwon
+
+# imagenes
+## Imagen en fichero local
+
+![](Logo-urjc.png)
+
+
+## Imagen en URL
+
+![](https://upload.wikimedia.org/wikipedia/commons/2/2f/CC_BY-SA_3.0.png)
