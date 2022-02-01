@@ -16,3 +16,16 @@ Esta será la siguiente lista
 2. Practicar
 3. Seguir practicando
 
+# Resaltado de texto
+
+Texto escrito en *cursiva*
+
+Texto escrito en **negrita**
+
+# Representar codigo  con ```
+```
+# --- ejemplo python
+a = 2
+print("Programa")
+pritn(f"variable a vale {a}")
+```
