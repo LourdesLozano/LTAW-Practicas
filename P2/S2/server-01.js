@@ -22,3 +22,5 @@ server.on('request', atender);
 //-- Activar el servidor. A la escucha de peitciones
 //-- en el puerto 8080
 server.listen(8080);
+
+// en navegador: 127.0.0.1:8080
