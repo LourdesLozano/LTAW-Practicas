@@ -24,3 +24,5 @@ const server = http.createServer((req, res) => {
 server.listen(PUERTO);
 
 console.log("Happy server activado!. Escuchando en puerto: " + PUERTO);
+
+// en web pon: localhost:8080/
