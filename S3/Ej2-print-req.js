@@ -60,3 +60,4 @@ console.log("Ejemplo 1. Happy Server listo!. Escuchando en puerto: " + PUERTO);
 
 // runeas: node ...
 //y en navedagor: localhost:8080
+// navegafor: localhost/hola_que_aaseeee
