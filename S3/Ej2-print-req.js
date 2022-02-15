@@ -57,3 +57,6 @@ const server = http.createServer((req, res) => {
 server.listen(PUERTO);
 
 console.log("Ejemplo 1. Happy Server listo!. Escuchando en puerto: " + PUERTO);
+
+// runeas: node ...
+//y en navedagor: localhost:8080
