@@ -3,10 +3,10 @@
 <!DOCTYPE tienda [
 
     <!-- La tienda contiene uno o más productos -->
-    <!ELEMENT tienda (producto)>
+    <!ELEMENT tienda (producto)> <!-- si (producto+) es que la tiende tiene mas de un producto-->
     <!ELEMENT producto (#PCDATA)>
 ]>
 
 <tienda>
-    <producto> Un producto</producto>
+    <producto> Un producto </producto>
 </tienda>
