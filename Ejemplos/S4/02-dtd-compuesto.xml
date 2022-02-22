@@ -3,7 +3,9 @@
 <!DOCTYPE tienda [
 
     <!-- La tienda contiene uno o más productos -->
-    <!ELEMENT tienda (producto)> <!-- si (producto+) es que la tiende tiene mas de un producto-->
+    <!-- si (producto+) es que la tiende tiene mas de un producto-->
+   <!-- si (producto*) niguno o varios -->
+    <!ELEMENT tienda (producto)> 
     <!ELEMENT producto (#PCDATA)>
 ]>
 
