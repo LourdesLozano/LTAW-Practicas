@@ -45,6 +45,8 @@ const server = http.createServer(function (req, res) {
         'jfif' : 'image/jfif',
         'png'  : 'image/png',
         'gif'  : 'image/gif',
+        'jpg'  : 'image/jpg',
+        'js'   : 'text/js',
       
     };
     
@@ -70,12 +72,17 @@ const server = http.createServer(function (req, res) {
     let message = "OK";
 
     //-- Leemos fichero
-    fs.readFile(filename, (err, data) => {
+    fs.readFile(filename, function(err, data) {
 
         //si hay error
-        if (err) {
+        if ((err || (filename == 'error.html'))) {
             // fichero de error
-
+            code = 404
+            message = "Not Found"
+            data = fs.readFileSync('./error.html')
+            res.writeHead(code, {'Content-Type': 'text/html'});
+            res.write(data);
+            res.end();
         //si no hay error
         }else{
             res.statusCode = code; 
