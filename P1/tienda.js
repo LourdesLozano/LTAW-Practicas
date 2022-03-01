@@ -5,7 +5,7 @@
 // página principal con 3 productos diferentes con imagem y enlace propia
 
 // 1. para lanzar servidor: node tienda.js
-// 2. abrir navegador: http://localhost:9000 o 127.0.0.1:9090
+// 2. abrir navegador: http://localhost:9090 o 127.0.0.1:9090
 
 // -- el servidor de mi tienda
 
