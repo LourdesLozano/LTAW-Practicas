@@ -15,16 +15,16 @@ const abrigo2 = document.getElementById("abrigo2");
 const abrigo3 = document.getElementById("abrigo3");
 
 // Que no aaprezca ningun elemento
-document.getElementById('productos').style.display = 'none';
-document.getElementById('productos2').style.display = 'none';
+document.getElementById('productos').style.display = 'none'; // collares
+document.getElementById('productos2').style.display = 'none'; // abrigos
 document.getElementById('texto1').style.display = 'none';
 document.getElementById('texto2').style.display = 'none';
 document.getElementById('texto3').style.display = 'none';
 
-// COLLARES
+// COLLARES-----------------------------------------------------------------
 btn_collares.onclick = () => {
     document.getElementById('productos').style.display = 'block';
-    document.getElementById('productos2').style.display = 'none';
+   
 }
 collar1.onclick = () => {
     document.getElementById('texto1').style.display = 'block';
@@ -43,12 +43,16 @@ collar3.onclick = () => {
 }
 
 
-// ABRIGOS
+// ABRIGOS------------------------------------------------------------------
 btn_abrigos.onclick = () => {
-    document.getElementById('productos').style.display = 'block';
+    document.getElementById('productos2').style.display = 'block';
+    document.getElementById('productos').style.display = 'none'; 
 }
 
-//LAZOS
+
+
+
+//LAZOS-----------------------------------------------------------------
 btn_lazos.onclick = () => {
     document.getElementById('productos').style.display = 'block';
 }
