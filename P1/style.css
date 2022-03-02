@@ -63,7 +63,7 @@ input{
 }
 
 #abrigo1 {
-    background-image: url(img/abrigos/abrigo1.png);
+    background-image: url(img/accesorios/abrigo1.png);
     background-color: white;
     background-repeat:no-repeat;
     background-position:center;
@@ -74,7 +74,7 @@ input{
 }
 
 #abrigo2 {
-    background-image: url(img/abrigos/abrigo2.png);
+    background-image: url(img/accesorios/abrigo2.png);
     background-color: white;
     background-repeat:no-repeat;
     background-position:center;
@@ -85,7 +85,7 @@ input{
 }
 
 #abrigo3 {
-    background-image: url(img/abrigos/abrigo3.png);
+    background-image: url(img/accesorios/abrigo3.png);
     background-color: white;
     background-repeat:no-repeat;
     background-position:center;
