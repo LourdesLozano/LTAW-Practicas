@@ -31,6 +31,7 @@ input{
     width: 180px;
 }
 
+
 #collar1 {
     background-image: url(img/accesorios/azul.jpg);
     background-repeat:no-repeat;
@@ -39,3 +40,22 @@ input{
     width: 560px;
     height: 250px;
 }
+
+#collar2 {
+    background-image: url(img/accesorios/rosa.jpg);
+    background-repeat:no-repeat;
+    background-position:center;
+    border-radius: 0px;
+    width: 560px;
+    height: 250px;
+}
+
+#collar3 {
+    background-image: url(img/accesorios/verde.jpg);
+    background-repeat:no-repeat;
+    background-position:center;
+    border-radius: 0px;
+    width: 560px;
+    height: 250px;
+}
+
