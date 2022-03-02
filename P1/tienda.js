@@ -50,7 +50,6 @@ const server = http.createServer(function (req, res) {
         'TTF'  : 'text/TTF',
         'otf'  : 'text/otf',
         'webp' : 'image/webp'
-      
     };
     
     let filename = ""

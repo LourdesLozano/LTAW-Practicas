@@ -5,12 +5,20 @@
 }
 
 body{
-    background-image: url(fondo2.jpg);
+    background-image: url(img/fondo2.jpg);
     background-size: cover;
     font-family: 'disney';
     font-weight: bold;
     color: red;
-    font-size: 30px;
-    
+    font-size: 60px;
+    text-align: center;  
 }
+
+#error{
+    padding: 10px;
+    border: solid;
+    background-color: rgba(253, 172, 172, 0.779);
+    margin-bottom: 20px;
+}
+
 
