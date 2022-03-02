@@ -182,3 +182,31 @@ input{
     width: 475px;
     margin-left: 20px;
 }
+
+#texto7{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(224, 143, 216);
+    background-color: rgba(235, 187, 228, 0.807);
+    width: 300px;
+    margin-left: 20px;
+}
+#texto8{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(0, 173, 86);
+    background-color: rgba(230, 243, 129, 0.807);
+    width: 300px;
+    margin-left: 20px;
+}
+#texto9{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(163, 22, 81);
+    background-color: rgba(192, 131, 153, 0.807);
+    width: 300px;
+    margin-left: 20px;
+}
