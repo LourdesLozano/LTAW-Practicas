@@ -60,6 +60,37 @@ input{
     height: 200px;
 }
 
+#abrigo1 {
+    background-image: url(img/abrigos/abrigo1.png);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    border-radius: 0px;
+    width: 500px;
+    height: 200px;
+}
+
+#abrigo2 {
+    background-image: url(img/abrigos/abrigo2.png);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    border-radius: 0px;
+    width: 500px;
+    height: 200px;
+}
+
+#abrigo3 {
+    background-image: url(img/abrigos/abrigo3.png);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    border-radius: 0px;
+    width: 500px;
+    height: 200px;
+}
+
+
 #texto1{
     color:black;
     padding: 10px;
@@ -87,4 +118,5 @@ input{
     width: 475px;
     margin-left: 20px;
 }
+
 
