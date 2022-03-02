@@ -48,18 +48,12 @@ btn_collares.onclick = () => {
 }
 collar1.onclick = () => {
     document.getElementById('texto1').style.display = 'block';
-    document.getElementById('texto2').style.display = 'none';
-    document.getElementById('texto3').style.display = 'none';
 }
 collar2.onclick = () => {
     document.getElementById('texto2').style.display = 'block';
-    document.getElementById('texto1').style.display = 'none';
-    document.getElementById('texto3').style.display = 'none';
 }
 collar3.onclick = () => {
     document.getElementById('texto3').style.display = 'block';
-    document.getElementById('texto1').style.display = 'none';
-    document.getElementById('texto2').style.display = 'none';
 }
 
 
@@ -75,18 +69,12 @@ btn_abrigos.onclick = () => {
 }
 abrigo1.onclick = () => {
     document.getElementById('texto4').style.display = 'block';
-    document.getElementById('texto5').style.display = 'none';
-    document.getElementById('texto6').style.display = 'none';
 }
 abrigo2.onclick = () => {
     document.getElementById('texto5').style.display = 'block';
-    document.getElementById('texto4').style.display = 'none';
-    document.getElementById('texto6').style.display = 'none';
 }
 abrigo3.onclick = () => {
     document.getElementById('texto6').style.display = 'block';
-    document.getElementById('texto4').style.display = 'none';
-    document.getElementById('texto5').style.display = 'none';
 }
 
 
@@ -96,19 +84,16 @@ btn_lazos.onclick = () => {
     document.getElementById('productos3').style.display = 'block';
     document.getElementById('productos').style.display = 'none'; 
     document.getElementById('productos2').style.display = 'none';
+    document.getElementById('texto7').style.display = 'none';
+    document.getElementById('texto8').style.display = 'none';
+    document.getElementById('texto9').style.display = 'none';
 }
 lazos1.onclick = () => {
     document.getElementById('texto7').style.display = 'block';
-    document.getElementById('texto8').style.display = 'none';
-    document.getElementById('texto9').style.display = 'none';
 }
 lazos2.onclick = () => {
     document.getElementById('texto8').style.display = 'block';
-    document.getElementById('texto7').style.display = 'none';
-    document.getElementById('texto9').style.display = 'none';
 }
 lazos3.onclick = () => {
-    document.getElementById('texto9').style.display = 'block';
-    document.getElementById('texto7').style.display = 'none';
-    document.getElementById('texto8').style.display = 'none';
+    document.getElementById('texto9').style.display = 'block'; 
 }
