@@ -30,3 +30,7 @@ input{
     background-color: rgba(135, 212, 227, 0.807);
     width: 180px;
 }
+
+#collar1 {
+    background-image: url(img/accesorios/azul.jpg);
+}
