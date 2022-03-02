@@ -96,3 +96,18 @@ btn_lazos.onclick = () => {
     document.getElementById('productos').style.display = 'none'; 
     document.getElementById('productos2').style.display = 'none';
 }
+lazos1.onclick = () => {
+    document.getElementById('texto7').style.display = 'block';
+    document.getElementById('texto8').style.display = 'none';
+    document.getElementById('texto9').style.display = 'none';
+}
+lazos2.onclick = () => {
+    document.getElementById('texto8').style.display = 'block';
+    document.getElementById('texto7').style.display = 'none';
+    document.getElementById('texto9').style.display = 'none';
+}
+lazos3.onclick = () => {
+    document.getElementById('texto9').style.display = 'block';
+    document.getElementById('texto7').style.display = 'none';
+    document.getElementById('texto8').style.display = 'none';
+}
