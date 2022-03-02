@@ -1,5 +1,5 @@
 
-// BOTONES
+// BOTONES------------------------------------------------------
 const btn_collares = document.getElementById("btn_collares");
 const btn_abrigos = document.getElementById("btn_abrigos");
 const btn_lazos = document.getElementById("btn_lazos");
@@ -14,9 +14,15 @@ const abrigo1 = document.getElementById("abrigo1");
 const abrigo2 = document.getElementById("abrigo2");
 const abrigo3 = document.getElementById("abrigo3");
 
-// Que no aaprezca ningun elemento
+// lazos
+const lazos1 = document.getElementById("lazos1");
+const lazos2 = document.getElementById("lazos2");
+const lazos3 = document.getElementById("lazos3");
+
+// Que no aaprezca ningun elemento--------------------------------------
 document.getElementById('productos').style.display = 'none'; // collares
 document.getElementById('productos2').style.display = 'none'; // abrigos
+document.getElementById('productos3').style.display = 'none'; // lazos
 // textos collares
 document.getElementById('texto1').style.display = 'none';
 document.getElementById('texto2').style.display = 'none';
@@ -25,11 +31,16 @@ document.getElementById('texto3').style.display = 'none';
 document.getElementById('texto4').style.display = 'none';
 document.getElementById('texto5').style.display = 'none';
 document.getElementById('texto6').style.display = 'none';
+// textos lazos
+document.getElementById('texto7').style.display = 'none';
+document.getElementById('texto8').style.display = 'none';
+document.getElementById('texto9').style.display = 'none';
 
 // COLLARES-----------------------------------------------------------------
 btn_collares.onclick = () => {
     document.getElementById('productos').style.display = 'block';
     document.getElementById('productos2').style.display = 'none';
+    document.getElementById('productos3').style.display = 'none'; 
     document.getElementById('texto1').style.display = 'none';
     document.getElementById('texto2').style.display = 'none';
     document.getElementById('texto3').style.display = 'none';
@@ -81,5 +92,7 @@ abrigo3.onclick = () => {
 
 //LAZOS-----------------------------------------------------------------
 btn_lazos.onclick = () => {
-    document.getElementById('productos').style.display = 'block';
+    document.getElementById('productos3').style.display = 'block';
+    document.getElementById('productos').style.display = 'none'; 
+    document.getElementById('productos2').style.display = 'none';
 }
