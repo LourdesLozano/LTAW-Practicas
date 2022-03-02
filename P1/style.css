@@ -12,10 +12,25 @@ body{
     font-size: 20px;
 }
 
+h2{
+    margin-left: 20px;
+    
+    padding: 10px;
+    border: solid;
+    
+    border-color: rgb(63, 183, 214);
+    background-color: rgba(135, 212, 227, 0.807);
+    
+    
+    margin-right: 915px;
+}
+
 input{
     margin: 20px;
     color:red;
     border-radius: 20px;
     padding: 10px;
+    font-family: 'disney';
     background-color: rgb(253, 172, 172);
+    font-size: 20px;
 }
