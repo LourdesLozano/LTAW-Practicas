@@ -67,6 +67,7 @@ collar3.onclick = () => {
 btn_abrigos.onclick = () => {   
     document.getElementById('productos2').style.display = 'block';
     document.getElementById('productos').style.display = 'none';
+    document.getElementById('productos3').style.display = 'none';
     document.getElementById('texto4').style.display = 'none';
     document.getElementById('texto5').style.display = 'none';
     document.getElementById('texto6').style.display = 'none';

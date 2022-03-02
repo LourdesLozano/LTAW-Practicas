@@ -7,7 +7,7 @@ body{
     background-image: url(img/fondo2.jpg);
     background-size: cover;
     color: red;
-    font-size: 20px;
+    font-size: 35px;
 }
 
 input{
@@ -17,18 +17,17 @@ input{
     padding: 10px;
     font-family: 'disney';
     background-color: rgb(253, 172, 172);
-    font-size: 20px;
+    font-size: 30px;
 }
 
 #iniAcesorios{
     margin-left: 65px;
     padding: 10px;
-    border: solid;
     color:black;
     font-family: 'disney';
     border-color: rgb(170, 0, 0);
     background-color: rgba(229, 111, 111, 0.807);
-    width: 200px;
+    width: 320px;
 }
 
 
@@ -37,8 +36,9 @@ input{
     background-color: white;
     background-repeat:no-repeat;
     background-position:center;
+    background-size: contain;
     border-radius: 0px;
-    width: 500px;
+    width: 300px;
     height: 200px;
 }
 
@@ -47,8 +47,9 @@ input{
     background-color: white;
     background-repeat:no-repeat;
     background-position:center;
+    background-size: contain;
     border-radius: 0px;
-    width: 500px;
+    width: 300px;
     height: 200px;
 }
 
@@ -57,8 +58,9 @@ input{
     background-color: white;
     background-repeat:no-repeat;
     background-position:center;
+    background-size: contain;
     border-radius: 0px;
-    width: 500px;
+    width: 300px;
     height: 200px;
 }
 
@@ -126,6 +128,10 @@ input{
     height: 190px;
 }
 
+li {
+    list-style-image: url("img/huella.png");
+}
+
 
 #texto1{
     color:black;
@@ -133,8 +139,9 @@ input{
     border: solid;
     border-color: rgb(178, 158, 68);
     background-color: rgba(138, 182, 199, 0.807);
-    width: 475px;
+    width: 300px;
     margin-left: 20px;
+    font-size: 12px;
 }
 #texto2{
     color:black;
@@ -142,8 +149,9 @@ input{
     border: solid;
     border-color: rgb(178, 158, 68);
     background-color: rgba(219, 177, 210, 0.807);
-    width: 475px;
+    width: 300px;
     margin-left: 20px;
+    font-size: 12px;
 }
 #texto3{
     color:black;
@@ -151,8 +159,9 @@ input{
     border: solid;
     border-color: rgb(178, 158, 68);
     background-color: rgba(162, 231, 212, 0.807);
-    width: 475px;
+    width: 300px;
     margin-left: 20px;
+    font-size: 12px;
 }
 
 #texto4{
@@ -163,6 +172,7 @@ input{
     background-color: rgba(247, 205, 234, 0.807);
     width: 475px;
     margin-left: 20px;
+    font-size: 12px;
 }
 #texto5{
     color:black;
@@ -172,6 +182,7 @@ input{
     background-color: rgba(71, 165, 233, 0.807);
     width: 475px;
     margin-left: 20px;
+    font-size: 12px;
 }
 #texto6{
     color:black;
@@ -181,6 +192,7 @@ input{
     background-color: rgba(202, 135, 188, 0.807);
     width: 475px;
     margin-left: 20px;
+    font-size: 12px;
 }
 
 #texto7{
@@ -189,8 +201,9 @@ input{
     border: solid;
     border-color: rgb(224, 143, 216);
     background-color: rgba(235, 187, 228, 0.807);
-    width: 300px;
+    width: 155px;
     margin-left: 20px;
+    font-size: 12px;
 }
 #texto8{
     color:black;
@@ -198,8 +211,9 @@ input{
     border: solid;
     border-color: rgb(0, 173, 86);
     background-color: rgba(230, 243, 129, 0.807);
-    width: 300px;
+    width: 155px;
     margin-left: 20px;
+    font-size: 12px;
 }
 #texto9{
     color:black;
@@ -207,6 +221,7 @@ input{
     border: solid;
     border-color: rgb(163, 22, 81);
     background-color: rgba(192, 131, 153, 0.807);
-    width: 300px;
+    width: 155px;
     margin-left: 20px;
+    font-size: 12px;
 }
