@@ -17,8 +17,13 @@ document.getElementById('texto').style.display = 'none';
 btn_collares.onclick = () => {
     document.getElementById('productos').style.display = 'block';
 }
-
 collar1.onclick = () => {
+    document.getElementById('texto').style.display = 'block';
+}
+collar2.onclick = () => {
+    document.getElementById('texto').style.display = 'block';
+}
+collar3.onclick = () => {
     document.getElementById('texto').style.display = 'block';
 }
 
