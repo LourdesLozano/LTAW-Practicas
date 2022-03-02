@@ -6,8 +6,8 @@
 body{
     background-image: url(img/fondo2.jpg);
     background-size: cover;
-    font-family: 'disney';
-    font-weight: bold;
+    
+   
     color: red;
     font-size: 20px;
 }
@@ -28,7 +28,7 @@ input{
     border: solid;
     border-color: rgb(63, 183, 214);
     background-color: rgba(135, 212, 227, 0.807);
-    width: 180px;
+    width: 200px;
 }
 
 
@@ -62,12 +62,30 @@ input{
     height: 200px;
 }
 
-#texto{
+#texto1{
     color:black;
     padding: 10px;
     border: solid;
-    border-color: rgb(255, 215, 36);
-    background-color: rgba(255, 246, 169, 0.807);
+    border-color: rgb(178, 158, 68);
+    background-color: rgba(138, 182, 199, 0.807);
+    width: 475px;
+    margin-left: 20px;
+}
+#texto2{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(178, 158, 68);
+    background-color: rgba(219, 177, 210, 0.807);
+    width: 475px;
+    margin-left: 20px;
+}
+#texto3{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(178, 158, 68);
+    background-color: rgba(162, 231, 212, 0.807);
     width: 475px;
     margin-left: 20px;
 }

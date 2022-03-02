@@ -11,20 +11,22 @@ const collar3 = document.getElementById("collar3");
 
 // Que no aaprezca ningun elemento
 document.getElementById('productos').style.display = 'none';
-document.getElementById('texto').style.display = 'none';
+document.getElementById('texto1').style.display = 'none';
+document.getElementById('texto2').style.display = 'none';
+document.getElementById('texto3').style.display = 'none';
 
 // COLLARES
 btn_collares.onclick = () => {
     document.getElementById('productos').style.display = 'block';
 }
 collar1.onclick = () => {
-    document.getElementById('texto').style.display = 'block';
+    document.getElementById('texto1').style.display = 'block';
 }
 collar2.onclick = () => {
-    document.getElementById('texto').style.display = 'block';
+    document.getElementById('texto2').style.display = 'block';
 }
 collar3.onclick = () => {
-    document.getElementById('texto').style.display = 'block';
+    document.getElementById('texto3').style.display = 'block';
 }
 
 
