@@ -9,7 +9,7 @@
 }
 
 body {
-    background-image: url(fondo.jpg);
+    background-image: url(img/fondo.jpg);
     background-size: cover;
 }
 
@@ -37,7 +37,7 @@ body {
 
 
 ul {
-    list-style-image: url("huella.png");
+    list-style-image: url("img/huella.png");
     font-family: 'disney';
     
     font-size: 20px;
