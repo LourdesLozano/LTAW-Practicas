@@ -48,7 +48,8 @@ const server = http.createServer(function (req, res) {
         'jpg'  : 'image/jpg',
         'js'   : 'text/js',
         'TTF'  : 'text/TTF',
-        'otf'  : 'text/otf'
+        'otf'  : 'text/otf',
+        'webp' : 'image/webp'
       
     };
     
