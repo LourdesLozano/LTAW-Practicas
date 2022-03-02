@@ -174,9 +174,10 @@ li {
     border: solid;
     border-color: rgb(238, 133, 192);
     background-color: rgba(247, 205, 234, 0.807);
-    width: 475px;
+    width: 400px;
     margin-left: 20px;
     font-size: 12px;
+    text-align: left;
 }
 #texto5{
     color:black;
@@ -184,9 +185,10 @@ li {
     border: solid;
     border-color: rgb(243, 116, 53);
     background-color: rgba(71, 165, 233, 0.807);
-    width: 475px;
+    width: 400px;
     margin-left: 20px;
     font-size: 12px;
+    text-align: left;
 }
 #texto6{
     color:black;
@@ -194,9 +196,10 @@ li {
     border: solid;
     border-color: rgb(71, 114, 42);
     background-color: rgba(202, 135, 188, 0.807);
-    width: 475px;
+    width: 400px;
     margin-left: 20px;
     font-size: 12px;
+    text-align: left;
 }
 
 #texto7{
@@ -205,9 +208,10 @@ li {
     border: solid;
     border-color: rgb(224, 143, 216);
     background-color: rgba(235, 187, 228, 0.807);
-    width: 155px;
+    width: 400px;
     margin-left: 20px;
     font-size: 12px;
+    text-align: left;
 }
 #texto8{
     color:black;
@@ -215,9 +219,10 @@ li {
     border: solid;
     border-color: rgb(0, 173, 86);
     background-color: rgba(230, 243, 129, 0.807);
-    width: 155px;
+    width: 400px;
     margin-left: 20px;
     font-size: 12px;
+    text-align: left;
 }
 #texto9{
     color:black;
@@ -225,7 +230,8 @@ li {
     border: solid;
     border-color: rgb(163, 22, 81);
     background-color: rgba(192, 131, 153, 0.807);
-    width: 155px;
+    width: 400px;
     margin-left: 20px;
     font-size: 12px;
+    text-align: left;
 }
