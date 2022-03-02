@@ -140,10 +140,10 @@ li {
     border: solid;
     border-color: rgb(178, 158, 68);
     background-color: rgba(138, 182, 199, 0.807);
-    width: 300px;
+    width: 400px;
     margin-left: 20px;
     font-size: 12px;
-    align-content: right;
+    text-align: left;
 }
 #texto2{
     color:black;
@@ -151,9 +151,10 @@ li {
     border: solid;
     border-color: rgb(178, 158, 68);
     background-color: rgba(219, 177, 210, 0.807);
-    width: 300px;
+    width: 400px;
     margin-left: 20px;
     font-size: 12px;
+    text-align: left;
 }
 #texto3{
     color:black;
@@ -161,9 +162,10 @@ li {
     border: solid;
     border-color: rgb(178, 158, 68);
     background-color: rgba(162, 231, 212, 0.807);
-    width: 300px;
+    width: 400px;
     margin-left: 20px;
     font-size: 12px;
+    text-align: left;
 }
 
 #texto4{
