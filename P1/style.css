@@ -18,6 +18,7 @@ input{
     font-family: 'disney';
     background-color: rgb(253, 172, 172);
     font-size: 30px;
+    margin-left: 28px;
 }
 
 #iniAcesorios{
@@ -27,7 +28,7 @@ input{
     font-family: 'disney';
     border-color: rgb(170, 0, 0);
     background-color: rgba(229, 111, 111, 0.807);
-    width: 320px;
+    width: 300px;
 }
 
 
@@ -142,6 +143,7 @@ li {
     width: 300px;
     margin-left: 20px;
     font-size: 12px;
+    align-content: right;
 }
 #texto2{
     color:black;
