@@ -48,7 +48,21 @@ btn_abrigos.onclick = () => {
     document.getElementById('productos2').style.display = 'block';
     document.getElementById('productos').style.display = 'none'; 
 }
-
+abrigo1.onclick = () => {
+    document.getElementById('texto1').style.display = 'block';
+    document.getElementById('texto2').style.display = 'none';
+    document.getElementById('texto3').style.display = 'none';
+}
+abrigo2.onclick = () => {
+    document.getElementById('texto2').style.display = 'block';
+    document.getElementById('texto1').style.display = 'none';
+    document.getElementById('texto3').style.display = 'none';
+}
+abrigo3.onclick = () => {
+    document.getElementById('texto3').style.display = 'block';
+    document.getElementById('texto1').style.display = 'none';
+    document.getElementById('texto2').style.display = 'none';
+}
 
 
 
