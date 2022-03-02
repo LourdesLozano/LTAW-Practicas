@@ -9,6 +9,7 @@
 }
 
 body {
+    background: no-repeat;
     background-image: url(img/fondo.jpg);
     background-size: cover;
 }
