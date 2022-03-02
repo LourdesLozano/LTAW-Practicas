@@ -34,28 +34,31 @@ input{
 
 #collar1 {
     background-image: url(img/accesorios/azul.jpg);
+    background-color: white;
     background-repeat:no-repeat;
     background-position:center;
     border-radius: 0px;
-    width: 560px;
+    width: 360px;
     height: 250px;
 }
 
 #collar2 {
     background-image: url(img/accesorios/rosa.jpg);
+    background-color: white;
     background-repeat:no-repeat;
     background-position:center;
     border-radius: 0px;
-    width: 560px;
+    width: 360px;
     height: 250px;
 }
 
 #collar3 {
     background-image: url(img/accesorios/verde.jpg);
+    background-color: white;
     background-repeat:no-repeat;
     background-position:center;
     border-radius: 0px;
-    width: 560px;
+    width: 360px;
     height: 250px;
 }
 
