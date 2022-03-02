@@ -119,4 +119,30 @@ input{
     margin-left: 20px;
 }
 
-
+#texto4{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(238, 133, 232);
+    background-color: rgba(233, 197, 228, 0.807);
+    width: 475px;
+    margin-left: 20px;
+}
+#texto5{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(243, 116, 53);
+    background-color: rgba(245, 191, 164, 0.807);
+    width: 475px;
+    margin-left: 20px;
+}
+#texto6{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(71, 114, 42);
+    background-color: rgba(202, 135, 188, 0.807);
+    width: 475px;
+    margin-left: 20px;
+}

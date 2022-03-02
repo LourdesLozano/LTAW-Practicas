@@ -17,9 +17,14 @@ const abrigo3 = document.getElementById("abrigo3");
 // Que no aaprezca ningun elemento
 document.getElementById('productos').style.display = 'none'; // collares
 document.getElementById('productos2').style.display = 'none'; // abrigos
+// textos collares
 document.getElementById('texto1').style.display = 'none';
 document.getElementById('texto2').style.display = 'none';
 document.getElementById('texto3').style.display = 'none';
+// textos abrigos
+document.getElementById('texto4').style.display = 'none';
+document.getElementById('texto5').style.display = 'none';
+document.getElementById('texto6').style.display = 'none';
 
 // COLLARES-----------------------------------------------------------------
 btn_collares.onclick = () => {
@@ -51,22 +56,25 @@ collar3.onclick = () => {
 btn_abrigos.onclick = () => {   
     document.getElementById('productos2').style.display = 'block';
     document.getElementById('productos').style.display = 'none';
+    document.getElementById('texto4').style.display = 'none';
+    document.getElementById('texto5').style.display = 'none';
+    document.getElementById('texto6').style.display = 'none';
     
 }
 abrigo1.onclick = () => {
-    document.getElementById('texto1').style.display = 'block';
-    document.getElementById('texto2').style.display = 'none';
-    document.getElementById('texto3').style.display = 'none';
+    document.getElementById('texto4').style.display = 'block';
+    document.getElementById('texto5').style.display = 'none';
+    document.getElementById('texto6').style.display = 'none';
 }
 abrigo2.onclick = () => {
-    document.getElementById('texto2').style.display = 'block';
-    document.getElementById('texto1').style.display = 'none';
-    document.getElementById('texto3').style.display = 'none';
+    document.getElementById('texto5').style.display = 'block';
+    document.getElementById('texto4').style.display = 'none';
+    document.getElementById('texto6').style.display = 'none';
 }
 abrigo3.onclick = () => {
-    document.getElementById('texto3').style.display = 'block';
-    document.getElementById('texto1').style.display = 'none';
-    document.getElementById('texto2').style.display = 'none';
+    document.getElementById('texto6').style.display = 'block';
+    document.getElementById('texto4').style.display = 'none';
+    document.getElementById('texto5').style.display = 'none';
 }
 
 
