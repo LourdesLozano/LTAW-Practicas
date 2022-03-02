@@ -33,4 +33,9 @@ input{
 
 #collar1 {
     background-image: url(img/accesorios/azul.jpg);
+    background-repeat:no-repeat;
+    background-position:center;
+    border-radius: 0px;
+    width: 560px;
+    height: 250px;
 }
