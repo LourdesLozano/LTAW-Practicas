@@ -4,7 +4,7 @@
 }
 
 body{
-    background-image: url(fondo2.jpg);
+    background-image: url(img/fondo2.jpg);
     background-size: cover;
     font-family: 'disney';
     font-weight: bold;
@@ -14,15 +14,11 @@ body{
 
 h2{
     margin-left: 20px;
-    
     padding: 10px;
     border: solid;
-    
     border-color: rgb(63, 183, 214);
     background-color: rgba(135, 212, 227, 0.807);
-    
-    
-    margin-right: 915px;
+    width: 180px;
 }
 
 input{
@@ -34,3 +30,4 @@ input{
     background-color: rgb(253, 172, 172);
     font-size: 20px;
 }
+
