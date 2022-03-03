@@ -238,6 +238,19 @@ li {
 
 
 
+
+
+#iniAlimentos{
+    margin-left: 65px;
+    padding: 10px;
+    color:black;
+    font-family: 'disney';
+    border-color: rgb(170, 0, 0);
+    background-color: rgba(229, 111, 111, 0.807);
+    width: 270px;
+}
+
+
 #pienso1 {
     background-image: url(img/alimentos/pienso1.jpg);
     background-color: white;
@@ -265,3 +278,25 @@ li {
     margin-left: 90px;
 }
 
+#texto10{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(233, 180, 37);
+    background-color: rgba(240, 225, 171, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto11{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(163, 22, 81);
+    background-color: rgba(192, 131, 153, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
