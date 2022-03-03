@@ -1,14 +1,26 @@
 // BOTONES------------------------------------------------------
+const btn_juguetes = document.getElementById("btn_juguetes")
+
 const juguete1 = document.getElementById("juguete1");
 const juguete2 = document.getElementById("juguete2");
 
 // Que no aaprezca ningun elemento--------------------------------------
+document.getElementById('productos6').style.display = 'none';
+
 document.getElementById('texto14').style.display = 'none';
 document.getElementById('texto15').style.display = 'none';
 document.getElementById('texto16').style.display = 'none';
 document.getElementById('texto17').style.display = 'none';
 
 // JUGUETES--------------------------------------------------------------
+juguete1.onclick = () => {
+    document.getElementById('productos6').style.display = 'block';
+    document.getElementById('texto14').style.display = 'none';
+    document.getElementById('texto15').style.display = 'none';
+    document.getElementById('texto16').style.display = 'none';
+    document.getElementById('texto17').style.display = 'none';
+}
+
 juguete1.onclick = () => {
     document.getElementById('texto14').style.display = 'block';
 }
