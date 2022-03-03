@@ -407,3 +407,49 @@ li {
     width: 300px;
     height: 200px;
 }
+
+
+#texto14{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(22, 43, 179);
+    background-color: rgba(168, 166, 243, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto15{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(243, 172, 234);
+    background-color: rgba(229, 207, 228, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto16{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(192, 39, 189);
+    background-color: rgba(219, 143, 215, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto17{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(235, 151, 209);
+    background-color: rgba(255, 254, 207, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
