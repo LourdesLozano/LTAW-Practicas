@@ -2,6 +2,10 @@
     font-family: 'disney';
     src: url("disney.otf");
 }
+@font-face {
+    font-family: '101';
+    src: url("101PUPS.TTF");
+}
 
 body{
     background: no-repeat;
@@ -20,6 +24,16 @@ input{
     background-color: rgb(253, 172, 172);
     font-size: 30px;
     margin-left: 28px;
+}
+
+p{
+    font-family: '101';
+    margin-left: 28px;
+    color: black;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.704);
+    width: 930px;
+   
 }
 
 #iniAcesorios{
