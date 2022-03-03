@@ -27,6 +27,17 @@ body{
     width: 400px;
 }
 
+#iniUbicacion{
+    margin-left: 65px;
+    padding: 10px;
+    color:black;
+    font-family: 'disney';
+    font-size: 60px;
+    border-color: rgb(170, 0, 0);
+    background-color: rgba(229, 111, 111, 0.807);
+    width: 410px;
+}
+
 #cuerpo {
     margin-left: 65px;
     padding: 10px;
