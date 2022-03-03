@@ -4,6 +4,7 @@ const btn_collares = document.getElementById("btn_collares");
 const btn_abrigos = document.getElementById("btn_abrigos");
 const btn_lazos = document.getElementById("btn_lazos");
 
+
 // collares
 const collar1 = document.getElementById("collar1");
 const collar2 = document.getElementById("collar2");
@@ -20,11 +21,11 @@ const lazos2 = document.getElementById("lazos2");
 const lazos3 = document.getElementById("lazos3");
 
 
-
 // Que no aaprezca ningun elemento--------------------------------------
 document.getElementById('productos').style.display = 'none'; // collares
 document.getElementById('productos2').style.display = 'none'; // abrigos
 document.getElementById('productos3').style.display = 'none'; // lazos
+
 
 // textos collares
 document.getElementById('texto1').style.display = 'none';
