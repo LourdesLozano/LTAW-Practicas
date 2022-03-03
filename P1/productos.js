@@ -19,10 +19,18 @@ const lazos1 = document.getElementById("lazos1");
 const lazos2 = document.getElementById("lazos2");
 const lazos3 = document.getElementById("lazos3");
 
+
+// Pienso
+const pienso1 = document.getElementById("pienso1");
+const pienso2 = document.getElementById("pienso2");
+
 // Que no aaprezca ningun elemento--------------------------------------
 document.getElementById('productos').style.display = 'none'; // collares
 document.getElementById('productos2').style.display = 'none'; // abrigos
 document.getElementById('productos3').style.display = 'none'; // lazos
+
+document.getElementById('productos4').style.display = 'none'; // piensos
+
 // textos collares
 document.getElementById('texto1').style.display = 'none';
 document.getElementById('texto2').style.display = 'none';
