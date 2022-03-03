@@ -10,3 +10,18 @@ const pienso2 = document.getElementById("pienso2");
 document.getElementById('productos4').style.display = 'none'; // piensos
 // texto piensos
 document.getElementById('texto10').style.display = 'none';
+
+// PIENSOS-----------------------------------------------------------------
+btn_collares.onclick = () => {
+    document.getElementById('productos4').style.display = 'block';
+    document.getElementById('productos25').style.display = 'none';
+    document.getElementById('texto10').style.display = 'none';
+    document.getElementById('texto11').style.display = 'none';
+   
+}
+pienso1.onclick = () => {
+    document.getElementById('texto10').style.display = 'block';
+}
+pienso2.onclick = () => {
+    document.getElementById('texto11').style.display = 'block';
+}
