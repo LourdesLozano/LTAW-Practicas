@@ -4,6 +4,7 @@
 }
 
 body{
+    background: no-repeat;
     background-image: url(img/fondo8.jpg);
     background-size: cover;
     color: red;
@@ -456,4 +457,32 @@ li {
 
 #btn_juguetes{
     margin-left: 120px;
+}
+
+
+
+
+
+
+
+
+#iniCamas{
+    margin-left: 65px;
+    padding: 10px;
+    color:black;
+    font-family: 'disney';
+    border-color: rgb(170, 0, 0);
+    background-color: rgba(229, 111, 111, 0.807);
+    width: 180px;
+}
+
+#cama1 {
+    background-image: url(img/camas/cama1.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
 }
