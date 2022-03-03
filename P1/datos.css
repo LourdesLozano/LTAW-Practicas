@@ -21,6 +21,10 @@ p {
     font-size: 30px;
 }
 
+img{
+    margin-bottom: 40px;
+}
+
 #iniContacto{
     margin-left: 65px;
     padding: 10px;
@@ -71,6 +75,3 @@ p {
     color: red;
 }
 
-#tabla{
-    margin-top: 20px;
-}
