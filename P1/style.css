@@ -550,3 +550,29 @@ li {
 
 
 
+
+
+
+
+
+
+
+
+#bodyDatos {
+    background: no-repeat;
+    background-image: url(img/fondo8.jpg);
+    background-size: cover;
+    color: red;
+    font-size: 35px;
+}
+
+
+#iniContacto{
+    margin-left: 65px;
+    padding: 10px;
+    color:black;
+    font-family: 'disney';
+    border-color: rgb(170, 0, 0);
+    background-color: rgba(229, 111, 111, 0.807);
+    width: 180px;
+}
