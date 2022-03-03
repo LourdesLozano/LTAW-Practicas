@@ -486,3 +486,23 @@ li {
     width: 300px;
     height: 200px;
 }
+#cama2 {
+    background-image: url(img/camas/cama2.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+#cama3 {
+    background-image: url(img/camas/cama3.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
