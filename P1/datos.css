@@ -47,6 +47,15 @@ body{
     width: 880px;
 }
 
+#cuerpo2 {
+    margin-left: 65px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.759);
+    color: red;
+    text-align: left;
+    width: 1000px;
+}
+
 #info1{
     font-family: 'disney';
     color: black;
