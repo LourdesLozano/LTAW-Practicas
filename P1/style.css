@@ -237,6 +237,31 @@ li {
 }
 
 
+
+#pienso1 {
+    background-image: url(img/alimentos/pienso1.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+#pienso2 {
+    background-image: url(img/alimentos/pienso2.png);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+
 #btn_piensos{
     margin-left: 90px;
 }
+
