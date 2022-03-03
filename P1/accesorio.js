@@ -4,8 +4,6 @@ const btn_collares = document.getElementById("btn_collares");
 const btn_abrigos = document.getElementById("btn_abrigos");
 const btn_lazos = document.getElementById("btn_lazos");
 
-const btn_piensos = document.getElementById("btn_piensos")
-
 // collares
 const collar1 = document.getElementById("collar1");
 const collar2 = document.getElementById("collar2");
@@ -22,16 +20,11 @@ const lazos2 = document.getElementById("lazos2");
 const lazos3 = document.getElementById("lazos3");
 
 
-// Pienso
-const pienso1 = document.getElementById("pienso1");
-const pienso2 = document.getElementById("pienso2");
 
 // Que no aaprezca ningun elemento--------------------------------------
 document.getElementById('productos').style.display = 'none'; // collares
 document.getElementById('productos2').style.display = 'none'; // abrigos
 document.getElementById('productos3').style.display = 'none'; // lazos
-
-document.getElementById('productos4').style.display = 'none'; // piensos
 
 // textos collares
 document.getElementById('texto1').style.display = 'none';
@@ -46,8 +39,6 @@ document.getElementById('texto7').style.display = 'none';
 document.getElementById('texto8').style.display = 'none';
 document.getElementById('texto9').style.display = 'none';
 
-// texto piensos
-document.getElementById('texto10').style.display = 'none';
 
 // COLLARES-----------------------------------------------------------------
 btn_collares.onclick = () => {
