@@ -31,6 +31,17 @@ body{
     margin-left: 65px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.759);
+    color: red;
+    text-align: left;
+    width: 880px;
+}
+
+#info1{
+    font-family: 'disney';
+    color: black;
+}
+
+#info2{
     font-family: '101';
     color: red;
 }
