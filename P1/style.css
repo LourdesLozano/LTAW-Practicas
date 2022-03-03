@@ -273,6 +273,28 @@ li {
     height: 200px;
 }
 
+#premios1 {
+    background-image: url(img/alimentos/premios1.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+#premios2 {
+    background-image: url(img/alimentos/premios2.webp);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
 
 #btn_piensos{
     margin-left: 90px;
@@ -290,6 +312,29 @@ li {
     text-align: left;
 }
 #texto11{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(42, 71, 129);
+    background-color: rgba(139, 154, 194, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+
+#texto12{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(233, 180, 37);
+    background-color: rgba(240, 225, 171, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto13{
     color:black;
     padding: 10px;
     border: solid;
