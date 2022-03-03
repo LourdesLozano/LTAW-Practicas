@@ -507,8 +507,39 @@ li {
     height: 200px;
 }
 
-
-
+#texto18{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(143, 147, 148);
+    background-color: rgba(111, 201, 219, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto19{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(235, 151, 209);
+    background-color: rgba(255, 254, 207, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto20{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(235, 151, 209);
+    background-color: rgba(255, 254, 207, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
 
 #btn_camas{
     margin-left: 120px;
