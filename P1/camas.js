@@ -9,7 +9,6 @@ document.getElementById('texto19').style.display = 'none';
 document.getElementById('texto20').style.display = 'none';
 
 // JUGUETES--------------------------------------------------------------
-
 cama1.onclick = () => {
     document.getElementById('texto18').style.display = 'block';
 }
