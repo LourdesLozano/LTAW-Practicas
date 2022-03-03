@@ -4,11 +4,15 @@
     src: url("disney.otf");
 }
 
+@font-face {
+    font-family: '101';
+    src: url("101PUPS.TTF");
+}
+
 body{
     background: no-repeat;
     background-image: url(img/fondo2.jpg);
     background-size: cover;
-    color: red;
     font-size: 35px;
 }
 
@@ -27,5 +31,7 @@ body{
     margin-left: 65px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.759);
+    font-family: '101';
+    color: red;
 }
 
