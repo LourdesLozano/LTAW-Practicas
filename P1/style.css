@@ -274,7 +274,7 @@ li {
 }
 
 #premios1 {
-    background-image: url(img/alimentos/premios1.jpg);
+    background-image: url(img/alimentos/premios1.webp);
     background-color: white;
     background-repeat:no-repeat;
     background-position:center;
@@ -327,8 +327,8 @@ li {
     color:black;
     padding: 10px;
     border: solid;
-    border-color: rgb(42, 71, 129);
-    background-color: rgba(139, 154, 194, 0.807);
+    border-color: rgb(28, 163, 75);
+    background-color: rgba(162, 231, 200, 0.807);
     width: 800px;
     margin-left: 20px;
     font-size: 12px;
