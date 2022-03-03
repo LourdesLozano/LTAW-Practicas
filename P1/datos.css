@@ -16,6 +16,10 @@ body{
     font-size: 35px;
 }
 
+p {
+    color: rgba(56, 56, 56, 0.863);
+}
+
 #iniContacto{
     margin-left: 65px;
     padding: 10px;
