@@ -3,6 +3,8 @@ const btn_juguetes = document.getElementById("btn_juguetes")
 
 const juguete1 = document.getElementById("juguete1");
 const juguete2 = document.getElementById("juguete2");
+const juguete3 = document.getElementById("juguete3");
+const juguete4 = document.getElementById("juguete4");
 
 // Que no aaprezca ningun elemento--------------------------------------
 document.getElementById('productos6').style.display = 'none';
