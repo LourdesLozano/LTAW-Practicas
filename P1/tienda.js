@@ -9,12 +9,10 @@
 
 // -- el servidor de mi tienda
 
-
 // fichero html 
 // ficheros con img
 // ficheros css
 // devolver fichero pedido
-
 
 // -- PRACTICA 1: TIENDA ON-LINE CON NODE.JS
 //-- Importamos los modulos http, fs y url
