@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
   
         //-- si el usuario es Chuck Norris se añade HTML extra
         let html_extra = "";
-        if (nombre=="Chuck" && apellidos=="Norris") {
+        if (nombre=="lour" && apellidos=="loz") {
            html_extra = "<h2>Chuck Norris no necesita registrarse</h2>";
         }
         content = content.replace("HTML_EXTRA", html_extra);
