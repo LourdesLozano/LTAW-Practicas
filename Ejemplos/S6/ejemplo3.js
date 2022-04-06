@@ -4,11 +4,10 @@ const fs = require('fs');
 const PUERTO = 8080;
 
 //-- Cargar pagina web del formulario
-const FORMULARIO = fs.readFileSync('form2.html','utf-8');
+const FORMULARIO = fs.readFileSync('form1.html','utf-8');
 
 //-- HTML de la página de respuesta
-const RESPUESTA = fs.readFileSync('form1-resp.html', 'utf-8');
-
+const RESPUESTA = fs.readFileSync('form1-resp2.html', 'utf-8');
 
 
 const server = http.createServer((req, res) => {
@@ -38,7 +37,7 @@ const server = http.createServer((req, res) => {
         //-- si el usuario es Chuck Norris se añade HTML extra
         let html_extra = "";
         if (nombre=="lour" && apellidos=="loz") {
-           html_extra = "<h2>Chuck Norris no necesita registrarse</h2>";
+           html_extra = "<h2>lour loz no necesita registrarse</h2>";
         }
         content = content.replace("HTML_EXTRA", html_extra);
     }
@@ -48,7 +47,7 @@ const server = http.createServer((req, res) => {
     res.write(content);
     res.end()
   
-  });
+});
   
-  server.listen(PUERTO);
-  console.log("Escuchando en puerto: " + PUERTO);
+server.listen(PUERTO);
+console.log("Escuchando en puerto: " + PUERTO);
