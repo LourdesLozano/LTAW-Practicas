@@ -1,3 +1,16 @@
+
+const http = require('http');
+const fs = require('fs');
+const PUERTO = 8080;
+
+//-- Cargar pagina web del formulario
+const FORMULARIO = fs.readFileSync('form2.html','utf-8');
+
+//-- HTML de la página de respuesta
+const RESPUESTA = fs.readFileSync('form1-resp.html', 'utf-8');
+
+
+
 const server = http.createServer((req, res) => {
 
     //-- Construir el objeto url con la url de la solicitud
