@@ -33,3 +33,8 @@ const server = http.createServer((req, res) => {
 
 server.listen(PUERTO);
 console.log("Escuchando en puerto: " + PUERTO);
+
+
+// Lanzamos peticiones
+//-- curl localhost:8080
+//--curl -H "Cookie: user=obijuan; carrito=FPGA" localhost:8080
