@@ -1,0 +1,59 @@
+
+@font-face {
+    font-family: '101';
+    src: url("101PUPS.TTF");
+}
+@font-face {
+    font-family: 'disney';
+    src: url("disney.otf");
+}
+
+body {
+    background: no-repeat;
+    background-image: url(img/fondo.jpg);
+    background-size: cover;
+}
+#titulo{
+    margin-top: 20px;
+    font-family: 'disney';
+    color:red;
+    font-weight: bold;
+    font-size: 60px;
+    
+}
+
+#menu {
+    font-family: '101';
+    margin-top: 4%;
+    margin-bottom: 3%;
+    margin-left: 10px;
+    font-size: 40px;
+}
+
+#productos {
+    font-family: 'disney';
+    font-size: 30px;
+    margin-left: 30px;
+    margin-bottom: 200px;
+    color: red;
+}
+
+#iconos {
+    border: solid;
+    border-radius: 20px;
+}
+
+
+
+ul {
+    list-style-image: url("img/huella.png");
+    font-family: 'disney';
+    font-size: 25px;
+}
+#contacto{
+    color:rgb(130, 64, 229);
+}
+
+#ubicacion{
+    color:rgb(0, 137, 91);
+}

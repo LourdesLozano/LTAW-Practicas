@@ -1,0 +1,561 @@
+@font-face {
+    font-family: 'disney';
+    src: url("disney.otf");
+}
+@font-face {
+    font-family: '101';
+    src: url("101PUPS.TTF");
+}
+
+body{
+    background: no-repeat;
+    background-image: url(img/fondo8.jpg);
+    background-size: cover;
+    color: red;
+    font-size: 35px;
+}
+
+input{
+    margin: 20px;
+    color:red;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: 'disney';
+    background-color: rgb(253, 172, 172);
+    font-size: 30px;
+    margin-left: 28px;
+}
+
+p{
+    font-family: '101';
+    margin-left: 28px;
+    color: black;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.704);
+    width: 930px;
+   
+}
+
+#iniAcesorios{
+    margin-left: 65px;
+    padding: 10px;
+    color:black;
+    font-family: 'disney';
+    border-color: rgb(170, 0, 0);
+    background-color: rgba(229, 111, 111, 0.807);
+    width: 300px;
+}
+
+
+#collar1 {
+    background-image: url(img/accesorios/azul.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+#collar2 {
+    background-image: url(img/accesorios/rosa.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+#collar3 {
+    background-image: url(img/accesorios/verde.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+#abrigo1 {
+    background-image: url(img/accesorios/abrigo1.png);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 500px;
+    height: 200px;
+}
+
+#abrigo2 {
+    background-image: url(img/accesorios/abrigo2.png);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 500px;
+    height: 200px;
+}
+
+#abrigo3 {
+    background-image: url(img/accesorios/abrigo3.png);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    width: 500px;
+    height: 200px;
+}
+
+#lazos1 {
+    background-image: url(img/accesorios/lazos1.png);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 180px;
+    height: 190px;
+}
+
+#lazos2 {
+    background-image: url(img/accesorios/lazos2.png);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 180px;
+    height: 190px;
+}
+
+#lazos3 {
+    background-image: url(img/accesorios/lazos3.png);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    width: 180px;
+    height: 190px;
+}
+
+li {
+    list-style-image: url("img/huella.png");
+}
+
+
+#texto1{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(178, 158, 68);
+    background-color: rgba(138, 182, 199, 0.807);
+    width: 400px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto2{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(178, 158, 68);
+    background-color: rgba(219, 177, 210, 0.807);
+    width: 400px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto3{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(178, 158, 68);
+    background-color: rgba(162, 231, 212, 0.807);
+    width: 400px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+
+#texto4{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(238, 133, 192);
+    background-color: rgba(247, 205, 234, 0.807);
+    width: 400px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto5{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(243, 116, 53);
+    background-color: rgba(71, 165, 233, 0.807);
+    width: 400px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto6{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(71, 114, 42);
+    background-color: rgba(202, 135, 188, 0.807);
+    width: 400px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+
+#texto7{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(224, 143, 216);
+    background-color: rgba(235, 187, 228, 0.807);
+    width: 400px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto8{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(0, 173, 86);
+    background-color: rgba(230, 243, 129, 0.807);
+    width: 400px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto9{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(163, 22, 81);
+    background-color: rgba(192, 131, 153, 0.807);
+    width: 400px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+#iniAlimentos{
+    margin-left: 65px;
+    padding: 10px;
+    color:black;
+    font-family: 'disney';
+    border-color: rgb(170, 0, 0);
+    background-color: rgba(229, 111, 111, 0.807);
+    width: 270px;
+}
+
+
+#pienso1 {
+    background-image: url(img/alimentos/pienso1.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+#pienso2 {
+    background-image: url(img/alimentos/pienso2.png);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+#premios1 {
+    background-image: url(img/alimentos/premios1.webp);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+#premios2 {
+    background-image: url(img/alimentos/premios2.webp);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+
+#btn_piensos{
+    margin-left: 90px;
+}
+
+#texto10{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(233, 180, 37);
+    background-color: rgba(240, 225, 171, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto11{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(42, 71, 129);
+    background-color: rgba(139, 154, 194, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+
+#texto12{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(28, 163, 75);
+    background-color: rgba(162, 231, 200, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto13{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(182, 84, 169);
+    background-color: rgba(240, 176, 237, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+#iniJuguetes{
+    margin-left: 65px;
+    padding: 10px;
+    color:black;
+    font-family: 'disney';
+    border-color: rgb(170, 0, 0);
+    background-color: rgba(229, 111, 111, 0.807);
+    width: 265px;
+}
+
+#juguete1 {
+    background-image: url(img/juguetes/juguete1.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+#juguete2 {
+    background-image: url(img/juguetes/juguete2.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+#juguete3 {
+    background-image: url(img/juguetes/juguete3.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+#juguete4 {
+    background-image: url(img/juguetes/juguete4.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+
+#texto14{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(22, 43, 179);
+    background-color: rgba(168, 166, 243, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto15{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(243, 172, 234);
+    background-color: rgba(229, 207, 228, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto16{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(192, 39, 189);
+    background-color: rgba(219, 143, 215, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto17{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(235, 151, 209);
+    background-color: rgba(255, 254, 207, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+
+#btn_juguetes{
+    margin-left: 120px;
+}
+
+
+
+
+
+
+
+
+#iniCamas{
+    margin-left: 65px;
+    padding: 10px;
+    color:black;
+    font-family: 'disney';
+    border-color: rgb(170, 0, 0);
+    background-color: rgba(229, 111, 111, 0.807);
+    width: 180px;
+}
+
+#cama1 {
+    background-image: url(img/camas/cama1.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+#cama2 {
+    background-image: url(img/camas/cama2.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+#cama3 {
+    background-image: url(img/camas/cama3.jpg);
+    background-color: white;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: contain;
+    border-radius: 0px;
+    width: 300px;
+    height: 200px;
+}
+
+#texto18{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(143, 147, 148);
+    background-color: rgba(108, 180, 215, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto19{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(92, 70, 34);
+    background-color: rgba(233, 208, 151, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+#texto20{
+    color:black;
+    padding: 10px;
+    border: solid;
+    border-color: rgb(73, 73, 73);
+    background-color: rgba(171, 171, 171, 0.807);
+    width: 800px;
+    margin-left: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+
+#btn_camas{
+    margin-left: 120px;
+}
+
