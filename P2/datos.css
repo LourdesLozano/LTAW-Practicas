@@ -13,7 +13,7 @@ body{
     background: no-repeat;
     background-image: url(img/fondo2.jpg);
     background-size: cover;
-    font-size: 35px;
+    font-size: 20px;
 }
 
 p {
@@ -30,10 +30,10 @@ img{
     padding: 10px;
     color:black;
     font-family: 'disney';
-    font-size: 60px;
+    font-size: 50px;
     border-color: rgb(170, 0, 0);
     background-color: rgba(229, 111, 111, 0.807);
-    width: 400px;
+    width: 350px;
 }
 
 #iniUbicacion{
