@@ -12,7 +12,7 @@ body{
     background-image: url(img/fondo8.jpg);
     background-size: cover;
     color: red;
-    font-size: 35px;
+    font-size: 20px;
 }
 
 input{
@@ -22,7 +22,7 @@ input{
     padding: 10px;
     font-family: 'disney';
     background-color: rgb(253, 172, 172);
-    font-size: 30px;
+    font-size: 20px;
     margin-left: 28px;
 }
 
@@ -30,9 +30,9 @@ p{
     font-family: '101';
     margin-left: 28px;
     color: black;
-    font-size: 25px;
+    font-size: 15px;
     background-color: rgba(255, 255, 255, 0.704);
-    width: 930px;
+    width: 550px;
    
 }
 
@@ -43,7 +43,7 @@ p{
     font-family: 'disney';
     border-color: rgb(170, 0, 0);
     background-color: rgba(229, 111, 111, 0.807);
-    width: 300px;
+    width: 200px;
 }
 
 
@@ -54,8 +54,8 @@ p{
     background-position:center;
     background-size: contain;
     border-radius: 0px;
-    width: 300px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
 }
 
 #collar2 {
@@ -65,8 +65,8 @@ p{
     background-position:center;
     background-size: contain;
     border-radius: 0px;
-    width: 300px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
 }
 
 #collar3 {
@@ -76,8 +76,8 @@ p{
     background-position:center;
     background-size: contain;
     border-radius: 0px;
-    width: 300px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
 }
 
 #abrigo1 {
@@ -87,8 +87,8 @@ p{
     background-position:center;
     background-size: contain;
     border-radius: 0px;
-    width: 500px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
 }
 
 #abrigo2 {
@@ -98,8 +98,8 @@ p{
     background-position:center;
     background-size: contain;
     border-radius: 0px;
-    width: 500px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
 }
 
 #abrigo3 {
@@ -108,8 +108,9 @@ p{
     background-repeat:no-repeat;
     background-position:center;
     background-size: contain;
-    width: 500px;
-    height: 200px;
+    border-radius: 0px;
+    width: 200px;
+    height: 100px;
 }
 
 #lazos1 {
@@ -119,8 +120,8 @@ p{
     background-position:center;
     background-size: contain;
     border-radius: 0px;
-    width: 180px;
-    height: 190px;
+    width: 100px;
+    height: 100px;
 }
 
 #lazos2 {
@@ -130,8 +131,8 @@ p{
     background-position:center;
     background-size: contain;
     border-radius: 0px;
-    width: 180px;
-    height: 190px;
+    width: 100px;
+    height: 100px;
 }
 
 #lazos3 {
@@ -140,8 +141,9 @@ p{
     background-repeat:no-repeat;
     background-position:center;
     background-size: contain;
-    width: 180px;
-    height: 190px;
+    border-radius: 0px;
+    width: 100px;
+    height: 100px;
 }
 
 li {
@@ -157,7 +159,7 @@ li {
     background-color: rgba(138, 182, 199, 0.807);
     width: 400px;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
 }
 #texto2{
@@ -168,7 +170,7 @@ li {
     background-color: rgba(219, 177, 210, 0.807);
     width: 400px;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
 }
 #texto3{
@@ -179,7 +181,7 @@ li {
     background-color: rgba(162, 231, 212, 0.807);
     width: 400px;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
 }
 
@@ -191,7 +193,7 @@ li {
     background-color: rgba(247, 205, 234, 0.807);
     width: 400px;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
 }
 #texto5{
@@ -202,7 +204,7 @@ li {
     background-color: rgba(71, 165, 233, 0.807);
     width: 400px;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
 }
 #texto6{
@@ -213,7 +215,7 @@ li {
     background-color: rgba(202, 135, 188, 0.807);
     width: 400px;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
 }
 
@@ -225,7 +227,7 @@ li {
     background-color: rgba(235, 187, 228, 0.807);
     width: 400px;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
 }
 #texto8{
@@ -236,7 +238,7 @@ li {
     background-color: rgba(230, 243, 129, 0.807);
     width: 400px;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
 }
 #texto9{
@@ -247,7 +249,7 @@ li {
     background-color: rgba(192, 131, 153, 0.807);
     width: 400px;
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
 }
 
