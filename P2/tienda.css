@@ -61,3 +61,8 @@ ul {
     color:rgb(0, 137, 91);
     font-size: 20px;
 }
+
+#carro{
+    float: right;
+    margin-right: 20px;
+}
