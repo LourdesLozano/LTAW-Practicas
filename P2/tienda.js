@@ -30,6 +30,18 @@ const form = fs.readFileSync('login.html', 'utf-8');
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
+// FUNCIONES -------------------------------------
+
+
+
+
+
+
+
+// -----------------------------------------------
+
+
+
 //-- Crear el sevidor
 const server = http.createServer(function (req, res) {
     
@@ -57,6 +69,7 @@ const server = http.createServer(function (req, res) {
         'webp' : 'image/webp',
         'json' : 'application/json'
     };
+
     //////////////////////////////////////////////////////////////////////////
     let filename = ""
 
