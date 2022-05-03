@@ -30,9 +30,29 @@ const port = 9090;
 console.log("Arrancando servidor...");
 
 // FUNCIONES -------------------------------------
+function getUser(req){
+    const cookie = req.headers.cookie;
+    if(cookie) {
+        //-- Obtener un array con todos los pares nombre-valor
+        let pares = cookie.split(";");
+    
+        //-- Variable para guardar el usuario
+        let user;
 
+        //-- Recorrer todos los pares nombre-valor
+        pares.forEach((element, index) => {
 
+            //-- Obtener los nombres y valores por separado
+            let [nombre, valor] = element.split('=');
 
+            //-- Leer el usuario
+            //-- Solo si el nombre es 'user'
+            if (nombre.trim() === 'user') {
+                user = valor;
+            }
+        });
+    }
+}
 
 
 
@@ -115,7 +135,7 @@ const server = http.createServer(function (req, res) {
 
     });
 
-    
+
     if (filename = 'login.html') {
         if(err){
             code = 404
