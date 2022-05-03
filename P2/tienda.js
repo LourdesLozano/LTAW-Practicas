@@ -117,7 +117,21 @@ const server = http.createServer(function (req, res) {
     });
 
     if (filename = 'login.html') {
-        
+        if(err){
+            code = 404
+            message = "Not Found"
+            data = fs.readFileSync('./login.html')
+            res.writeHead(code, {'Content-Type': 'text/html'});
+            res.write(data);
+            res.end();
+        } else {
+            data = fs.readFileSync('./login.html')
+            res.statusCode = code; 
+            res.statusMessage = message;
+            res.writeHead(code, {'Content-Type': mine[type]});
+            res.write(data);
+            res.end();
+        }
     }
 
 });
