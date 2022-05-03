@@ -14,7 +14,7 @@
 // ficheros css
 // devolver fichero pedido
 
-// -- PRACTICA 1: TIENDA ON-LINE CON NODE.JS
+// -- PRACTICA 2: Practica 1 con añadidos
 //-- Importamos los modulos http, fs y url
 const http = require('http');
 const url = require('url');
