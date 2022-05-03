@@ -116,6 +116,8 @@ const server = http.createServer(function (req, res) {
 
     });
 
+    if (filname = )
+
 });
 
 //-- Activar el servidor
