@@ -24,7 +24,6 @@ const fs = require('fs');
 const port = 9090;
 
 // cargamos ficheros requeridos
-const form = fs.readFileSync('login.html', 'utf-8');
 
 
 //-- Mensaje de arranque
@@ -125,7 +124,7 @@ const server = http.createServer(function (req, res) {
             res.write(data);
             res.end();
         } else {
-            data = fs.readFileSync('./login.html')
+            data = fs.readFileSync('./tienda.html')
             res.statusCode = code; 
             res.statusMessage = message;
             res.writeHead(code, {'Content-Type': mine[type]});
