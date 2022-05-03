@@ -54,9 +54,10 @@ const server = http.createServer(function (req, res) {
         'js'   : 'text/js',
         'TTF'  : 'text/TTF',
         'otf'  : 'text/otf',
-        'webp' : 'image/webp'
+        'webp' : 'image/webp',
+        'json' : 'application/json'
     };
-    
+    //////////////////////////////////////////////////////////////////////////
     let filename = ""
 
     //-- Obtenemos el fichero correspondiente.
@@ -68,6 +69,7 @@ const server = http.createServer(function (req, res) {
     }
 
     console.log("Filename:", filename);
+    ////////////////////////////////////////////////////////////////////////////
 
     // -- Buscamos el "." final para poder indicar que tipo mine es
     let hastaPunto = myUrl.pathname.lastIndexOf(".");
