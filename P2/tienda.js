@@ -23,6 +23,10 @@ const fs = require('fs');
 //-- Definir el puerto a utilizar
 const port = 9090;
 
+// cargamos ficheros requeridos
+const form = fs.readFileSync('login.html', 'utf-8');
+
+
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
@@ -32,6 +36,9 @@ const server = http.createServer(function (req, res) {
     //-- Url que pide el cliente
     const myUrl = new URL(req.url, 'http://' + req.headers['host']);
     console.log("\nRecurso recibido: " + myUrl.pathname);
+    console.log("\nMetodo recibido: " + myUrl.method);
+    console.log("\nUrl recibida: " + myUrl.url);
+    console.log("\nParametros recibido: " + myUrl.searchParams);
 
     //-- Escribir en consola la ruta de nuestro recurso
     console.log("---> Peticion Recibida: " + myUrl);
