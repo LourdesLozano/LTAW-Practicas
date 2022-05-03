@@ -14,21 +14,27 @@
 
     "productos": [
         {
-            "nombre":"Collar 1",
-            "descripcion": "Cuero azul",
+            "nombre":"Accesorio",
+            "descripcion": "Cuero",
             "precio": "25",
             "stock":"6"
         },
         {
-            "nombre":"Collar 2",
-            "descripcion": "Cuero rosa",
-            "precio": "25",
+            "nombre":"Alimento",
+            "descripcion": "Pienso",
+            "precio": "42",
             "stock":"4"
         },
         {
-            "nombre":"Collar 3",
-            "descripcion": "Cuero verde",
-            "precio": "25",
+            "nombre":"Juguete",
+            "descripcion": "rosa",
+            "precio": "12",
+            "stock":"8"
+        },
+        {
+            "nombre":"Cama",
+            "descripcion": "bland ay suave",
+            "precio": "34",
             "stock":"8"
         }
     ],
