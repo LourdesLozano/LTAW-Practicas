@@ -136,10 +136,10 @@ const server = http.createServer(function (req, res) {
 
     });
 
-    // si esta user o no
+    //si esta user o no
     let myUser = getUser(req);
 
-    if (filename = 'login.html') {
+    if (filename = './login.html') {
         if(myUser){
             data = fs.readFileSync('./tienda.html')
             res.statusCode = code; 
