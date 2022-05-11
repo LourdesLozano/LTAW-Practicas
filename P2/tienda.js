@@ -33,38 +33,35 @@ const TIENDA = fs.readFileSync('tienda.html');
 const LOGIN = fs.readFileSync('login.html');
 let usuarios = tienda[1]['usuarios'];
 
-let contenido;
-
-
 //-- Cargar pagina web del formulario
 const formulario = fs.readFileSync('login.html','utf-8');
 const error = fs.readFileSync('error.html');
 const tienda = fs.readFileSync('tienda.html','utf-8');
 const tiendaJSON = fs.readFileSync('tienda.json','utf-8');
+let usuarios = tienda[1]['usuarios'];
 
+let = contenido;
 
-// REGISTRO
-let registro = [];
+//-- Registros en la web
+let registrados = [];
 console.log('Usuarios registrados:');
 usuarios.forEach((element, index) => {
-    registro.push(element.usuario);
-    console.log("User " + (index + 1) + '- ' + element.usuario);
+  registrados.push(element.usuario);
+  console.log("User " + (index + 1) + '- ' + element.usuario);
 });
+
 
 function getUser(req){
     const cookie = req.headers.cookie;
     if(cookie) {
         //-- Obtener un array con todos los pares nombre-valor
         let pares = cookie.split(";");
-    
         //-- Recorrer todos los pares nombre-valor
         pares.forEach((element, index) => {
-
             //-- Obtener los nombres y valores por separado
             let [nombre, valor] = element.split('=');
-
             //-- Leer el usuario
-            //-- Solo si el nombre es 'user'
+            //-- Solo si el nombre es 'usuario'
             if (nombre.trim() === 'usuario') {
                 usuario = valor;
             }
@@ -75,11 +72,7 @@ function getUser(req){
 }
 
 
-
-
 // -----------------------------------------------
-
-
 
 //-- Crear el sevidor
 const server = http.createServer(function (req, res) {
