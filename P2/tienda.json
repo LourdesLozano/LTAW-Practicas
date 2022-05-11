@@ -1,60 +1,63 @@
-{
-    "usuarios": [
-        {
-            "nombre":"Root",
-            "user":"user1",
-            "correo":"user1@gmail.com"
-        },
-        {
-            "nombre":"Normal",
-            "user":"user2",
-            "correo":"user2@gmail.com"
-        }
-    ],
 
-    "productos": [
-        {
-            "nombre":"Accesorio",
-            "descripcion": "Cuero",
-            "precio": "25",
-            "stock":"6"
-        },
-        {
-            "nombre":"Alimento",
-            "descripcion": "Pienso",
-            "precio": "42",
-            "stock":"4"
-        },
-        {
-            "nombre":"Juguete",
-            "descripcion": "rosa",
-            "precio": "12",
-            "stock":"8"
-        },
-        {
-            "nombre":"Cama",
-            "descripcion": "bland ay suave",
-            "precio": "34",
-            "stock":"8"
-        }
-    ],
-    
-    "pedidos": [
-        {
-            "usuario":"user1",
-            "direccion": "Calle del camino, numero 3",
-            "tarjeta": "123456789",
-            "productos": [{"Collar 1": 1,
-                            "Collar 2": 1
-            }]
-        },
-        {
-            "usuario":"user2",
-            "direccion": "Avenida de las Rosas, numero 20",
-            "tarjeta": "987654321",
-            "productos": [{"Collar 1": 2,
-                           "Collar 3": 1
-            }]
-        }
-    ]
-}
+[
+    {
+        "usuarios": [
+            {
+                "nombre":"Root",
+                "usuario":"user1",
+                "correo":"user1@gmail.com"
+            },
+            {
+                "nombre":"Normal",
+                "usuario":"user2",
+                "correo":"user2@gmail.com"
+            }
+        ],
+
+        "productos": [
+            {
+                "nombre":"Accesorio",
+                "descripcion": "Cuero",
+                "precio": "25",
+                "stock":"6"
+            },
+            {
+                "nombre":"Alimento",
+                "descripcion": "Pienso",
+                "precio": "42",
+                "stock":"4"
+            },
+            {
+                "nombre":"Juguete",
+                "descripcion": "rosa",
+                "precio": "12",
+                "stock":"8"
+            },
+            {
+                "nombre":"Cama",
+                "descripcion": "bland ay suave",
+                "precio": "34",
+                "stock":"8"
+            }
+        ],
+        
+        "pedidos": [
+            {
+                "usuario":"user1",
+                "direccion": "Calle del camino, numero 3",
+                "tarjeta": "123456789",
+                "productos": [{"Collar 1": 1,
+                                "Collar 2": 1
+                }]
+            },
+            {
+                "usuario":"user2",
+                "direccion": "Avenida de las Rosas, numero 20",
+                "tarjeta": "987654321",
+                "productos": [{"Collar 1": 2,
+                            "Collar 3": 1
+                }]
+            }
+        ]
+    }
+]

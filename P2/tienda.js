@@ -28,23 +28,23 @@ console.log("Arrancando servidor...");
 
 // ------------------------------------------------
 
-const tienda = JSON.parse(fs.readFileSync("tienda.json"));
-const TIENDA = fs.readFileSync('tienda.html');
+//const tienda = JSON.parse(fs.readFileSync("tienda.json"));
+//const TIENDA = fs.readFileSync('tienda.html');
 const LOGIN = fs.readFileSync('login.html');
-let usuarios = tienda[1]['usuarios'];
+
 
 //-- Cargar pagina web del formulario
 const formulario = fs.readFileSync('login.html','utf-8');
 const error = fs.readFileSync('error.html');
 const tienda = fs.readFileSync('tienda.html','utf-8');
 const tiendaJSON = fs.readFileSync('tienda.json','utf-8');
-let usuarios = tienda[1]['usuarios'];
+let usuarios = tiendaJSON[0]['usuarios'];
 
-let = contenido;
+let contenido;
 
 //-- Registros en la web
 let registrados = [];
-console.log('Usuarios registrados:');
+console.log('Usuarios registrados: ');
 usuarios.forEach((element, index) => {
   registrados.push(element.usuario);
   console.log("User " + (index + 1) + '- ' + element.usuario);
@@ -104,6 +104,7 @@ const server = http.createServer(function (req, res) {
 
     //////////////////////////////////////////////////////////////////////////
     let filename = ""
+    
 
     //-- Obtenemos el fichero correspondiente.
     if(myUrl.pathname == '/'){
@@ -120,6 +121,34 @@ const server = http.createServer(function (req, res) {
     let hastaPunto = myUrl.pathname.lastIndexOf(".");
     let type = myUrl.pathname.slice(hastaPunto + 1);
     console.log("Tipo de mine:", mine[type])
+
+
+    
+    let myUser = getUser(req);
+    let nombre = myURL.searchParams.get('usuario');
+    let correo = myURL.searchParams.get('correo');
+    
+    //-- Coger la extensión
+    type_file = filename.split(".")[1]; 
+    filename = "." + filename;
+
+
+    if ((myURL.pathname == '/') || (filename == 'login.html')){ 
+        if (myUser){
+          contenido = TIENDA; 
+        } else {
+          contenido = LOGIN;
+        }
+        //-- filename += "/tienda.html"; 
+    } else if (myURL.pathname == '/procesar') {
+        if (registrados.includes(nombre)){
+          res.setHeader('Set-Cookie', "user =" + nombre);
+          //contenido = LOGIN_CORRECTO;
+          console.log('- Usuario registrado -');
+        } else{
+          filename = 'error.html';
+        }
+    }
 
     //-- Respuesta por defecto
     let code = 200;
@@ -147,30 +176,6 @@ const server = http.createServer(function (req, res) {
         }
 
     });
-
-
-    
-    let myUser = getUser(req);
-    let nombre = myURL.searchParams.get('usuario');
-    let correo = myURL.searchParams.get('correo');
-    
-    
-    if ((myURL.pathname == '/') || (filename == 'login.html')){ 
-        if (myUser){
-          contenido = TIENDA; 
-        } else {
-          contenido = LOGIN;
-        }
-        //-- filename += "/tienda.html"; 
-    } else if (myURL.pathname == '/procesar') {
-        if (registro.includes(nombre)){
-          res.setHeader('Set-Cookie', "user =" + nombre);
-          //contenido = LOGIN_CORRECTO;
-          console.log('- Usuario registrado -');
-        } else{
-          filename = 'error.html';
-        }
-    }
 
 
 
