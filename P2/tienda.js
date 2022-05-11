@@ -42,13 +42,7 @@ let usuarios = tiendaJSON[0]['usuarios'];
 
 let contenido;
 
-//-- Registros en la web
-let registrados = [];
-console.log('Usuarios registrados: ');
-usuarios.forEach((element, index) => {
-  registrados.push(element.usuario);
-  console.log("User " + (index + 1) + '- ' + element.usuario);
-});
+
 
 
 function getUser(req){
@@ -77,8 +71,17 @@ function getUser(req){
 //-- Crear el sevidor
 const server = http.createServer(function (req, res) {
     
-    //-- Url que pide el cliente
     let myUrl = new URL(req.url, 'http://' + req.headers['host']);
+    let filename = ""
+    let myUser = getUser(req);
+    let nombre = myURL.searchParams.get('usuario');
+    let correo = myURL.searchParams.get('correo');
+    
+    //-- Coger la extensión
+    type_file = filename.split(".")[1]; 
+    filename = "." + filename;
+    
+
     console.log("\nRecurso recibido: " + myUrl.pathname);
     console.log("\nMetodo recibido: " + myUrl.method);
     console.log("\nUrl recibida: " + myUrl.url);
@@ -103,7 +106,7 @@ const server = http.createServer(function (req, res) {
     };
 
     //////////////////////////////////////////////////////////////////////////
-    let filename = ""
+    
     
 
     //-- Obtenemos el fichero correspondiente.
@@ -124,13 +127,7 @@ const server = http.createServer(function (req, res) {
 
 
     
-    let myUser = getUser(req);
-    let nombre = myURL.searchParams.get('usuario');
-    let correo = myURL.searchParams.get('correo');
-    
-    //-- Coger la extensión
-    type_file = filename.split(".")[1]; 
-    filename = "." + filename;
+
 
 
     if ((myURL.pathname == '/') || (filename == 'login.html')){ 
