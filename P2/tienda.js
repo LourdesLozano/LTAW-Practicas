@@ -42,6 +42,7 @@ let usuarios = tiendaJSON[0]['usuarios'];
 
 let contenido;
 
+let registrados = [];
 
 
 
@@ -74,8 +75,9 @@ const server = http.createServer(function (req, res) {
     let myUrl = new URL(req.url, 'http://' + req.headers['host']);
     let filename = ""
     let myUser = getUser(req);
-    let nombre = myURL.searchParams.get('usuario');
-    let correo = myURL.searchParams.get('correo');
+    let nombre = myUrl.searchParams.get('usuario');
+    let correo = myUrl.searchParams.get('correo');
+
     
     //-- Coger la extensión
     type_file = filename.split(".")[1]; 
@@ -83,7 +85,6 @@ const server = http.createServer(function (req, res) {
     
 
     console.log("\nRecurso recibido: " + myUrl.pathname);
-    console.log("\nMetodo recibido: " + myUrl.method);
     console.log("\nUrl recibida: " + myUrl.url);
     console.log("\nParametros recibido: " + myUrl.searchParams);
 
@@ -106,18 +107,10 @@ const server = http.createServer(function (req, res) {
     };
 
     //////////////////////////////////////////////////////////////////////////
-    
-    
 
-    //-- Obtenemos el fichero correspondiente.
-    if(myUrl.pathname == '/'){
-        filename += "./tienda.html"; //-- Página principal de la tienda
 
-    }else{
-        filename += "." + myUrl.pathname;
-    }
 
-    console.log("Filename:", filename);
+
     ////////////////////////////////////////////////////////////////////////////
 
     // -- Buscamos el "." final para poder indicar que tipo mine es
@@ -126,18 +119,17 @@ const server = http.createServer(function (req, res) {
     console.log("Tipo de mine:", mine[type])
 
 
-    
-
-
-
-    if ((myURL.pathname == '/') || (filename == 'login.html')){ 
+    if ((myUrl.pathname == '/')) {
+        filename += "./tienda.html";
+        
+    }else if (filename == 'login.html'){ 
         if (myUser){
-          contenido = TIENDA; 
+          contenido = tienda; 
         } else {
           contenido = LOGIN;
         }
         //-- filename += "/tienda.html"; 
-    } else if (myURL.pathname == '/procesar') {
+    } else if (myUrl.pathname == '/procesar') {
         if (registrados.includes(nombre)){
           res.setHeader('Set-Cookie', "user =" + nombre);
           //contenido = LOGIN_CORRECTO;
