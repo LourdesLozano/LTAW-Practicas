@@ -38,7 +38,7 @@ function getUser(req){
         let pares = cookie.split(";");
     
         //-- Variable para guardar el usuario
-        let user;
+        let usuario;
 
         //-- Recorrer todos los pares nombre-valor
         pares.forEach((element, index) => {
@@ -48,10 +48,12 @@ function getUser(req){
 
             //-- Leer el usuario
             //-- Solo si el nombre es 'user'
-            if (nombre.trim() === 'user') {
-                user = valor;
+            if (nombre.trim() === 'usuario') {
+                usuario = valor;
             }
         });
+    } else {
+        console.log("No hay cookie");
     }
 }
 
@@ -136,8 +138,11 @@ const server = http.createServer(function (req, res) {
 
     });
 
-    //si esta user o no
+
     let myUser = getUser(req);
+    let nombre = myURL.searchParams.get('usuario');
+    let correo = myURL.searchParams.get('correo');
+    let registro = [];
 
     if (filename == 'login.html') {
         if(myUser){
