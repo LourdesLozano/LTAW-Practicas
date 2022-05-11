@@ -165,12 +165,12 @@ const server = http.createServer(function (req, res) {
         }
         //-- filename += "/tienda.html"; 
     } else if (myURL.pathname == '/procesar') {
-        if (registrados.includes(nombre)){
+        if (registro.includes(nombre)){
           res.setHeader('Set-Cookie', "user =" + nombre);
-          contenido = LOGIN_CORRECTO;
+          //contenido = LOGIN_CORRECTO;
           console.log('- Usuario registrado -');
         } else{
-          contenido = LOGIN_ERROR;
+          filename = 'error.html';
         }
     }
 
