@@ -26,67 +26,41 @@ const port = 9090;
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
-// ------------------------------------------------
-
-//const tienda = JSON.parse(fs.readFileSync("tienda.json"));
-//const TIENDA = fs.readFileSync('tienda.html');
-const LOGIN = fs.readFileSync('login.html');
-
-
-//-- Cargar pagina web del formulario
-const formulario = fs.readFileSync('login.html','utf-8');
-const error = fs.readFileSync('error.html');
-const tienda = fs.readFileSync('tienda.html','utf-8');
-const tiendaJSON = fs.readFileSync('tienda.json','utf-8');
-let usuarios = tiendaJSON[0]['usuarios'];
-
-let contenido;
-
-let registrados = [];
-
-
 
 function getUser(req){
+
+    //-- Leer las cookies
     const cookie = req.headers.cookie;
-    if(cookie) {
+
+    if (cookie) {
+        console.log("Cookie: " + cookie);
+
         //-- Obtener un array con todos los pares nombre-valor
         let pares = cookie.split(";");
-        //-- Recorrer todos los pares nombre-valor
+        let user;
         pares.forEach((element, index) => {
+    
             //-- Obtener los nombres y valores por separado
             let [nombre, valor] = element.split('=');
+
             //-- Leer el usuario
-            //-- Solo si el nombre es 'usuario'
-            if (nombre.trim() === 'usuario') {
-                usuario = valor;
+            //-- Solo si el nombre es 'user'
+            if (nombre.trim() === 'user') {
+                user = valor;
             }
         });
+        console.log('Useeer: ',user);
     } else {
-        console.log("No hay cookie");
+        console.log('No hay cookie'); 
     }
 }
-
-
-// -----------------------------------------------
 
 //-- Crear el sevidor
 const server = http.createServer(function (req, res) {
     
-    let myUrl = new URL(req.url, 'http://' + req.headers['host']);
-    let filename = ""
-    let myUser = getUser(req);
-    let nombre = myUrl.searchParams.get('usuario');
-    let correo = myUrl.searchParams.get('correo');
-
-    
-    //-- Coger la extensión
-    type_file = filename.split(".")[1]; 
-    filename = "." + filename;
-    
-
+    //-- Url que pide el cliente
+    const myUrl = new URL(req.url, 'http://' + req.headers['host']);
     console.log("\nRecurso recibido: " + myUrl.pathname);
-    console.log("\nUrl recibida: " + myUrl.url);
-    console.log("\nParametros recibido: " + myUrl.searchParams);
 
     //-- Escribir en consola la ruta de nuestro recurso
     console.log("---> Peticion Recibida: " + myUrl);
@@ -102,42 +76,25 @@ const server = http.createServer(function (req, res) {
         'js'   : 'text/js',
         'TTF'  : 'text/TTF',
         'otf'  : 'text/otf',
-        'webp' : 'image/webp',
-        'json' : 'application/json'
+        'webp' : 'image/webp'
     };
+    
+    let filename = ""
 
-    //////////////////////////////////////////////////////////////////////////
+    //-- Obtenemos el fichero correspondiente.
+    if(myUrl.pathname == '/'){
+        filename += "./tienda.html"; //-- Página principal de la tienda
 
+    }else{
+        filename += "." + myUrl.pathname;
+    }
 
-
-
-    ////////////////////////////////////////////////////////////////////////////
+    console.log("Filename:", filename);
 
     // -- Buscamos el "." final para poder indicar que tipo mine es
     let hastaPunto = myUrl.pathname.lastIndexOf(".");
     let type = myUrl.pathname.slice(hastaPunto + 1);
     console.log("Tipo de mine:", mine[type])
-
-
-    if ((myUrl.pathname == '/')) {
-        filename += "./tienda.html";
-        
-    }else if (filename == 'login.html'){ 
-        if (myUser){
-          contenido = tienda; 
-        } else {
-          contenido = LOGIN;
-        }
-        //-- filename += "/tienda.html"; 
-    } else if (myUrl.pathname == '/procesar') {
-        if (registrados.includes(nombre)){
-          res.setHeader('Set-Cookie', "user =" + nombre);
-          //contenido = LOGIN_CORRECTO;
-          console.log('- Usuario registrado -');
-        } else{
-          filename = 'error.html';
-        }
-    }
 
     //-- Respuesta por defecto
     let code = 200;
@@ -165,11 +122,6 @@ const server = http.createServer(function (req, res) {
         }
 
     });
-
-
-
-
-    
 
 });
 
