@@ -23,13 +23,10 @@ const fs = require('fs');
 //-- Definir el puerto a utilizar
 const port = 9090;
 
-// cargamos ficheros requeridos
-
-
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
-// FUNCIONES -------------------------------------
+// ------------------------------------------------
 
 const tienda = JSON.parse(fs.readFileSync("tienda.json"));
 const TIENDA = fs.readFileSync('tienda.html');
@@ -37,6 +34,14 @@ const LOGIN = fs.readFileSync('login.html');
 let usuarios = tienda[1]['usuarios'];
 
 let contenido;
+
+
+//-- Cargar pagina web del formulario
+const formulario = fs.readFileSync('login.html','utf-8');
+const error = fs.readFileSync('error.html');
+const tienda = fs.readFileSync('tienda.html','utf-8');
+const tiendaJSON = fs.readFileSync('tienda.json','utf-8');
+
 
 // REGISTRO
 let registro = [];
