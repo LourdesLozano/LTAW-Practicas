@@ -31,15 +31,27 @@ console.log("Arrancando servidor...");
 
 // FUNCIONES -------------------------------------
 
+const tienda = JSON.parse(fs.readFileSync("tienda.json"));
+const TIENDA = fs.readFileSync('tienda.html');
+const LOGIN = fs.readFileSync('login.html');
+let usuarios = tienda[1]['usuarios'];
+
+let contenido;
+
+// REGISTRO
+let registro = [];
+console.log('Usuarios registrados:');
+usuarios.forEach((element, index) => {
+    registro.push(element.usuario);
+    console.log("User " + (index + 1) + '- ' + element.usuario);
+});
+
 function getUser(req){
     const cookie = req.headers.cookie;
     if(cookie) {
         //-- Obtener un array con todos los pares nombre-valor
         let pares = cookie.split(";");
     
-        //-- Variable para guardar el usuario
-        let usuario;
-
         //-- Recorrer todos los pares nombre-valor
         pares.forEach((element, index) => {
 
@@ -139,29 +151,31 @@ const server = http.createServer(function (req, res) {
     });
 
 
+    
     let myUser = getUser(req);
     let nombre = myURL.searchParams.get('usuario');
     let correo = myURL.searchParams.get('correo');
-    let registro = [];
-
-    if (filename == 'login.html') {
-        if(myUser){
-            data = fs.readFileSync('./tienda.html')
-            res.statusCode = code; 
-            res.statusMessage = message;
-            res.writeHead(code, {'Content-Type': mine[type]});
-            res.write(data);
-            res.end();
-            
+    
+    
+    if ((myURL.pathname == '/') || (filename == 'login.html')){ 
+        if (myUser){
+          contenido = TIENDA; 
         } else {
-            code = 404
-            message = "Not Found"
-            data = fs.readFileSync('./login.html')
-            res.writeHead(code, {'Content-Type': 'text/html'});
-            res.write(data);
-            res.end();
+          contenido = LOGIN;
+        }
+        //-- filename += "/tienda.html"; 
+    } else if (myURL.pathname == '/procesar') {
+        if (registrados.includes(nombre)){
+          res.setHeader('Set-Cookie', "user =" + nombre);
+          contenido = LOGIN_CORRECTO;
+          console.log('- Usuario registrado -');
+        } else{
+          contenido = LOGIN_ERROR;
         }
     }
+
+
+
 
     
 
