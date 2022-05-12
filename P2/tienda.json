@@ -4,7 +4,7 @@
         "usuarios": [
             {
                 "nombre":"Root",
-                "usuario":"usuario",
+                "usuario":"user1",
                 "correo":"user1@gmail.com"
             },
             {
