@@ -23,6 +23,9 @@ const fs = require('fs');
 //-- Definir el puerto a utilizar
 const port = 9090;
 
+const RESPUESTA = fs.readFileSync('login.html', 'utf-8');
+const TIENDA_JSON = fs.readFileSync('tienda.json','utf-8');
+
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
@@ -81,16 +84,6 @@ const server = http.createServer(function (req, res) {
     
     let filename = ""
 
-    //-- Obtenemos el fichero correspondiente.
-    if(myUrl.pathname == '/'){
-        filename += "./tienda.html"; //-- Página principal de la tienda
-
-    }else{
-        filename += "." + myUrl.pathname;
-    }
-
-    console.log("Filename:", filename);
-
     // -- Buscamos el "." final para poder indicar que tipo mine es
     let hastaPunto = myUrl.pathname.lastIndexOf(".");
     let type = myUrl.pathname.slice(hastaPunto + 1);
@@ -99,6 +92,51 @@ const server = http.createServer(function (req, res) {
     //-- Respuesta por defecto
     let code = 200;
     let message = "OK";
+
+    //-- Obtenemos el fichero correspondiente.
+    if(myUrl.pathname == '/'){
+        filename += "./tienda.html"; //-- Página principal de la tienda
+        getUser(req);
+
+    }else if(myUrl.pathname == '/procesar'){
+        let nombre = myURL.searchParams.get('nombre');
+        let usuario = myURL.searchParams.get('usuario');
+        let correo = myURL.searchParams.get('correo');
+        console.log(" Nombre---------> " + nombre);
+        console.log(" Usuario----> " + usuario);
+        console.log(" Correo----> " + correo);
+        res.setHeader('Set-Cookie ', "user = "+ usuario);
+        
+        let informacion = JSON.parse(TIENDA_JSON);
+        info_usuarios = informacion["usuarios"][0];
+        //-- Mostrar informacion sobre la tienda
+        console.log("Productos en la tienda: " + info_usuarios);
+
+        //-- Recorrer el array de productos
+        informacion["usuarios"].forEach((element, index)=>{
+            console.log("Usuario registrado: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
+            
+            content = RESPUESTA;
+            if (correo==element["correo"] && usuario==element["usuario"]) {
+                console.log("Coincide");
+            
+                // Reemplazamos las palabras
+                content = RESPUESTA.replace("NOMBRE", nombre);
+                content = content.replace("USUARIO", usuario);
+                content = content.replace("CORREO", correo);
+                mine[type]= "text/html";
+            }else{
+                content = fs.readFileSync('error.html','utf-8'); 
+                mine[type]= "text/html";
+            }
+
+        });
+    
+    }else{
+        filename += "." + myUrl.pathname;
+    }
+
+    console.log("Filename:", filename);
 
     //-- Leemos fichero
     fs.readFile(filename, function(err, data) {
