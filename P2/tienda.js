@@ -79,7 +79,8 @@ const server = http.createServer(function (req, res) {
         'js'   : 'text/js',
         'TTF'  : 'text/TTF',
         'otf'  : 'text/otf',
-        'webp' : 'image/webp'
+        'webp' : 'image/webp',
+        'json' : 'application/json'
     };
     
     let filename = ""
@@ -99,20 +100,20 @@ const server = http.createServer(function (req, res) {
         getUser(req);
 
     }else if(myUrl.pathname == '/login'){
-        let nombre = myURL.searchParams.get('nombre');
-        let usuario = myURL.searchParams.get('usuario');
-        let correo = myURL.searchParams.get('correo');
+        let nombre = myUrl.searchParams.get('nombre');
+        let usuario = myUrl.searchParams.get('usuario');
+        let correo = myUrl.searchParams.get('correo');
         console.log(" Nombre---------> " + nombre);
         console.log(" Usuario----> " + usuario);
         console.log(" Correo----> " + correo);
-        res.setHeader('Set-Cookie ', "user = "+ usuario);
+        res.setHeader('Set-Cookie', "user = "+ usuario);
         
         let informacion = JSON.parse(TIENDA_JSON);
-        info_usuarios = informacion["usuarios"][0];
+        //info_usuarios = informacion["usuarios"][0];
         //-- Mostrar informacion sobre la tienda
-        console.log("Productos en la tienda: " + info_usuarios);
-
-        //-- Recorrer el array de productos
+       // console.log("Productos en la tienda: " + info_usuarios);
+        console.log(informacion);
+        console.log(informacion['usuarios']);
         informacion["usuarios"].forEach((element, index)=>{
             console.log("Usuario registrado: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
             filename += "./login.html"
