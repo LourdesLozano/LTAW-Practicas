@@ -37,19 +37,19 @@ function getUser(req){
 
         //-- Obtener un array con todos los pares nombre-valor
         let pares = cookie.split(";");
-        let user;
+        let usuario;
         pares.forEach((element, index) => {
     
             //-- Obtener los nombres y valores por separado
             let [nombre, valor] = element.split('=');
 
             //-- Leer el usuario
-            //-- Solo si el nombre es 'user'
-            if (nombre.trim() === 'user') {
-                user = valor;
+            //-- Solo si es 'usuario'
+            if (nombre.trim() === 'usuario') {
+                usuario = valor;
             }
         });
-        console.log('Useeer: ',user);
+        console.log('Usuario: ', usuario);
     } else {
         console.log('No hay cookie'); 
     }
