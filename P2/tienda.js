@@ -98,7 +98,7 @@ const server = http.createServer(function (req, res) {
         filename += "./tienda.html"; //-- Página principal de la tienda
         getUser(req);
 
-    }else if(myUrl.pathname == '/procesar'){
+    }else if(myUrl.pathname == '/login'){
         let nombre = myURL.searchParams.get('nombre');
         let usuario = myURL.searchParams.get('usuario');
         let correo = myURL.searchParams.get('correo');
@@ -115,18 +115,18 @@ const server = http.createServer(function (req, res) {
         //-- Recorrer el array de productos
         informacion["usuarios"].forEach((element, index)=>{
             console.log("Usuario registrado: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
-            
-            content = RESPUESTA;
+            filename += "./login.html"
+
             if (correo==element["correo"] && usuario==element["usuario"]) {
                 console.log("Coincide");
             
                 // Reemplazamos las palabras
-                content = RESPUESTA.replace("NOMBRE", nombre);
-                content = content.replace("USUARIO", usuario);
-                content = content.replace("CORREO", correo);
+                filename += "./login.html".replace("NOMBRE", nombre);
+                filename += content.replace("USUARIO", usuario);
+                filename += content.replace("CORREO", correo);
                 mine[type]= "text/html";
             }else{
-                content = fs.readFileSync('error.html','utf-8'); 
+                filename += "./error.html" 
                 mine[type]= "text/html";
             }
 
