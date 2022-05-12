@@ -112,19 +112,17 @@ const server = http.createServer(function (req, res) {
         //info_usuarios = informacion["usuarios"][0];
         //-- Mostrar informacion sobre la tienda
        // console.log("Productos en la tienda: " + info_usuarios);
-        console.log(informacion);
+        
         console.log(informacion['usuarios']);
         informacion["usuarios"].forEach((element, index)=>{
-            console.log("Usuario registrado: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
-            filename += "./login.html"
+            console.log("Usuario registrado: " + (index + 1) + ": " + element["nombre"]+"/"+ element["usuario"]+"/"+ element["correo"]);
+            content = RESPUESTA
 
-            if (correo==element["correo"] && usuario==element["usuario"]) {
+            if (correo == element["correo"] && usuario == element["usuario"]) {
                 console.log("Coincide");
-            
-                // Reemplazamos las palabras
-                filename += "./login.html".replace("NOMBRE", nombre);
-                filename += content.replace("USUARIO", usuario);
-                filename += content.replace("CORREO", correo);
+                content = RESPUESTA.replace("NOMBRE", nombre);
+                content = content.replace("USUARIO", usuario);
+                content = content.replace("CORREO", correo);
                 mine[type]= "text/html";
             }else{
                 filename += "./error.html" 
