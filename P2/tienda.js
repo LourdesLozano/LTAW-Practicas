@@ -23,6 +23,7 @@ const fs = require('fs');
 //-- Definir el puerto a utilizar
 const port = 9090;
 
+const TIENDA = fs.readFileSync('tienda.html', 'utf-8');
 const RESPUESTA = fs.readFileSync('login.html', 'utf-8');
 const TIENDA_JSON = fs.readFileSync('tienda.json','utf-8');
 
@@ -84,6 +85,7 @@ const server = http.createServer(function (req, res) {
     };
     
     let filename = ""
+    //let filename = myUrl.pathname;
 
     // -- Buscamos el "." final para poder indicar que tipo mine es
     let hastaPunto = myUrl.pathname.lastIndexOf(".");
@@ -101,29 +103,31 @@ const server = http.createServer(function (req, res) {
 
     }else if(myUrl.pathname == '/login'){
         let nombre = myUrl.searchParams.get('nombre');
-        let usuario = myUrl.searchParams.get('usuario');
+        let user = myUrl.searchParams.get('usuario');
         let correo = myUrl.searchParams.get('correo');
         console.log(" Nombre---------> " + nombre);
-        console.log(" Usuario----> " + usuario);
+        console.log(" Usuario----> " + user);
         console.log(" Correo----> " + correo);
-        res.setHeader('Set-Cookie', "user = "+ usuario);
+        res.setHeader('Set-Cookie', "user = "+ user);
         
         let informacion = JSON.parse(TIENDA_JSON);
         //info_usuarios = informacion["usuarios"][0];
         //-- Mostrar informacion sobre la tienda
        // console.log("Productos en la tienda: " + info_usuarios);
-        
-        console.log(informacion['usuarios']);
-        informacion["usuarios"].forEach((element, index)=>{
+
+        myusers = informacion['usuarios'];
+        console.log(myusers);
+        myusers.forEach((element, index)=>{
             console.log("Usuario registrado: " + (index + 1) + ": " + element["nombre"]+"/"+ element["usuario"]+"/"+ element["correo"]);
             content = RESPUESTA
 
-            if (correo == element["correo"] && usuario == element["usuario"]) {
+            if (user == element["usuario"] && correo == element["correo"]) {
                 console.log("Coincide");
                 content = RESPUESTA.replace("NOMBRE", nombre);
-                content = content.replace("USUARIO", usuario);
+                content = content.replace("USUARIO", user);
                 content = content.replace("CORREO", correo);
                 mine[type]= "text/html";
+            
             }else{
                 filename += "./error.html" 
                 mine[type]= "text/html";
