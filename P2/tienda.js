@@ -24,11 +24,13 @@ const { monitorEventLoopDelay } = require('perf_hooks');
 //-- Definir el puerto a utilizar
 const port = 9090;
 
-const FORMULARIO = fs.readFileSync('login.html', 'utf-8');
-const TIENDA = fs.readFileSync('tienda.html', 'utf-8');
-const RESPUESTA = fs.readFileSync('login_res.html', 'utf-8');
-const TIENDA_JSON = fs.readFileSync('tienda.json','utf-8');
+const FORMULARIO = fs.readFileSync('login.html');
+const TIENDA = fs.readFileSync('tienda.html');
+const RESPUESTA = fs.readFileSync('login_res.html');
+const TIENDA_JSON = fs.readFileSync('tienda.json');
+const ERROR = fs.readFileSync('error.html');
 
+let contenido;
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
@@ -107,7 +109,7 @@ const server = http.createServer(function (req, res) {
         let nombre = myUrl.searchParams.get('nombre');
         let user = myUrl.searchParams.get('usuario');
         let correo = myUrl.searchParams.get('correo');
-        let content;
+        
 
         console.log(" Usuario----> " + user);
         console.log(" Correo----> " + correo);
@@ -120,34 +122,25 @@ const server = http.createServer(function (req, res) {
         let user2 = informacion['usuarios'][1]['usuario'];
         let correo2 = informacion['usuarios'][1]['correo'];
 
+        contenido = RESPUESTA;
+        
 
         if (user == user1 && correo == correo1) {
             console.log("Coincide");
-            filename += "./login_res.html"
-            content = RESPUESTA.replace("NOMBRE", nombre);
-            content = content.replace("USUARIO", user);
-            content = content.replace("CORREO", correo);
             
+            filename += "./login_res.html"
             mine[type]= "text/html";
         
         } else if (user == user2 && correo == correo2) {
             console.log("Coincide");
-            filename += "./login_res.html"
-            content = RESPUESTA.replace("NOMBRE", nombre);
-            content = content.replace("USUARIO", user);
-            content = content.replace("CORREO", correo);
-            
+         
             mine[type]= "text/html";
         
         }else{
             filename += "./error.html" 
+            //contenido = ERROR;
             mine[type]= "text/html";
         }
-        
-    
-    } else if (filename == "login_res.html"){
-        content = FORMULARIO
-        getUser(req);
 
     }else{
         filename += "." + myUrl.pathname;
