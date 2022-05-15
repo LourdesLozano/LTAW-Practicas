@@ -23,8 +23,9 @@ const fs = require('fs');
 //-- Definir el puerto a utilizar
 const port = 9090;
 
+const FORMULARIO = fs.readFileSync('login.html', 'utf-8');
 const TIENDA = fs.readFileSync('tienda.html', 'utf-8');
-const RESPUESTA = fs.readFileSync('login.html', 'utf-8');
+const RESPUESTA = fs.readFileSync('login_res.html', 'utf-8');
 const TIENDA_JSON = fs.readFileSync('tienda.json','utf-8');
 
 //-- Mensaje de arranque
@@ -101,21 +102,18 @@ const server = http.createServer(function (req, res) {
         filename += "./tienda.html"; //-- Página principal de la tienda
         getUser(req);
 
-    }else if(myUrl.pathname == '/login'){
+    } else if (myUrl.pathname == '/login'){
         let nombre = myUrl.searchParams.get('nombre');
         let user = myUrl.searchParams.get('usuario');
         let correo = myUrl.searchParams.get('correo');
+        let content;
         console.log(" Nombre---------> " + nombre);
         console.log(" Usuario----> " + user);
         console.log(" Correo----> " + correo);
         res.setHeader('Set-Cookie', "user = "+ user);
         
         let informacion = JSON.parse(TIENDA_JSON);
-        //info_usuarios = informacion["usuarios"][0];
-        //-- Mostrar informacion sobre la tienda
-       // console.log("Productos en la tienda: " + info_usuarios);
-
-        myusers = informacion['usuarios'];
+        let myusers = informacion['usuarios'];
         console.log(myusers);
         myusers.forEach((element, index)=>{
             console.log("Usuario registrado: " + (index + 1) + ": " + element["nombre"]+"/"+ element["usuario"]+"/"+ element["correo"]);
@@ -126,6 +124,7 @@ const server = http.createServer(function (req, res) {
                 content = RESPUESTA.replace("NOMBRE", nombre);
                 content = content.replace("USUARIO", user);
                 content = content.replace("CORREO", correo);
+                filename += "./tienda.html"
                 mine[type]= "text/html";
             
             }else{
@@ -135,6 +134,10 @@ const server = http.createServer(function (req, res) {
 
         });
     
+    } else if (filename == "login_res.html"){
+        content = FORMULARIO
+        getUser(req);
+
     }else{
         filename += "." + myUrl.pathname;
     }
