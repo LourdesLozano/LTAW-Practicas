@@ -19,6 +19,29 @@ p {
     font-size: 35px; 
     margin-left: 50px;
 }
+h2{
+    font-family: 'disney';
+    color:red;
+    font-size: 60px; 
+    margin-left: 50px;
+}
+h4{
+    font-family: '101';
+    font-size: 35px; 
+    margin-left: 50px;
+}
+
+#sesion{
+    margin: 20px;
+    color:red;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: 'disney';
+    background-color: rgb(253, 172, 172);
+    font-size: 50px;
+    margin-left: 100px;
+    margin-top: 60px;
+}
 
 #titulo{
     margin-top: 20px;
@@ -36,4 +59,18 @@ p {
     width: 550px;
     height: 30px;
 }
+
+#inicio {
+    margin: 20px;
+    color:red;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: 'disney';
+    background-color: rgb(253, 172, 172);
+    font-size: 50px;
+    margin-left: 100px;
+    margin-top: 60px;
+}
+
+
 
