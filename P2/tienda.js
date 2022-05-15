@@ -109,39 +109,34 @@ const server = http.createServer(function (req, res) {
         let correo = myUrl.searchParams.get('correo');
         let content;
 
-        console.log(" Nombre---------> " + nombre);
         console.log(" Usuario----> " + user);
         console.log(" Correo----> " + correo);
         res.setHeader('Set-Cookie', "user = "+ user);
         
         let informacion = JSON.parse(TIENDA_JSON);
         
-        let name1 = informacion['usuarios'][0]['nombre'];
         let user1 = informacion['usuarios'][0]['usuario'];
         let correo1 = informacion['usuarios'][0]['correo'];
-        let name2 = informacion['usuarios'][1]['nombre'];
         let user2 = informacion['usuarios'][1]['usuario'];
         let correo2 = informacion['usuarios'][1]['correo'];
 
-        let save = FORMULARIO;
-
-        save = RESPUESTA.replace("Nombre", user);
-        save = save.replace("Nombre", nombre);
 
         if (user == user1 && correo == correo1) {
             console.log("Coincide");
-            content = RESPUESTA.replace("NOMBRE", name1);
-            content = content.replace("USUARIO", user1);
-            content = content.replace("CORREO", correo1);
             filename += "./login_res.html"
+            content = RESPUESTA.replace("NOMBRE", nombre);
+            content = content.replace("USUARIO", user);
+            content = content.replace("CORREO", correo);
+            
             mine[type]= "text/html";
         
         } else if (user == user2 && correo == correo2) {
             console.log("Coincide");
-            content = RESPUESTA.replace("NOMBRE", name2);
-            content = content.replace("USUARIO", user2);
-            content = content.replace("CORREO", correo2);
             filename += "./login_res.html"
+            content = RESPUESTA.replace("NOMBRE", nombre);
+            content = content.replace("USUARIO", user);
+            content = content.replace("CORREO", correo);
+            
             mine[type]= "text/html";
         
         }else{

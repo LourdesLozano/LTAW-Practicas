@@ -1,0 +1,36 @@
+
+@font-face {
+    font-family: '101';
+    src: url("101PUPS.TTF");
+}
+@font-face {
+    font-family: 'disney';
+    src: url("disney.otf");
+}
+
+body {
+    background: no-repeat;
+    background-image: url(img/fondo.jpg);
+    background-size: cover;
+}
+
+p {
+    font-family: 'disney';
+    font-size: 35px; 
+    margin-left: 50px;
+}
+
+#titulo{
+    margin-top: 20px;
+    font-family: 'disney';
+    color:red;
+    font-weight: bold;
+    font-size: 80px; 
+    margin-left: 160px;
+}
+
+#caja {
+    
+    font-size: 30px;
+}
+
