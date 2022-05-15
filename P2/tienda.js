@@ -116,8 +116,10 @@ const server = http.createServer(function (req, res) {
         
         let informacion = JSON.parse(TIENDA_JSON);
         
+        let name1 = informacion['usuarios'][0]['nombre'];
         let user1 = informacion['usuarios'][0]['usuario'];
         let correo1 = informacion['usuarios'][0]['correo'];
+        let name2 = informacion['usuarios'][1]['nombre'];
         let user2 = informacion['usuarios'][1]['usuario'];
         let correo2 = informacion['usuarios'][1]['correo'];
 
@@ -128,17 +130,17 @@ const server = http.createServer(function (req, res) {
 
         if (user == user1 && correo == correo1) {
             console.log("Coincide");
-            content = RESPUESTA.replace("NOMBRE", nombre);
-            content = content.replace("USUARIO", user);
-            content = content.replace("CORREO", correo);
+            content = RESPUESTA.replace("NOMBRE", name1);
+            content = content.replace("USUARIO", user1);
+            content = content.replace("CORREO", correo1);
             filename += "./login_res.html"
             mine[type]= "text/html";
         
         } else if (user == user2 && correo == correo2) {
             console.log("Coincide");
-            content = RESPUESTA.replace("NOMBRE", nombre);
-            content = content.replace("USUARIO", user);
-            content = content.replace("CORREO", correo);
+            content = RESPUESTA.replace("NOMBRE", name2);
+            content = content.replace("USUARIO", user2);
+            content = content.replace("CORREO", correo2);
             filename += "./login_res.html"
             mine[type]= "text/html";
         
@@ -147,7 +149,6 @@ const server = http.createServer(function (req, res) {
             mine[type]= "text/html";
         }
         
-     
     
     } else if (filename == "login_res.html"){
         content = FORMULARIO
