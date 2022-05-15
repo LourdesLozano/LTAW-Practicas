@@ -108,22 +108,19 @@ const server = http.createServer(function (req, res) {
         let user = myUrl.searchParams.get('usuario');
         let correo = myUrl.searchParams.get('correo');
         let content;
+        
         console.log(" Nombre---------> " + nombre);
         console.log(" Usuario----> " + user);
         console.log(" Correo----> " + correo);
         res.setHeader('Set-Cookie', "user = "+ user);
         
         let informacion = JSON.parse(TIENDA_JSON);
-        myusers1 = informacion['usuarios'][0];
-        myusers2 = informacion['usuarios'][1];
+        
         let user1 = informacion['usuarios'][0]['usuario'];
         let correo1 = informacion['usuarios'][0]['correo'];
         let user2 = informacion['usuarios'][1]['usuario'];
         let correo2 = informacion['usuarios'][1]['correo'];
-     
-        console.log(myusers1);
 
-      
         if (user == user1 && correo == correo1) {
             console.log("Coincide");
             content = RESPUESTA.replace("NOMBRE", nombre);
