@@ -19,6 +19,7 @@
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
+const { monitorEventLoopDelay } = require('perf_hooks');
 
 //-- Definir el puerto a utilizar
 const port = 9090;
@@ -113,26 +114,38 @@ const server = http.createServer(function (req, res) {
         res.setHeader('Set-Cookie', "user = "+ user);
         
         let informacion = JSON.parse(TIENDA_JSON);
-        let myusers = informacion['usuarios'];
-        console.log(myusers);
-        myusers.forEach((element, index)=>{
-            console.log("Usuario registrado: " + (index + 1) + ": " + element["nombre"]+"/"+ element["usuario"]+"/"+ element["correo"]);
-            content = RESPUESTA
+        myusers1 = informacion['usuarios'][0];
+        myusers2 = informacion['usuarios'][1];
+        let user1 = informacion['usuarios'][0]['usuario'];
+        let correo1 = informacion['usuarios'][0]['correo'];
+        let user2 = informacion['usuarios'][1]['usuario'];
+        let correo2 = informacion['usuarios'][1]['correo'];
+     
+        console.log(myusers1);
 
-            if (user == element["usuario"] && correo == element["correo"]) {
-                console.log("Coincide");
-                content = RESPUESTA.replace("NOMBRE", nombre);
-                content = content.replace("USUARIO", user);
-                content = content.replace("CORREO", correo);
-                filename += "./tienda.html"
-                mine[type]= "text/html";
-            
-            }else{
-                filename += "./error.html" 
-                mine[type]= "text/html";
-            }
+      
+        if (user == user1 && correo == correo1) {
+            console.log("Coincide");
+            content = RESPUESTA.replace("NOMBRE", nombre);
+            content = content.replace("USUARIO", user);
+            content = content.replace("CORREO", correo);
+            filename += "./tienda.html"
+            mine[type]= "text/html";
+        
+        } else if (user == user2 && correo == correo2) {
+            console.log("Coincide");
+            content = RESPUESTA.replace("NOMBRE", nombre);
+            content = content.replace("USUARIO", user);
+            content = content.replace("CORREO", correo);
+            filename += "./tienda.html"
+            mine[type]= "text/html";
+        
+        }else{
+            filename += "./error.html" 
+            mine[type]= "text/html";
+        }
 
-        });
+     
     
     } else if (filename == "login_res.html"){
         content = FORMULARIO
