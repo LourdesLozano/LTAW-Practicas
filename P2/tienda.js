@@ -108,7 +108,7 @@ const server = http.createServer(function (req, res) {
         let user = myUrl.searchParams.get('usuario');
         let correo = myUrl.searchParams.get('correo');
         let content;
-        
+
         console.log(" Nombre---------> " + nombre);
         console.log(" Usuario----> " + user);
         console.log(" Correo----> " + correo);
@@ -121,12 +121,17 @@ const server = http.createServer(function (req, res) {
         let user2 = informacion['usuarios'][1]['usuario'];
         let correo2 = informacion['usuarios'][1]['correo'];
 
+        let save = FORMULARIO;
+
+        save = RESPUESTA.replace("Nombre", user);
+        save = save.replace("Nombre", nombre);
+
         if (user == user1 && correo == correo1) {
             console.log("Coincide");
             content = RESPUESTA.replace("NOMBRE", nombre);
             content = content.replace("USUARIO", user);
             content = content.replace("CORREO", correo);
-            filename += "./tienda.html"
+            filename += "./login_res.html"
             mine[type]= "text/html";
         
         } else if (user == user2 && correo == correo2) {
@@ -134,14 +139,14 @@ const server = http.createServer(function (req, res) {
             content = RESPUESTA.replace("NOMBRE", nombre);
             content = content.replace("USUARIO", user);
             content = content.replace("CORREO", correo);
-            filename += "./tienda.html"
+            filename += "./login_res.html"
             mine[type]= "text/html";
         
         }else{
             filename += "./error.html" 
             mine[type]= "text/html";
         }
-
+        
      
     
     } else if (filename == "login_res.html"){
