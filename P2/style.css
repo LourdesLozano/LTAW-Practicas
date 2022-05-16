@@ -15,16 +15,7 @@ body{
     font-size: 20px;
 }
 
-input{
-    margin: 20px;
-    color:red;
-    border-radius: 20px;
-    padding: 10px;
-    font-family: 'disney';
-    background-color: rgb(253, 172, 172);
-    font-size: 20px;
-    margin-left: 28px;
-}
+
 
 p{
     font-family: '101';
@@ -47,16 +38,6 @@ p{
 }
 
 
-#collar1 {
-    background-image: url(img/accesorios/azul.jpg);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 200px;
-    height: 100px;
-}
 
 #collar2 {
     background-image: url(img/accesorios/rosa.jpg);
@@ -65,85 +46,15 @@ p{
     background-position:center;
     background-size: contain;
     border-radius: 0px;
-    width: 200px;
-    height: 100px;
+    width: 400px;
+    height: 300px;
+    
 }
 
-#collar3 {
-    background-image: url(img/accesorios/verde.jpg);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 200px;
-    height: 100px;
-}
 
-#abrigo1 {
-    background-image: url(img/accesorios/abrigo1.png);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 200px;
-    height: 100px;
-}
-
-#abrigo2 {
-    background-image: url(img/accesorios/abrigo2.png);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 200px;
-    height: 100px;
-}
-
-#abrigo3 {
-    background-image: url(img/accesorios/abrigo3.png);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 200px;
-    height: 100px;
-}
-
-#lazos1 {
-    background-image: url(img/accesorios/lazos1.png);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 100px;
-    height: 100px;
-}
-
-#lazos2 {
-    background-image: url(img/accesorios/lazos2.png);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 100px;
-    height: 100px;
-}
-
-#lazos3 {
-    background-image: url(img/accesorios/lazos3.png);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 100px;
-    height: 100px;
+#productos{
+    margin-top: 50px;
+    margin-left: 65px;
 }
 
 li {
@@ -151,17 +62,7 @@ li {
 }
 
 
-#texto1{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(178, 158, 68);
-    background-color: rgba(138, 182, 199, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
+
 #texto2{
     color:black;
     padding: 10px;
@@ -173,86 +74,6 @@ li {
     font-size: 10px;
     text-align: left;
 }
-#texto3{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(178, 158, 68);
-    background-color: rgba(162, 231, 212, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
-
-#texto4{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(238, 133, 192);
-    background-color: rgba(247, 205, 234, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
-#texto5{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(243, 116, 53);
-    background-color: rgba(71, 165, 233, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
-#texto6{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(71, 114, 42);
-    background-color: rgba(202, 135, 188, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
-
-#texto7{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(224, 143, 216);
-    background-color: rgba(235, 187, 228, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
-#texto8{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(0, 173, 86);
-    background-color: rgba(230, 243, 129, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
-#texto9{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(163, 22, 81);
-    background-color: rgba(192, 131, 153, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
-
 
 
 
