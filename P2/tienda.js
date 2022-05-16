@@ -19,7 +19,6 @@
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
-const { monitorEventLoopDelay } = require('perf_hooks');
 
 //-- Definir el puerto a utilizar
 const port = 9090;
