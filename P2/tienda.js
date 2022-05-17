@@ -68,9 +68,7 @@ const server = http.createServer((req, res) => {
     console.log("\nRecurso recibido: " + myURL.pathname);
 
     //-- Leer recurso y eliminar la / inicial
-    let filename = myURL.pathname;
-    filename = filename.substr(1); 
-    
+   
     var mime = {
         '/'    : 'text/html',
         'html' : 'text/html',
@@ -90,43 +88,46 @@ const server = http.createServer((req, res) => {
     let hastaPunto = myURL.pathname.lastIndexOf(".");
     let type = myURL.pathname.slice(hastaPunto+1);
     
+    let filename = myURL.pathname;
+    filename = filename.substr(1); 
+
     switch (filename) {
         case '':
             content = MAIN;
             get_cookie(req);
             break;
 
-            case 'procesar':
+            case 'login':
                 //-- Leer los parámetros
                 let nombre = myURL.searchParams.get('nombre');
                 let usuario = myURL.searchParams.get('usuario');
                 let correo = myURL.searchParams.get('correo');
-                console.log("\nRecurso recibido: " + myUrl.pathname);
+                console.log("\nRecurso recibido: " + myURL.pathname);
     
                 //-- Obtener el array de productos
                 //-- Crear la estructura tienda a partir del contenido del fichero
                 let info = JSON.parse(TIENDA_JSON);
                
                 info["usuarios"].forEach((element, index)=>{
-                console.log("Usuario registrado ------------------------>: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
-                
-                content = RESPUESTA;
-                let html_extra = "";
-                if (correo==element["correo"] && usuario==element["user"]) {
-                    console.log("coincideeee");
-                    html_extra = "<h2>No necesita registrarse!!</h2>";
-                
-                    //-- Reemplazar las palabras claves por su valores en la plantilla HTML
-                    content = RESPUESTA.replace("NOMBRE", nombre);
-                    content = content.replace("USUARIO", usuario);
-                    content = content.replace("CORREO", correo);
-                    content = content.replace("HTML_EXTRA", html_extra);
-                    mime[type]= "text/html";
-                }else{
-                    content = fs.readFileSync('error.html','utf-8'); 
-                    mime[type]= "text/html";
-                }
-    
+                    console.log("Usuario registrado ------------------------>: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
+                    
+                    content = RESPUESTA;
+                    let html_extra = "";
+                    if (correo==element["correo"] && usuario==element["user"]) {
+                        console.log("coincideeee");
+                        html_extra = "<h2>No necesita registrarse!!</h2>";
+                    
+                        //-- Reemplazar las palabras claves por su valores en la plantilla HTML
+                        content = RESPUESTA.replace("NOMBRE", nombre);
+                        content = content.replace("USUARIO", usuario);
+                        content = content.replace("CORREO", correo);
+                        content = content.replace("HTML_EXTRA", html_extra);
+                        mime[type]= "text/html";
+                    }else{
+                        content = fs.readFileSync('error.html','utf-8'); 
+                        mime[type]= "text/html";
+                    }
+        
                 });
                 break;
             
@@ -147,19 +148,31 @@ const server = http.createServer((req, res) => {
             
             return;
             break;
-    
+        
+        case 'tienda.css':
+            content = fs.readFileSync(filename);
+            break;
+        case 'style.css':
+            content = fs.readFileSync(filename);
+            break;
+        case 'login.css':
+            content = fs.readFileSync(filename);
+            break;
+        case 'error.css':
+            content = fs.readFileSync(filename);
+            break;
         case 'tienda.html':
             content = MAIN;
             get_cookie(req);
             break; 
         case 'login.html':
             content = FORMULARIO;
+            get_cookie(req);
             break; 
-        
-        case 'tienda.css':
-            content = fs.readFileSync(filename);
-            break;
-         
+        case 'login_res.html':
+            content = RESPUESTA;
+            get_cookie(req);
+            break; 
         //-- Si no es ninguna de las anteriores devolver mensaje de error
         default:
             res.setHeader('Content-Type','text/html');
