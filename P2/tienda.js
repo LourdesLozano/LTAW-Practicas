@@ -161,6 +161,11 @@ const server = http.createServer((req, res) => {
         case 'error.css':
             content = fs.readFileSync(filename);
             break;
+
+        case 'img/fondo.jpg':
+            content = fs.readFileSync(filename);
+            break;
+
         case 'tienda.html':
             content = MAIN;
             get_cookie(req);
