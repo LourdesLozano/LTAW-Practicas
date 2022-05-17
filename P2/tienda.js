@@ -161,11 +161,41 @@ const server = http.createServer((req, res) => {
         case 'error.css':
             content = fs.readFileSync(filename);
             break;
-
+        //------- Imagenes
         case 'img/fondo.jpg':
             content = fs.readFileSync(filename);
             break;
-
+        case 'img/accesorios.png':
+            content = fs.readFileSync(filename);
+            break;
+        case 'img/alimentos.jpg':
+            content = fs.readFileSync(filename);
+            break;
+        case 'img/camas.jpg':
+            content = fs.readFileSync(filename);
+            break;
+        case 'img/juguetes.jpg':
+            content = fs.readFileSync(filename);
+            break;
+        case 'img/titulo.png':
+            content = fs.readFileSync(filename);
+            break;
+        case 'img/carrito.png':
+            content = fs.readFileSync(filename);
+            break;
+        case 'img/login.png':
+            content = fs.readFileSync(filename);
+        break;
+        
+            
+        //------- Letras
+        case 'disney.otf':
+            content = fs.readFileSync(filename);
+            break;
+        case '101PUPS.TTF':
+            content = fs.readFileSync(filename);
+            break;
+        //------- ficheros html
         case 'tienda.html':
             content = MAIN;
             get_cookie(req);
