@@ -4,12 +4,12 @@
     "usuarios": [
         {
             "nombre":"Root",
-            "usuario":"user1",
+            "user":"user1",
             "correo":"user1@gmail.com"
         },
         {
             "nombre":"Normal",
-            "usuario":"user2",
+            "user":"user2",
             "correo":"user2@gmail.com"
         }
     ],

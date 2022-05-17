@@ -27,11 +27,22 @@ const FORMULARIO = fs.readFileSync('login.html');
 const TIENDA = fs.readFileSync('tienda.html');
 const RESPUESTA = fs.readFileSync('login_res.html');
 const TIENDA_JSON = fs.readFileSync('tienda.json');
+const tiendaJson = JSON.parse(TIENDA_JSON);
 const ERROR = fs.readFileSync('error.html');
 
 let contenido;
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
+
+
+let users_reg = [];
+console.log("Lista de usuarios registrados");
+console.log("-----------------------------");
+tiendaJson["usuarios"].forEach((element, index)=>{
+    console.log("Usuario " + (index + 1) + ": " + element.user);
+    users_reg.push(element.user);
+});
+
 
 
 function getUser(req){
