@@ -194,7 +194,7 @@ li {
     color:black;
     font-family: 'disney';
     background-color: rgba(229, 111, 111, 0.807);
-    width: 300px;
+    width: 210px;
     border: solid;
     border-radius: 20px;
     border-color: blanchedalmond;
@@ -207,28 +207,16 @@ li {
     background-position:center;
     background-size: contain;
     border-radius: 0px;
-    width: 200px;
-    height: 100px;
+    width: 400px;
+    height: 300px;
 }
-#cama2 {
-    background-image: url(img/camas/cama2.jpg);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 200px;
-    height: 100px;
-}
-#cama3 {
-    background-image: url(img/camas/cama3.jpg);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 200px;
-    height: 100px;
+
+#productos7{
+    margin-top: 50px;
+    margin-left: 65px;
+    background-color: rgba(241, 184, 184, 0.608);
+    padding: 10px;
+    width: 900px;
 }
 
 #texto18{
@@ -242,32 +230,8 @@ li {
     font-size: 10px;
     text-align: left;
 }
-#texto19{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(92, 70, 34);
-    background-color: rgba(233, 208, 151, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
-#texto20{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(73, 73, 73);
-    background-color: rgba(171, 171, 171, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
 
-#btn_camas{
-    margin-left: 120px;
-}
+
 
 
 #carro{
