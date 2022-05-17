@@ -104,41 +104,20 @@ const server = http.createServer((req, res) => {
             let correo = myURL.searchParams.get('correo');
             console.log("\nRecurso recibido: " + myURL.pathname);
 
-            
             //-- Obtener el array de productos
             //-- Crear la estructura tienda a partir del contenido del fichero
             let info = JSON.parse(TIENDA_JSON);
-            let user1 = info['usuarios'][0]['usuario'];
-            let correo1 = info['usuarios'][0]['correo'];
-            let user2 = info['usuarios'][1]['usuario'];
-            let correo2 = info['usuarios'][1]['correo'];
-
+            
             info["usuarios"].forEach((element, index)=>{
                 console.log("Usuario registrado ------------------------>: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
                 
                 content = RESPUESTA;
                 let html_extra = "";
-                if (correo==correo1 && usuario==user1) {
+                if (correo==element["correo"] && usuario==element["user"]) {
                     console.log("coincideeee");
-                    html_extra = "<h2>No necesita registrarse!!</h2>";
-                
-                    //-- Reemplazar las palabras claves por su valores en la plantilla HTML
-                    content = RESPUESTA.replace("NOMBRE", nombre);
-                    content = content.replace("USUARIO", usuario);
-                    content = content.replace("CORREO", correo);
-                    content = content.replace("HTML_EXTRA", html_extra);
-                    mime[type]= "text/html";
-                } else if (correo==correo2 && usuario==user2){
-                    console.log("coincideeee");
-                    html_extra = "<h2>No necesita registrarse!!</h2>";
-                
-                    //-- Reemplazar las palabras claves por su valores en la plantilla HTML
-                    content = RESPUESTA.replace("NOMBRE", nombre);
-                    content = content.replace("USUARIO", usuario);
-                    content = content.replace("CORREO", correo);
-                    content = content.replace("HTML_EXTRA", html_extra);
-                    mime[type]= "text/html";
         
+                    content = content.replace("HTML_EXTRA", nombre);
+                    mime[type]= "text/html";
                 }else{
                     content = fs.readFileSync('error.html','utf-8'); 
                     mime[type]= "text/html";
@@ -215,6 +194,10 @@ const server = http.createServer((req, res) => {
             content = MAIN;
             get_cookie(req);
             break; 
+        case 'error.html':
+            content = ERROR;
+            get_cookie(req);
+            break;
         case 'login.html':
             content = FORMULARIO;
             get_cookie(req);
