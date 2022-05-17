@@ -27,22 +27,11 @@ const FORMULARIO = fs.readFileSync('login.html');
 const TIENDA = fs.readFileSync('tienda.html');
 const RESPUESTA = fs.readFileSync('login_res.html');
 const TIENDA_JSON = fs.readFileSync('tienda.json');
-const tiendaJson = JSON.parse(TIENDA_JSON);
 const ERROR = fs.readFileSync('error.html');
 
 let contenido;
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
-
-
-let users_reg = [];
-console.log("Lista de usuarios registrados");
-console.log("-----------------------------");
-tiendaJson["usuarios"].forEach((element, index)=>{
-    console.log("Usuario " + (index + 1) + ": " + element.user);
-    users_reg.push(element.user);
-});
-
 
 
 function getUser(req){
@@ -110,6 +99,7 @@ const server = http.createServer(function (req, res) {
     let code = 200;
     let message = "OK";
 
+
     //-- Obtenemos el fichero correspondiente.
     if(myUrl.pathname == '/'){
         filename += "./tienda.html"; //-- Página principal de la tienda
@@ -132,25 +122,22 @@ const server = http.createServer(function (req, res) {
         let user2 = informacion['usuarios'][1]['usuario'];
         let correo2 = informacion['usuarios'][1]['correo'];
 
-        contenido = RESPUESTA;
-        
-
         if (user == user1 && correo == correo1) {
             console.log("Coincide");
-            
             filename += "./login_res.html"
             mine[type]= "text/html";
         
         } else if (user == user2 && correo == correo2) {
             console.log("Coincide");
-         
+            filename += "./login_res.html"
             mine[type]= "text/html";
         
         }else{
             filename += "./error.html" 
-            //contenido = ERROR;
             mine[type]= "text/html";
         }
+
+        
 
     }else{
         filename += "." + myUrl.pathname;
