@@ -97,41 +97,56 @@ const server = http.createServer((req, res) => {
             get_cookie(req);
             break;
 
-            case 'login':
-                //-- Leer los parámetros
-                let nombre = myURL.searchParams.get('nombre');
-                let usuario = myURL.searchParams.get('usuario');
-                let correo = myURL.searchParams.get('correo');
-                console.log("\nRecurso recibido: " + myURL.pathname);
-    
-                //-- Obtener el array de productos
-                //-- Crear la estructura tienda a partir del contenido del fichero
-                let info = JSON.parse(TIENDA_JSON);
-               
-                info["usuarios"].forEach((element, index)=>{
-                    console.log("Usuario registrado ------------------------>: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
-                    
-                    content = RESPUESTA;
-                    let html_extra = "";
-                    if (correo==element["correo"] && usuario==element["user"]) {
-                        console.log("coincideeee");
-                        html_extra = "<h2>No necesita registrarse!!</h2>";
-                    
-                        //-- Reemplazar las palabras claves por su valores en la plantilla HTML
-                        content = RESPUESTA.replace("NOMBRE", nombre);
-                        content = content.replace("USUARIO", usuario);
-                        content = content.replace("CORREO", correo);
-                        content = content.replace("HTML_EXTRA", html_extra);
-                        mime[type]= "text/html";
-                    }else{
-                        content = fs.readFileSync('error.html','utf-8'); 
-                        mime[type]= "text/html";
-                    }
-        
-                });
-                break;
+        case 'login':
+            //-- Leer los parámetros
+            let nombre = myURL.searchParams.get('nombre');
+            let usuario = myURL.searchParams.get('usuario');
+            let correo = myURL.searchParams.get('correo');
+            console.log("\nRecurso recibido: " + myURL.pathname);
+
             
-       
+            //-- Obtener el array de productos
+            //-- Crear la estructura tienda a partir del contenido del fichero
+            let info = JSON.parse(TIENDA_JSON);
+            let user1 = info['usuarios'][0]['usuario'];
+            let correo1 = info['usuarios'][0]['correo'];
+            let user2 = info['usuarios'][1]['usuario'];
+            let correo2 = info['usuarios'][1]['correo'];
+
+            info["usuarios"].forEach((element, index)=>{
+                console.log("Usuario registrado ------------------------>: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
+                
+                content = RESPUESTA;
+                let html_extra = "";
+                if (correo==correo1 && usuario==user1) {
+                    console.log("coincideeee");
+                    html_extra = "<h2>No necesita registrarse!!</h2>";
+                
+                    //-- Reemplazar las palabras claves por su valores en la plantilla HTML
+                    content = RESPUESTA.replace("NOMBRE", nombre);
+                    content = content.replace("USUARIO", usuario);
+                    content = content.replace("CORREO", correo);
+                    content = content.replace("HTML_EXTRA", html_extra);
+                    mime[type]= "text/html";
+                } else if (correo==correo2 && usuario==user2){
+                    console.log("coincideeee");
+                    html_extra = "<h2>No necesita registrarse!!</h2>";
+                
+                    //-- Reemplazar las palabras claves por su valores en la plantilla HTML
+                    content = RESPUESTA.replace("NOMBRE", nombre);
+                    content = content.replace("USUARIO", usuario);
+                    content = content.replace("CORREO", correo);
+                    content = content.replace("HTML_EXTRA", html_extra);
+                    mime[type]= "text/html";
+        
+                }else{
+                    content = fs.readFileSync('error.html','utf-8'); 
+                    mime[type]= "text/html";
+                }
+    
+            });
+            break;
+        
 
         case 'cliente.js':
             
@@ -140,9 +155,9 @@ const server = http.createServer((req, res) => {
                     console.log("Error: " + err)
                     return;
                 } else {
-                  res.setHeader('Content-Type', 'application/javascript');
-                  res.write(data);
-                  res.end();
+                res.setHeader('Content-Type', 'application/javascript');
+                res.write(data);
+                res.end();
                 }
             });
             
