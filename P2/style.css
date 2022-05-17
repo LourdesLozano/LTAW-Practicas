@@ -137,36 +137,7 @@ li {
     width: 150px;
 }
 
-#juguete1 {
-    background-image: url(img/juguetes/juguete1.jpg);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 200px;
-    height: 100px;
-}
-#juguete2 {
-    background-image: url(img/juguetes/juguete2.jpg);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 200px;
-    height: 100px;
-}
-#juguete3 {
-    background-image: url(img/juguetes/juguete3.jpg);
-    background-color: white;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size: contain;
-    border-radius: 0px;
-    width: 200px;
-    height: 100px;
-}
+
 #juguete4 {
     background-image: url(img/juguetes/juguete4.jpg);
     background-color: white;
@@ -178,6 +149,10 @@ li {
     height: 100px;
 }
 
+#productos6{
+    margin-top: 50px;
+    margin-left: 65px;
+}
 
 #texto14{
     color:black;
