@@ -17,24 +17,21 @@
 // -- PRACTICA 2: Practica 1 con añadidos
 //-- Importamos los modulos http, fs y url
 const http = require('http');
-const url = require('url');
 const fs = require('fs');
-
-//-- Definir el puerto a utilizar
 const port = 9090;
 
-const FORMULARIO = fs.readFileSync('login.html');
-const TIENDA = fs.readFileSync('tienda.html');
-const RESPUESTA = fs.readFileSync('login_res.html');
-const TIENDA_JSON = fs.readFileSync('tienda.json');
-const ERROR = fs.readFileSync('error.html');
 
-let contenido;
+const FORMULARIO = fs.readFileSync('login.html','utf-8');
+const RESPUESTA = fs.readFileSync('login_res.html', 'utf-8');
+const ERROR = fs.readFileSync('error.html');
+const MAIN = fs.readFileSync('tienda.html','utf-8');
+
+const TIENDA_JSON = fs.readFileSync('tienda.json','utf-8');
+
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
-
-function getUser(req){
+function get_cookie(req){
 
     //-- Leer las cookies
     const cookie = req.headers.cookie;
@@ -44,35 +41,37 @@ function getUser(req){
 
         //-- Obtener un array con todos los pares nombre-valor
         let pares = cookie.split(";");
-        let usuario;
+        let user;
         pares.forEach((element, index) => {
     
             //-- Obtener los nombres y valores por separado
             let [nombre, valor] = element.split('=');
 
             //-- Leer el usuario
-            //-- Solo si es 'usuario'
-            if (nombre.trim() === 'usuario') {
-                usuario = valor;
+            //-- Solo si el nombre es 'user'
+            if (nombre.trim() === 'user') {
+                user = valor;
             }
         });
-        console.log('Usuario: ', usuario);
+     
     } else {
-        console.log('No hay cookie'); 
+        console.log('No hay cookie');
     }
 }
 
+
 //-- Crear el sevidor
-const server = http.createServer(function (req, res) {
+const server = http.createServer((req, res) => { 
+
+    //-- Construir el objeto url con la url de la solicitud
+    const myURL = new URL(req.url, 'http://' + req.headers['host']);  
+    console.log("\nRecurso recibido: " + myURL.pathname);
+
+    //-- Leer recurso y eliminar la / inicial
+    let filename = myURL.pathname;
+    filename = filename.substr(1); 
     
-    //-- Url que pide el cliente
-    const myUrl = new URL(req.url, 'http://' + req.headers['host']);
-    console.log("\nRecurso recibido: " + myUrl.pathname);
-
-    //-- Escribir en consola la ruta de nuestro recurso
-    console.log("---> Peticion Recibida: " + myUrl);
-
-    var mine = {
+    var mime = {
         '/'    : 'text/html',
         'html' : 'text/html',
         'css'  : 'text/css',
@@ -85,94 +84,117 @@ const server = http.createServer(function (req, res) {
         'otf'  : 'text/otf',
         'webp' : 'image/webp',
         'json' : 'application/json'
+      
     };
     
-    let filename = ""
-    //let filename = myUrl.pathname;
+    let hastaPunto = myURL.pathname.lastIndexOf(".");
+    let type = myURL.pathname.slice(hastaPunto+1);
+    
+    switch (filename) {
+        case '':
+            content = MAIN;
+            get_cookie(req);
+            break;
 
-    // -- Buscamos el "." final para poder indicar que tipo mine es
-    let hastaPunto = myUrl.pathname.lastIndexOf(".");
-    let type = myUrl.pathname.slice(hastaPunto + 1);
-    console.log("Tipo de mine:", mine[type])
+            case 'procesar':
+                //-- Leer los parámetros
+                let nombre = myURL.searchParams.get('nombre');
+                let usuario = myURL.searchParams.get('usuario');
+                let correo = myURL.searchParams.get('correo');
+                console.log("\nRecurso recibido: " + myUrl.pathname);
+    
+                //-- Obtener el array de productos
+                //-- Crear la estructura tienda a partir del contenido del fichero
+                let info = JSON.parse(TIENDA_JSON);
+               
+                info["usuarios"].forEach((element, index)=>{
+                console.log("Usuario registrado ------------------------>: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
+                
+                content = RESPUESTA;
+                let html_extra = "";
+                if (correo==element["correo"] && usuario==element["user"]) {
+                    console.log("coincideeee");
+                    html_extra = "<h2>No necesita registrarse!!</h2>";
+                
+                    //-- Reemplazar las palabras claves por su valores en la plantilla HTML
+                    content = RESPUESTA.replace("NOMBRE", nombre);
+                    content = content.replace("USUARIO", usuario);
+                    content = content.replace("CORREO", correo);
+                    content = content.replace("HTML_EXTRA", html_extra);
+                    mime[type]= "text/html";
+                }else{
+                    content = fs.readFileSync('error.html','utf-8'); 
+                    mime[type]= "text/html";
+                }
+    
+                });
+                break;
+            
+       
 
-    //-- Respuesta por defecto
-    let code = 200;
-    let message = "OK";
-
-
-    //-- Obtenemos el fichero correspondiente.
-    if(myUrl.pathname == '/'){
-        filename += "./tienda.html"; //-- Página principal de la tienda
-        getUser(req);
-
-    } else if (myUrl.pathname == '/login'){
-        let nombre = myUrl.searchParams.get('nombre');
-        let user = myUrl.searchParams.get('usuario');
-        let correo = myUrl.searchParams.get('correo');
+        case 'cliente.js':
+            
+            fs.readFile(filename, 'utf-8', (err,data) => {
+                if (err) {
+                    console.log("Error: " + err)
+                    return;
+                } else {
+                  res.setHeader('Content-Type', 'application/javascript');
+                  res.write(data);
+                  res.end();
+                }
+            });
+            
+            return;
+            break;
+    
+        case 'tienda.html':
+            content = MAIN;
+            get_cookie(req);
+            break; 
+        case 'login.html':
+            content = FORMULARIO;
+            break; 
         
-
-        console.log(" Usuario----> " + user);
-        console.log(" Correo----> " + correo);
-        res.setHeader('Set-Cookie', "user = "+ user);
-        
-        let informacion = JSON.parse(TIENDA_JSON);
-        
-        let user1 = informacion['usuarios'][0]['usuario'];
-        let correo1 = informacion['usuarios'][0]['correo'];
-        let user2 = informacion['usuarios'][1]['usuario'];
-        let correo2 = informacion['usuarios'][1]['correo'];
-
-        if (user == user1 && correo == correo1) {
-            console.log("Coincide");
-            filename += "./login_res.html"
-            mine[type]= "text/html";
-        
-        } else if (user == user2 && correo == correo2) {
-            console.log("Coincide");
-            filename += "./login_res.html"
-            mine[type]= "text/html";
-        
-        }else{
-            filename += "./error.html" 
-            mine[type]= "text/html";
-        }
-
-        
-
-    }else{
-        filename += "." + myUrl.pathname;
+        case 'tienda.css':
+            content = fs.readFileSync(filename);
+            break;
+         
+        //-- Si no es ninguna de las anteriores devolver mensaje de error
+        default:
+            res.setHeader('Content-Type','text/html');
+            res.statusCode = 404;
+            res.write(ERROR);
+            res.end();
+            return;
     }
+    
+    //-- Si hay datos en el cuerpo, se imprimen
+    req.on('data', (cuerpo) => {
+  
+        //-- Los datos del cuerpo son caracteres
+        req.setEncoding('utf8');
+        console.log(`Cuerpo (${cuerpo.length} bytes)`);
+        console.log(` ${cuerpo}`);
+        usuario= recortar(data, "=")
+        console.log(usuario);
+     });
+        
+    
+        //-- Esto solo se ejecuta cuando llega el final del mensaje de solicitud
+        req.on('end', ()=> {
 
-    console.log("Filename:", filename);
-
-    //-- Leemos fichero
-    fs.readFile(filename, function(err, data) {
-
-        //si hay error
-        if ((err || (filename == 'error.html'))) {
-            // fichero de error
-            code = 404
-            message = "Not Found"
-            data = fs.readFileSync('./error.html')
-            res.writeHead(code, {'Content-Type': 'text/html'});
-            res.write(data);
-            res.end();
-        //si no hay error
-        }else{
-            res.statusCode = code; 
-            res.statusMessage = message;
-            res.writeHead(code, {'Content-Type': mine[type]});
-            res.write(data);
-            res.end();
-        }
-
+        //-- Generar respuesta
+        res.setHeader('Content-Type', mime[type]);
+        res.write(content);
+        res.end();
+        
     });
-
+  
 });
-
+  
 //-- Activar el servidor
 server.listen(port);
 
 //-- Mensaje de inicio
 console.log("Server esta activo. \nEscuchando en puerto: " + port);
-
