@@ -12,18 +12,16 @@ body{
     background-image: url(img/fondo8.jpg);
     background-size: cover;
     color: red;
-    font-size: 20px;
+    font-size: 40px;
 }
 
 
 
 p{
     font-family: '101';
-    margin-left: 28px;
     color: black;
-    font-size: 15px;
-    background-color: rgba(255, 255, 255, 0.704);
-    width: 550px;
+    font-size: 20px;
+    width: 350px;
    
 }
 
@@ -32,9 +30,11 @@ p{
     padding: 10px;
     color:black;
     font-family: 'disney';
-    border-color: rgb(170, 0, 0);
     background-color: rgba(229, 111, 111, 0.807);
-    width: 180px;
+    width: 340px;
+    border: solid;
+    border-radius: 20px;
+    border-color: blanchedalmond;
 }
 
 
@@ -87,9 +87,11 @@ li {
     padding: 10px;
     color:black;
     font-family: 'disney';
-    border-color: rgb(170, 0, 0);
     background-color: rgba(229, 111, 111, 0.807);
-    width: 160px;
+    width: 320px;
+    border: solid;
+    border-radius: 20px;
+    border-color: blanchedalmond;
 }
 
 
@@ -132,9 +134,11 @@ li {
     padding: 10px;
     color:black;
     font-family: 'disney';
-    border-color: rgb(170, 0, 0);
     background-color: rgba(229, 111, 111, 0.807);
-    width: 150px;
+    width: 300px;
+    border: solid;
+    border-radius: 20px;
+    border-color: blanchedalmond;
 }
 
 
@@ -145,48 +149,19 @@ li {
     background-position:center;
     background-size: contain;
     border-radius: 0px;
-    width: 200px;
-    height: 100px;
+    width: 400px;
+    height: 300px;
 }
 
 #productos6{
     margin-top: 50px;
     margin-left: 65px;
+    background-color: rgba(241, 184, 184, 0.608);
+    padding: 10px;
+    width: 900px;
 }
 
-#texto14{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(22, 43, 179);
-    background-color: rgba(168, 166, 243, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
-#texto15{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(243, 172, 234);
-    background-color: rgba(229, 207, 228, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
-#texto16{
-    color:black;
-    padding: 10px;
-    border: solid;
-    border-color: rgb(192, 39, 189);
-    background-color: rgba(219, 143, 215, 0.807);
-    width: 400px;
-    margin-left: 20px;
-    font-size: 10px;
-    text-align: left;
-}
+
 #texto17{
     color:black;
     padding: 10px;
@@ -197,10 +172,6 @@ li {
     margin-left: 20px;
     font-size: 10px;
     text-align: left;
-}
-
-#btn_juguetes{
-    margin-left: 120px;
 }
 
 
@@ -215,9 +186,11 @@ li {
     padding: 10px;
     color:black;
     font-family: 'disney';
-    border-color: rgb(170, 0, 0);
     background-color: rgba(229, 111, 111, 0.807);
-    width: 100px;
+    width: 300px;
+    border: solid;
+    border-radius: 20px;
+    border-color: blanchedalmond;
 }
 
 #cama1 {
