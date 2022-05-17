@@ -3,12 +3,12 @@
 {
     "usuarios": [
         {
-            "nombre":"Root",
+            "nombre":"Domino",
             "user":"user1",
             "correo":"user1@gmail.com"
         },
         {
-            "nombre":"Normal",
+            "nombre":"Pongo",
             "user":"user2",
             "correo":"user2@gmail.com"
         }

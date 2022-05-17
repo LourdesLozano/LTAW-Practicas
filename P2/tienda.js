@@ -112,11 +112,10 @@ const server = http.createServer((req, res) => {
                 console.log("Usuario registrado ------------------------>: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
                 
                 content = RESPUESTA;
-                let html_extra = "";
                 if (correo==element["correo"] && usuario==element["user"]) {
                     console.log("coincideeee");
         
-                    content = content.replace("HTML_EXTRA", nombre);
+                    content = content.replace("HTML_EXTRA", element["nombre"]);
                     mime[type]= "text/html";
                 }else{
                     content = fs.readFileSync('error.html','utf-8'); 
