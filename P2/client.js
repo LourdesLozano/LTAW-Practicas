@@ -43,7 +43,7 @@ caja.oninput = () => {
     console.log(caja.value.length);
 
     //-- La peticion se realia  si hay al menos 1 carácter
-    if (caja.value.length >= 1) {
+    if (caja.value.length >= 3) {
 
       m.open("GET","/productos?param1=" + caja.value, true);
       m.send();
