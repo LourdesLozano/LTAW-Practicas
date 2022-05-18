@@ -90,13 +90,7 @@ const server = http.createServer((req, res) => {
     let filename = myURL.pathname;
     filename = filename.substr(1);
     
-    let info = JSON.parse(TIENDA_JSON);
-    let user1 = info['usuarios'][0]['user'];
-    let correo1 = info['usuarios'][0]['correo'];
-    let name1 = info['usuarios'][0]['nombre'];
-    let name2 = info['usuarios'][1]['nombre'];
-    let user2 = info['usuarios'][1]['user'];
-    let correo2 = info['usuarios'][1]['correo'];
+    
 
     switch (filename) {
         case '':
@@ -109,15 +103,16 @@ const server = http.createServer((req, res) => {
             let usuario = myURL.searchParams.get('usuario');
             let correo = myURL.searchParams.get('correo');
 
-            
-
-            console.log("nombreeee", user1);
-            
-            
+            let info = JSON.parse(TIENDA_JSON);
+            let user1 = info['usuarios'][0]['user'];
+            let correo1 = info['usuarios'][0]['correo'];
+            let name1 = info['usuarios'][0]['nombre'];
+            let name2 = info['usuarios'][1]['nombre'];
+            let user2 = info['usuarios'][1]['user'];
+            let correo2 = info['usuarios'][1]['correo'];
 
             content = RESPUESTA;
-            
-
+  
             if (correo==correo1 && usuario==user1) {
                 console.log("Coincide");
     
@@ -135,10 +130,8 @@ const server = http.createServer((req, res) => {
                 mime[type]= "text/html";
             }
     
-            
             break;
         
-
         case 'cliente.js':
             
             fs.readFile(filename, 'utf-8', (err,data) => {
@@ -192,6 +185,12 @@ const server = http.createServer((req, res) => {
         case 'img/login.png':
             content = fs.readFileSync(filename);
         break;
+        case 'img/huella.png':
+            content = fs.readFileSync(filename);
+        break;
+        case 'img/fondo2.jpg':
+            content = fs.readFileSync(filename);
+        break;
         
             
         //------- Letras
@@ -236,11 +235,11 @@ const server = http.createServer((req, res) => {
         console.log(` ${cuerpo}`);
         usuario= recortar(data, "=")
         console.log(usuario);
-     });
+    });
         
     
-        //-- Esto solo se ejecuta cuando llega el final del mensaje de solicitud
-        req.on('end', ()=> {
+    //-- Esto solo se ejecuta cuando llega el final del mensaje de solicitud
+    req.on('end', ()=> {
 
         //-- Generar respuesta
         res.setHeader('Content-Type', mime[type]);
