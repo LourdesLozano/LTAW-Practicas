@@ -24,7 +24,7 @@ const port = 9090;
 const FORMULARIO = fs.readFileSync('login.html','utf-8');
 const RESPUESTA = fs.readFileSync('login_res.html', 'utf-8');
 const ERROR = fs.readFileSync('error.html');
-const MAIN = fs.readFileSync('tienda.html','utf-8');
+const TIENDA = fs.readFileSync('tienda.html','utf-8');
 
 const TIENDA_JSON = fs.readFileSync('tienda.json','utf-8');
 
@@ -88,54 +88,55 @@ const server = http.createServer((req, res) => {
     let type = myURL.pathname.slice(hastaPunto+1);
     
     let filename = myURL.pathname;
-    filename = filename.substr(1); 
+    filename = filename.substr(1);
+    
+    let info = JSON.parse(TIENDA_JSON);
+    let user1 = info['usuarios'][0]['user'];
+    let correo1 = info['usuarios'][0]['correo'];
+    let name1 = info['usuarios'][0]['nombre'];
+    let name2 = info['usuarios'][1]['nombre'];
+    let user2 = info['usuarios'][1]['user'];
+    let correo2 = info['usuarios'][1]['correo'];
 
     switch (filename) {
         case '':
-            content = MAIN;
+            content = TIENDA;
+            content = content.replace("HTML_EXTRA", " ");
             get_cookie(req);
             break;
 
         case 'login':
-            //-- Leer los parámetros
-            let nombre = myURL.searchParams.get('nombre');
+           
             let usuario = myURL.searchParams.get('usuario');
             let correo = myURL.searchParams.get('correo');
 
-            //-- Obtener el array de productos
-            //-- Crear la estructura tienda a partir del contenido del fichero
-            let info = JSON.parse(TIENDA_JSON);
-            let user1 = info['usuarios'][0]['user'];
-            let correo1 = info['usuarios'][0]['correo'];
-            let name1 = info['usuarios'][0]['nombre'];
-            let name2 = info['usuarios'][1]['nombre'];
-            let user2 = info['usuarios'][1]['user'];
-            let correo2 = info['usuarios'][1]['correo'];
+            
 
             console.log("nombreeee", user1);
             
-            info["usuarios"].forEach((element, index)=>{
-                console.log("Usuario registrado ------------------------>: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
-                
-                content = RESPUESTA;
-                if (correo==correo1 && usuario==user1) {
-                    console.log("Coincide");
-        
-                    content = content.replace("HTML_EXTRA", "Bienvenido " + name1);
-                    mime[type]= "text/html";
+            
 
-                }else if (correo==correo2 && usuario==user2){
-                    console.log("Coincide");
-        
-                    content = content.replace("HTML_EXTRA", "Bienvenido " + name2);
-                    mime[type]= "text/html";
+            content = RESPUESTA;
+            
 
-                }else{
-                    content = content.replace("HTML_EXTRA", "NO ESTA REGISTRADO");
-                    mime[type]= "text/html";
-                }
+            if (correo==correo1 && usuario==user1) {
+                console.log("Coincide");
     
-            });
+                content = content.replace("HTML_EXTRA", "Bienvenido " + name1);
+                mime[type]= "text/html";
+
+            }else if (correo==correo2 && usuario==user2){
+                console.log("Coincide");
+    
+                content = content.replace("HTML_EXTRA", "Bienvenido " + name2);
+                mime[type]= "text/html";
+
+            }else{
+                content = content.replace("HTML_EXTRA", "NO ESTA REGISTRADO");
+                mime[type]= "text/html";
+            }
+    
+            
             break;
         
 
@@ -203,7 +204,16 @@ const server = http.createServer((req, res) => {
             break;
         //------- ficheros html
         case 'tienda.html':
-            content = MAIN;
+            
+            content = TIENDA;
+            if(name1){
+                content = content.replace("HTML_EXTRA", name1);
+            }else if(name2){
+                content = content.replace("HTML_EXTRA", name2);
+            }else {
+                content = content.replace("HTML_EXTRA", " ");
+            }
+            
             get_cookie(req);
             break; 
         case 'error.html':
