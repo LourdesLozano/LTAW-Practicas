@@ -46,8 +46,9 @@
             "usuario":"user1",
             "direccion": "Calle del camino, numero 3",
             "tarjeta": "123456789",
-            "productos": [{"Accesorio": 1,
-                            "Juguete ": 2
+            "productos": [{"Accesorio": 2,
+                            "Juguete ": 2,
+                            "Alimento": 1
             }]
         },
         {
@@ -55,7 +56,7 @@
             "direccion": "Avenida de las Rosas, numero 20",
             "tarjeta": "987654321",
             "productos": [{"Alimento": 3,
-                        "Cama": 1
+                            "Cama": 1
             }]
         }
     ]
