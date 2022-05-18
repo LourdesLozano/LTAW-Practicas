@@ -58,7 +58,7 @@ function get_cookie(req){
     }
 }
 
-function get_compra(req, res, producto){
+function get_compra1(req, res, producto){
 
     const cookie = req.headers.cookie;
 
@@ -71,6 +71,8 @@ function get_compra(req, res, producto){
                 if (nombre.trim() === 'user') {
                     user = valor;
                     content = content.replace("USUARIO", user);
+                    content = content.replace("PRODUCTOS", "Accesorio");
+
                 }
 
                 if (nombre.trim() === 'carrito') {
@@ -330,14 +332,15 @@ const server = http.createServer((req, res) => {
             content = RESPUESTA;
             get_cookie(req);
             break; 
-        case 'compra.html':
+        case 'compra1.html':
             content = fs.readFileSync(filename,'utf-8');
-            get_compra(req, res, "");
+            get_compra1(req, res, "");
+
+            break; 
+        case 'mi_compra.html':
+            content = fs.readFileSync(filename,'utf-8');
             break; 
 
-            content = fs.readFileSync(filename,'utf-8');
-            //get_compra(req, res, "");
-            break; 
            
        
     
