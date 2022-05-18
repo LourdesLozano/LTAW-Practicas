@@ -66,4 +66,8 @@ ul {
 #carro{
     float: right;
     margin-right: 20px;
+    font-family: 'disney';
+    color:red;
+    font-weight: bold;
+    font-size: 20px;
 }

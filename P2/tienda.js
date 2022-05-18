@@ -101,7 +101,6 @@ const server = http.createServer((req, res) => {
     switch (filename) {
         case '':
             content = TIENDA;
-            content = content.replace("HTML_EXTRA", " ");
             get_cookie(req);
             break;
 
@@ -204,16 +203,7 @@ const server = http.createServer((req, res) => {
             break;
         //------- ficheros html
         case 'tienda.html':
-            
             content = TIENDA;
-            if(name1){
-                content = content.replace("HTML_EXTRA", name1);
-            }else if(name2){
-                content = content.replace("HTML_EXTRA", name2);
-            }else {
-                content = content.replace("HTML_EXTRA", " ");
-            }
-            
             get_cookie(req);
             break; 
         case 'error.html':
