@@ -37,7 +37,6 @@ function get_cookie(req){
     const cookie = req.headers.cookie;
 
     if (cookie) {
-        console.log("Cookie: " + cookie);
 
         //-- Obtener un array con todos los pares nombre-valor
         let pares = cookie.split(";");
@@ -66,7 +65,6 @@ function get_compra(req){
     if(cookie){
             //-- par de nombre valor 
             let par = cookie.split(";");
-            console.log(par);
             par.forEach((element,index)=>{
                 let [nombre, valor] = element.split("=");
 
