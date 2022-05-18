@@ -119,12 +119,19 @@ const server = http.createServer((req, res) => {
                 
                 content = RESPUESTA;
                 if (correo==correo1 && usuario==user1) {
-                    console.log("coincideeee");
+                    console.log("Coincide");
         
-                    content = content.replace("HTML_EXTRA", name1);
+                    content = content.replace("HTML_EXTRA", "Bienvenido " + name1);
                     mime[type]= "text/html";
+
+                }else if (correo==correo2 && usuario==user2){
+                    console.log("Coincide");
+        
+                    content = content.replace("HTML_EXTRA", "Bienvenido " + name2);
+                    mime[type]= "text/html";
+
                 }else{
-                    content = fs.readFileSync('error.html','utf-8'); 
+                    content = content.replace("HTML_EXTRA", "NO ESTA REGISTRADO");
                     mime[type]= "text/html";
                 }
     
