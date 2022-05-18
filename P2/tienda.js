@@ -41,7 +41,7 @@ function get_cookie(req){
 
         //-- Obtener un array con todos los pares nombre-valor
         let pares = cookie.split(";");
-        let user;
+        
         pares.forEach((element, index) => {
     
             //-- Obtener los nombres y valores por separado
@@ -65,7 +65,6 @@ const server = http.createServer((req, res) => {
 
     //-- Construir el objeto url con la url de la solicitud
     const myURL = new URL(req.url, 'http://' + req.headers['host']);  
-    console.log("\nRecurso recibido: " + myURL.pathname);
 
     //-- Leer recurso y eliminar la / inicial
    
@@ -102,20 +101,27 @@ const server = http.createServer((req, res) => {
             let nombre = myURL.searchParams.get('nombre');
             let usuario = myURL.searchParams.get('usuario');
             let correo = myURL.searchParams.get('correo');
-            console.log("\nRecurso recibido: " + myURL.pathname);
 
             //-- Obtener el array de productos
             //-- Crear la estructura tienda a partir del contenido del fichero
             let info = JSON.parse(TIENDA_JSON);
+            let user1 = info['usuarios'][0]['user'];
+            let correo1 = info['usuarios'][0]['correo'];
+            let name1 = info['usuarios'][0]['nombre'];
+            let name2 = info['usuarios'][1]['nombre'];
+            let user2 = info['usuarios'][1]['user'];
+            let correo2 = info['usuarios'][1]['correo'];
+
+            console.log("nombreeee", user1);
             
             info["usuarios"].forEach((element, index)=>{
                 console.log("Usuario registrado ------------------------>: " + (index + 1) + ": " + element["nombre"]+"/"+ element["user"]+"/"+ element["correo"]);
                 
                 content = RESPUESTA;
-                if (correo==element["correo"] && usuario==element["user"]) {
+                if (correo==correo1 && usuario==user1) {
                     console.log("coincideeee");
         
-                    content = content.replace("HTML_EXTRA", element["nombre"]);
+                    content = content.replace("HTML_EXTRA", name1);
                     mime[type]= "text/html";
                 }else{
                     content = fs.readFileSync('error.html','utf-8'); 
