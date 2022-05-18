@@ -163,7 +163,7 @@ const server = http.createServer((req, res) => {
                 break;
         
         case 'cliente.js':
-            
+            console.log("estaassss?")
             fs.readFile(filename, 'utf-8', (err,data) => {
                 if (err) {
                     console.log("Error: " + err)
@@ -267,7 +267,6 @@ const server = http.createServer((req, res) => {
         console.log(usuario);
     });
         
-    
     //-- Esto solo se ejecuta cuando llega el final del mensaje de solicitud
     req.on('end', ()=> {
 
