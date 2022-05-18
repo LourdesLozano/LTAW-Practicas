@@ -58,7 +58,7 @@ function get_cookie(req){
     }
 }
 
-function get_compra(req){
+function get_compra(req, res, producto){
 
     const cookie = req.headers.cookie;
 
@@ -74,7 +74,7 @@ function get_compra(req){
                 }
 
                 if (nombre.trim() === 'carrito') {
-                    res.setHeader('Set-Cookie', element + ':' + producto);
+                    res.setHeader('Set-Cookie', element + ': ' + producto);
                 }
 
             });
@@ -332,12 +332,14 @@ const server = http.createServer((req, res) => {
             break; 
         case 'compra.html':
             content = fs.readFileSync(filename,'utf-8');
-            get_compra(req);
+            get_compra(req, res, "");
             break; 
-        case 'compra_res.html':
+
             content = fs.readFileSync(filename,'utf-8');
-            get_compra(req);
+            //get_compra(req, res, "");
             break; 
+           
+       
     
         //-- Si no es ninguna de las anteriores devolver mensaje de error
         default:
