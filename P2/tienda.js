@@ -59,6 +59,32 @@ function get_cookie(req){
     }
 }
 
+function get_compra(req){
+
+    const cookie = req.headers.cookie;
+
+    if(cookie){
+            //-- par de nombre valor 
+            let par = cookie.split(";");
+            console.log(par);
+            par.forEach((element,index)=>{
+                let [nombre, valor] = element.split("=");
+
+                if (nombre.trim() === 'user') {
+                    user = valor;
+                    content = content.replace("USUARIO", user);
+                }
+
+                if (nombre.trim() === 'carrito') {
+                    res.setHeader('Set-Cookie', element + ':' + producto);
+                }
+
+            });
+    }else{
+        content = content.replace("HTML_EXTRA", "Tienes que registrarte antes de realizar un pedido");
+    }
+}
+
 
 //-- Crear el sevidor
 const server = http.createServer((req, res) => { 
@@ -173,7 +199,7 @@ const server = http.createServer((req, res) => {
             
             return;
             break;
-            
+
         case 'pedidos':
             content = fs.readFileSync('compra_res.html', 'utf-8'); 
 
