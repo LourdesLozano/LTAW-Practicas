@@ -146,14 +146,11 @@ const server = http.createServer((req, res) => {
                 let result = [];
     
                 for (let prod of productos) {
-    
-                    console.log("oooo",prod["nombre"]);
                    
                     prodU = prod["nombre"].toUpperCase();
                     if (prodU.startsWith(param1)) {
                         result.push(prod);
                     }
-                    
                 }
     
                 //-- Pasar una variable a formato JSON. Se hace con el método:
