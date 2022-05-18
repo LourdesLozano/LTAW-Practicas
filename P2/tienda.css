@@ -66,8 +66,14 @@ ul {
 #carro{
     float: right;
     margin-right: 20px;
-    font-family: 'disney';
+}
+#caja{
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-family: '101';
     color:red;
-    font-weight: bold;
     font-size: 20px;
+    width: 300px;
+    height: 30px;
 }
