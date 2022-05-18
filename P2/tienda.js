@@ -93,6 +93,7 @@ const server = http.createServer((req, res) => {
     
 
     switch (filename) {
+        
         case '':
             content = TIENDA;
             get_cookie(req);
@@ -131,6 +132,35 @@ const server = http.createServer((req, res) => {
             }
     
             break;
+
+            case 'productos':
+                info_productos = JSON.parse(TIENDA_JSON);
+                productos = info_productos["productos"];
+                //-- Mostrar informacion sobre la tienda
+                console.log("Productos en la tienda: " + productos[1]["nombre"]);
+                content_type = "application/json";
+    
+                let param1 = myURL.searchParams.get('param1');
+                param1 = param1.toUpperCase();
+    
+                let result = [];
+    
+                for (let prod of productos) {
+    
+                    console.log("oooo",prod["nombre"]);
+                   
+                    prodU = prod["nombre"].toUpperCase();
+                    if (prodU.startsWith(param1)) {
+                        result.push(prod);
+                    }
+                    
+                }
+    
+                //-- Pasar una variable a formato JSON. Se hace con el método:
+                console.log(result[0]);
+                content = JSON.stringify(result);
+                mime[type] ="text/html";
+                break;
         
         case 'cliente.js':
             
