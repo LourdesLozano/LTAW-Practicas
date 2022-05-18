@@ -173,7 +173,30 @@ const server = http.createServer((req, res) => {
             
             return;
             break;
-        
+            
+        case 'pedidos':
+            content = fs.readFileSync('compra_res.html', 'utf-8'); 
+
+            let user_p = myURL.searchParams.get('usuario');
+            let direccion = myURL.searchParams.get('direccion');
+            let tarjeta = myURL.searchParams.get('tarjeta');
+            console.log(" Usuario: " + user_p);
+            console.log(" Direccion: " + direccion);
+            console.log(" tarjeta ---> " + tarjeta);
+            res.setHeader('Set-Cookie', user_p);
+
+            info_pedidos = JSON.parse(TIENDA_JSON);
+            info_pedidos = info_pedidos["pedidos"][1];
+          
+            console.log("Productos en la tienda: " + info_pedidos);
+
+            content = content.replace("USUARIO", user_p);
+            content = content.replace("DIRECCION", direccion);
+            content = content.replace("TARJETA", tarjeta);
+            mime[type]= "text/html";
+
+            break;
+    
         case 'tienda.css':
             content = fs.readFileSync(filename);
             break;
