@@ -266,6 +266,30 @@ const server = http.createServer((req, res) => {
         case 'img/fondo2.jpg':
             content = fs.readFileSync(filename);
         break;
+        case 'img/fondo8.jpg':
+            content = fs.readFileSync(filename);
+        break;
+        case 'img/flecha.png':
+            content = fs.readFileSync(filename);
+        break;
+        case 'img/ubicacion.png':
+            content = fs.readFileSync(filename);
+        break;
+        case 'img/accesorios/rosa.jpg':
+            content = fs.readFileSync(filename);
+        break;
+        case 'img/fondo2.jpg':
+            content = fs.readFileSync(filename);
+        break;
+        case 'img/alimentos/pienso1.jpg':
+            content = fs.readFileSync(filename);
+        break;
+        case 'img/juguetes/juguete4.jpg':
+            content = fs.readFileSync(filename);
+        break;
+        case 'img/camas/cama1.jpg':
+            content = fs.readFileSync(filename);
+        break;
         
             
         //------- Letras
@@ -280,6 +304,22 @@ const server = http.createServer((req, res) => {
             content = TIENDA;
             get_cookie(req);
             break; 
+        case 'accesorios.html':
+            content = fs.readFileSync(filename);
+            get_cookie(req);
+            break;
+        case 'alimentos.html':
+            content = fs.readFileSync(filename);
+            get_cookie(req);
+            break;
+        case 'juguetes.html':
+            content = fs.readFileSync(filename);
+            get_cookie(req);
+            break;
+        case 'camas.html':
+            content = fs.readFileSync(filename);
+            get_cookie(req);
+            break;
         case 'error.html':
             content = ERROR;
             get_cookie(req);
