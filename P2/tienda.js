@@ -55,7 +55,7 @@ function get_cookie(req){
         });
      
     } else {
-        console.log('No hay cookie');
+        console.log(' ');
     }
 }
 
@@ -134,9 +134,9 @@ const server = http.createServer((req, res) => {
             break;
 
             case 'productos':
-                info_productos = JSON.parse(TIENDA_JSON);
+                let info_productos = JSON.parse(TIENDA_JSON);
                 productos = info_productos["productos"];
-                //-- Mostrar informacion sobre la tienda
+                
                 console.log("Productos en la tienda: " + productos[1]["nombre"]);
                 content_type = "application/json";
     
@@ -162,8 +162,7 @@ const server = http.createServer((req, res) => {
                 mime[type] ="text/html";
                 break;
         
-        case 'cliente.js':
-            console.log("estaassss?")
+        case 'client.js':
             fs.readFile(filename, 'utf-8', (err,data) => {
                 if (err) {
                     console.log("Error: " + err)
