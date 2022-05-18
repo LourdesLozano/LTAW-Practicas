@@ -292,6 +292,11 @@ const server = http.createServer((req, res) => {
             content = RESPUESTA;
             get_cookie(req);
             break; 
+        case 'compra.html':
+            content = fs.readFileSync(filename,'utf-8');
+            get_compra(req);
+            break; 
+        
         //-- Si no es ninguna de las anteriores devolver mensaje de error
         default:
             res.setHeader('Content-Type','text/html');
