@@ -28,23 +28,8 @@ const TIENDA = fs.readFileSync('tienda.html','utf-8');
 
 const TIENDA_JSON = fs.readFileSync('tienda.json','utf-8');
 
-let info = JSON.parse(TIENDA_JSON);
-let productos = info["productos"];
-
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
-
-let productos_disp = [];
-let product_list = [];
-console.log("Lista de productos disponibles");
-console.log("-----------------------------");
-productos.forEach((element, index)=>{
-  console.log("Articulo " + (index + 1) + ": " + element.nombre +
-              ", Stock: " + element.stock + ", Precio: " + element.precio);
-  productos_disp.push([element.nombre, element.descripcion, element.stock, 
-                       element.precio]);
-  product_list.push(element.nombre);
-});
 
 function get_cookie(req){
 
@@ -83,6 +68,7 @@ function get_compra(req, res, producto){
             par.forEach((element,index)=>{
                 let [nombre, valor] = element.split("=");
 
+
                 if (nombre.trim() === 'carrito') {
                     res.setHeader('Set-Cookie', element + ': ' + producto);
                 }
@@ -93,43 +79,6 @@ function get_compra(req, res, producto){
     }
 }
 
-function carro(req){
-    //-- Leer la cookie recibida
-    const cookie = req.headers.cookie;
-  
-    if (cookie){
-      //-- Obtener un array con todos los pares nombre-valor
-      let pares = cookie.split(";");
-  
-      //-- Variables para guardar los datos del carrito
-      let carrito;
-      let accesorio = '';
-      let num_acc = 0;
-      
-  
-        pares.forEach((element, index) => {
-        let [nombre, valor] = element.split('=');
-  
-            if (nombre.trim() === 'carrito') {
-                productos = valor.split(':');
-                productos.forEach((producto) => {
-                    if (producto == 'accesorio'){
-                        if (num_acc == 0) {
-                            accesorio = productos_disp[0][0];
-                        }
-                    num_acc += 1;
-                    }
-                });
-    
-                if (num_acc != 0) {
-                        accesorio += ' x ' + num_acc;
-                }
-                carrito = cam1;
-            }
-        });
-      return carrito || null;
-    }
-}
 
 //-- Crear el sevidor
 const server = http.createServer((req, res) => { 
@@ -204,31 +153,31 @@ const server = http.createServer((req, res) => {
     
             break;
 
-        case 'productos':
-            let info_productos = JSON.parse(TIENDA_JSON);
-            productos = info_productos["productos"];
-            
-            console.log("Productos en la tienda: " + productos[1]["nombre"]);
-            content_type = "application/json";
-
-            let param1 = myURL.searchParams.get('param1');
-            param1 = param1.toUpperCase();
-
-            let result = [];
-
-            for (let prod of productos) {
+            case 'productos':
+                let info_productos = JSON.parse(TIENDA_JSON);
+                productos = info_productos["productos"];
                 
-                prodU = prod["nombre"].toUpperCase();
-                if (prodU.startsWith(param1)) {
-                    result.push(prod);
+                console.log("Productos en la tienda: " + productos[1]["nombre"]);
+                content_type = "application/json";
+    
+                let param1 = myURL.searchParams.get('param1');
+                param1 = param1.toUpperCase();
+    
+                let result = [];
+    
+                for (let prod of productos) {
+                   
+                    prodU = prod["nombre"].toUpperCase();
+                    if (prodU.startsWith(param1)) {
+                        result.push(prod);
+                    }
                 }
-            }
-
-            //-- Pasar una variable a formato JSON. Se hace con el método:
-            console.log(result[0]);
-            content = JSON.stringify(result);
-            mime[type] ="text/html";
-            break;
+    
+                //-- Pasar una variable a formato JSON. Se hace con el método:
+                console.log(result[0]);
+                content = JSON.stringify(result);
+                mime[type] ="text/html";
+                break;
         
         case 'client.js':
             fs.readFile(filename, 'utf-8', (err,data) => {
@@ -248,97 +197,25 @@ const server = http.createServer((req, res) => {
         case 'pedidos':
             content = fs.readFileSync('compra_res.html', 'utf-8'); 
 
-           
             let direccion = myURL.searchParams.get('direccion');
             let tarjeta = myURL.searchParams.get('tarjeta');
-        
+           
             console.log(" Direccion: " + direccion);
-            console.log(" tarjeta ---> " + tarjeta)
+            console.log(" tarjeta ---> " + tarjeta);
 
             info_pedidos = JSON.parse(TIENDA_JSON);
             info_pedidos = info_pedidos["pedidos"];
-        
+          
+            console.log("Productos en la tienda: " + info_pedidos);
 
+            
             content = content.replace("DIRECCION", direccion);
             content = content.replace("TARJETA", tarjeta);
-            content = content.replace("PEDIDO", pedido);
+   
             mime[type]= "text/html";
 
-
-            carrito = carro(req);
-            producto_unidades = carrito.split('<br>');
-            console.log(producto_unidades);
-
-            //Arrays para guardar los productos
-            let list_productos = [];
-            let list_unidades = [];
-
-            //Obtener numero de productos adquiridos y actualizar stock
-            producto_unidades.forEach((element, index) => {
-                let [producto, unidades] = element.split(' x ');
-                list_productos.push(producto);
-                list_unidades.push(unidades);
-            });
-            
-            //Actualizar la base de datos el stock de los productos.
-            info_pedidos.forEach((element, index)=>{
-                console.log("Producto " + (index + 1) + ": " + element.nombre);
-                console.log(list_productos[index]);
-                console.log();
-                if (element.nombre == list_productos[index]){
-                element.stock = element.stock - list_unidades[index];
-                }
-            });
-            console.log();
-            
-            //Guardar datos del pedido en el registro tienda.json
-            
-            let pedido = {
-                "user": get_user(req),
-                "dirección": direccion,
-                "tarjeta": tarjeta,
-                "productos": producto_unidades
-            }
-            //Convertir a JSON y registrarlo
-            let myTienda = JSON.stringify(tienda, null, 4);
-            fs.writeFileSync(FICHERO_JSON_OUT, myTienda);
-        
-            //Confirmar pedido
-            console.log('Pedido procesado correctamente');
-            content = fs.readFileSync('compra_res.html', 'utf-8');
-
             break;
-
-        case 'carrito':
-            content = fs.readFileSync('compra.html', 'utf-8');
-            let carrito = carro(req);
-            content = content.replace("PRODUCTOS", carrito);
-            break;
-
-        case 'añadoAcc':
-            content = ADD_OK;
-            if (carrito_existe) {
-                add_carrito(req, res, 'cam1');
-            }else{
-                res.setHeader('Set-Cookie', 'carrito=cam1');
-                carrito_existe = true;
-            }
-            //Si se esta registrado se muestra el acceso al carrito,
-            //-sino se muestra el acceso al login.
-            user_registrado = get_user(req);
-            if (user_registrado) {
-            //Mostrar enlace formulario Login
-            content = ADD_OK.replace("HTML_EXTRA", 
-                        `<form action="/carrito" method="get"><input class="button" type="submit" value="IR A LA CESTA"/></form>`);
-            }else{
-            //Mostrar enlace formulario Login
-            content = ADD_OK.replace("HTML_EXTRA", 
-                        `<a href="/login"><img src="imagen/login.png" alt="user" id="login"></a>`);
-            }
-
-            break;
-
-       
+    
         case 'tienda.css':
             content = fs.readFileSync(filename);
             break;
@@ -415,7 +292,6 @@ const server = http.createServer((req, res) => {
         case '101PUPS.TTF':
             content = fs.readFileSync(filename);
             break;
-
         //------- ficheros html
         case 'tienda.html':
             content = TIENDA;
@@ -453,12 +329,11 @@ const server = http.createServer((req, res) => {
             content = fs.readFileSync(filename,'utf-8');
             get_compra(req, res, "");
             break; 
-    
         case 'compra_res.html':
             content = fs.readFileSync(filename,'utf-8');
-            get_compra(req, res, "");
-            break;
-        
+            //get_compra(req, res, "");
+            break; 
+
            
        
     
@@ -498,4 +373,4 @@ const server = http.createServer((req, res) => {
 server.listen(port);
 
 //-- Mensaje de inicio
-console.log("\nEscuchando en puerto: " + port);
+console.log("Server esta activo. \nEscuchando en puerto: " + port);
