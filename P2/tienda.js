@@ -207,15 +207,17 @@ const server = http.createServer((req, res) => {
         case 'pedidos':
             content = fs.readFileSync('compra_res.html', 'utf-8'); 
 
+            let myname = myURL.searchParams.get('nombre');
+            let myuser = myURL.searchParams.get('usuario');
             let direccion = myURL.searchParams.get('direccion');
             let tarjeta = myURL.searchParams.get('tarjeta');
-           
+
+            console.log(" Nombre: " + myname);
+            console.log(" Usuario: " + myuser);
             console.log(" Direccion: " + direccion);
             console.log(" tarjeta ---> " + tarjeta);
 
-            info_pedidos = JSON.parse(TIENDA_JSON);
-            info_pedidos = info_pedidos["pedidos"];
-          
+            content = content.replace("NOMBRE", myname);
             content = content.replace("DIRECCION", direccion);
             content = content.replace("TARJETA", tarjeta);
    
