@@ -73,5 +73,15 @@ h4{
     margin-top: 400px;
 }
 
+#princi{
+    border-radius: 20px;
+    padding: 10px;
+    color:red;
+    font-family: '101';
+    background-color: rgb(252, 206, 206);
+    font-size: 20px;
+    margin-top: 50px;
+}
+
 
 
