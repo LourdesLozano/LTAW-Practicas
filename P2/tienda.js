@@ -120,8 +120,18 @@ const server = http.createServer((req, res) => {
     
     let filename = myURL.pathname;
     filename = filename.substr(1);
-    
-    
+
+
+    let usuario = myURL.searchParams.get('usuario');
+    let correo = myURL.searchParams.get('correo');
+
+    let info = JSON.parse(TIENDA_JSON);
+    let user1 = info['usuarios'][0]['user'];
+    let correo1 = info['usuarios'][0]['correo'];
+    let name1 = info['usuarios'][0]['nombre'];
+    let name2 = info['usuarios'][1]['nombre'];
+    let user2 = info['usuarios'][1]['user'];
+    let correo2 = info['usuarios'][1]['correo'];
 
     switch (filename) {
         
@@ -132,17 +142,6 @@ const server = http.createServer((req, res) => {
 
         case 'login':
            
-            let usuario = myURL.searchParams.get('usuario');
-            let correo = myURL.searchParams.get('correo');
-
-            let info = JSON.parse(TIENDA_JSON);
-            let user1 = info['usuarios'][0]['user'];
-            let correo1 = info['usuarios'][0]['correo'];
-            let name1 = info['usuarios'][0]['nombre'];
-            let name2 = info['usuarios'][1]['nombre'];
-            let user2 = info['usuarios'][1]['user'];
-            let correo2 = info['usuarios'][1]['correo'];
-
             content = RESPUESTA;
   
             if (correo==correo1 && usuario==user1) {
@@ -207,20 +206,31 @@ const server = http.createServer((req, res) => {
         case 'pedidos':
             content = fs.readFileSync('compra_res.html', 'utf-8'); 
 
-            let myname = myURL.searchParams.get('nombre');
-            let myuser = myURL.searchParams.get('usuario');
             let direccion = myURL.searchParams.get('direccion');
             let tarjeta = myURL.searchParams.get('tarjeta');
+            
 
-            console.log(" Nombre: " + myname);
-            console.log(" Usuario: " + myuser);
-            console.log(" Direccion: " + direccion);
-            console.log(" tarjeta ---> " + tarjeta);
+            if (usuario==user1) {
+               
+                content = content.replace("NOMBRE", name1);
+                content = content.replace("DIRECCION", direccion);
+                content = content.replace("TARJETA", tarjeta);
+                console.log(" Pedido finalizado");
 
-            content = content.replace("NOMBRE", myname);
-            content = content.replace("DIRECCION", direccion);
-            content = content.replace("TARJETA", tarjeta);
-   
+            }else if (usuario==user2){
+             
+    
+                content = content.replace("NOMBRE", name2);
+                content = content.replace("DIRECCION", direccion);
+                content = content.replace("TARJETA", tarjeta);
+                console.log(" Pedido finalizado");
+                
+
+            }else{
+                content = fs.readFileSync('noregistro.html', 'utf-8'); 
+                console.log(" No se ha podido realizar el pedido");
+                
+            }
             mime[type]= "text/html";
 
             break;
@@ -268,7 +278,6 @@ const server = http.createServer((req, res) => {
             content = fs.readFileSync(filename);
             
             break;
-        
         case 'error.html':
             content = ERROR;
             get_cookie(req);
@@ -301,6 +310,10 @@ const server = http.createServer((req, res) => {
             content = fs.readFileSync(filename,'utf-8');
             //get_compra(req, res, "");
             break; 
+        case 'noregistro.html':
+            content = fs.readFileSync(filename,'utf-8');
+            break; 
+                 
         
 
 

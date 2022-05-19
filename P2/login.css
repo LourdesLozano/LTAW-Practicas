@@ -140,11 +140,24 @@ h3{
 }
 
 #otra{
-
+    font-family: '101';
+    margin-left: 60px;
+    background-color: rgba(255, 255, 255, 0.766);
+    width: 900px;
+    padding:10px;
+    font-size: 25px;
 }
 
-#vovler{
-    
+#volver{
+    margin: 20px;
+    color:red;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: 'disney';
+    background-color: rgb(253, 172, 172);
+    font-size: 30px;
+    margin-left: 240px;
+    margin-top: 80px;
 }
 
 
