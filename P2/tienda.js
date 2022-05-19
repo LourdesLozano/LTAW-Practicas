@@ -210,14 +210,14 @@ const server = http.createServer((req, res) => {
             let tarjeta = myURL.searchParams.get('tarjeta');
             
 
-            if (usuario==user1) {
+            if (correo==correo1 && usuario==user1) {
                
                 content = content.replace("NOMBRE", name1);
                 content = content.replace("DIRECCION", direccion);
                 content = content.replace("TARJETA", tarjeta);
                 console.log(" Pedido finalizado");
 
-            }else if (usuario==user2){
+            }else if (correo==correo2 && usuario==user2){
              
     
                 content = content.replace("NOMBRE", name2);
