@@ -397,4 +397,4 @@ const server = http.createServer((req, res) => {
 server.listen(port);
 
 //-- Mensaje de inicio
-console.log("Server esta activo. \nEscuchando en puerto: " + port);
+console.log("\nEscuchando en puerto: " + port);
