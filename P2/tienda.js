@@ -28,6 +28,8 @@ const TIENDA = fs.readFileSync('tienda.html','utf-8');
 
 const TIENDA_JSON = fs.readFileSync('tienda.json','utf-8');
 
+const MI_COMPRA = fs.readFileSync('mi_compra.html','utf-8');
+
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
@@ -58,7 +60,7 @@ function get_cookie(req){
     }
 }
 
-function get_compra1(req, res, producto){
+function get_compra(req, res, producto){
 
     const cookie = req.headers.cookie;
 
@@ -71,8 +73,6 @@ function get_compra1(req, res, producto){
                 if (nombre.trim() === 'user') {
                     user = valor;
                     content = content.replace("USUARIO", user);
-                    content = content.replace("PRODUCTOS", "Accesorio");
-
                 }
 
                 if (nombre.trim() === 'carrito') {
@@ -206,6 +206,7 @@ const server = http.createServer((req, res) => {
             let user_p = myURL.searchParams.get('usuario');
             let direccion = myURL.searchParams.get('direccion');
             let tarjeta = myURL.searchParams.get('tarjeta');
+            let pedido = myURL.searchParams.get('pedido');
             console.log(" Usuario: " + user_p);
             console.log(" Direccion: " + direccion);
             console.log(" tarjeta ---> " + tarjeta);
@@ -219,6 +220,7 @@ const server = http.createServer((req, res) => {
             content = content.replace("USUARIO", user_p);
             content = content.replace("DIRECCION", direccion);
             content = content.replace("TARJETA", tarjeta);
+            content = content.replace("PEDIDO", pedido);
             mime[type]= "text/html";
 
             break;
@@ -332,14 +334,19 @@ const server = http.createServer((req, res) => {
             content = RESPUESTA;
             get_cookie(req);
             break; 
-        case 'compra1.html':
+        case 'compra.html':
             content = fs.readFileSync(filename,'utf-8');
-            get_compra1(req, res, "");
-
+            get_compra(req, res, "");
             break; 
         case 'mi_compra.html':
             content = fs.readFileSync(filename,'utf-8');
+            get_compra(req, res, "");
             break; 
+        case 'pedido':
+            content = MI_COMPRA;
+            let pedido = get_carrito(req);
+            content = content.replace("PRODUCTOS", pedido);
+            break;
 
            
        
