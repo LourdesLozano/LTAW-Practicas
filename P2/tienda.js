@@ -335,10 +335,7 @@ const server = http.createServer((req, res) => {
             content = fs.readFileSync(filename,'utf-8');
             get_compra(req, res, "");
             break; 
-        case 'mi_compra.html':
-            content = fs.readFileSync(filename,'utf-8');
-            get_compra(req, res, "");
-            break; 
+    
         case 'compra_res.html':
             content = fs.readFileSync(filename,'utf-8');
             get_compra(req, res, "");
