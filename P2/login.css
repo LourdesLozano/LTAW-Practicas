@@ -160,4 +160,23 @@ h3{
     margin-top: 80px;
 }
 
+#pronto{
+    font-size: 30px;
+    margin-top: 200px;
+    font-family: monospace;
+}
+
+#vuelve{
+    margin: 20px;
+    color:red;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: 'disney';
+    background-color: rgb(253, 172, 172);
+    font-size: 50px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+
 
