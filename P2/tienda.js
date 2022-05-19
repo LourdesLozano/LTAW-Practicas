@@ -93,6 +93,44 @@ function get_compra(req, res, producto){
     }
 }
 
+function carro(req){
+    //-- Leer la cookie recibida
+    const cookie = req.headers.cookie;
+  
+    if (cookie){
+      //-- Obtener un array con todos los pares nombre-valor
+      let pares = cookie.split(";");
+  
+      //-- Variables para guardar los datos del carrito
+      let carrito;
+      let accesorio = '';
+      let num_acc = 0;
+      
+  
+      pares.forEach((element, index) => {
+        let [nombre, valor] = element.split('=');
+  
+        if (nombre.trim() === 'carrito') {
+          productos = valor.split(':');
+          productos.forEach((producto) => {
+            if (producto == 'accesorio'){
+              if (num_acc == 0) {
+                accesorio = productos_disp[0][0];
+              }
+              num_acc += 1;
+            
+          });
+  
+          if (num_acc != 0) {
+            accesorio += ' x ' + num_acc;
+          }
+          
+          carrito = cam1;
+        }
+      });
+      return carrito || null;
+    }
+}
 
 //-- Crear el sevidor
 const server = http.createServer((req, res) => { 
@@ -232,7 +270,8 @@ const server = http.createServer((req, res) => {
             mime[type]= "text/html";
 
             break;
-    
+
+       
         case 'tienda.css':
             content = fs.readFileSync(filename);
             break;
