@@ -235,6 +235,9 @@ const server = http.createServer((req, res) => {
         case 'error.css':
             content = fs.readFileSync(filename);
             break;
+        case 'datos.css':
+            content = fs.readFileSync(filename);
+            break;
         case 'tienda.html':
             content = TIENDA;
             get_cookie(req);
@@ -255,6 +258,15 @@ const server = http.createServer((req, res) => {
             content = fs.readFileSync(filename);
             get_cookie(req);
             break;
+        case 'contacto.html':
+            content = fs.readFileSync(filename);
+            
+            break;
+        case 'ubicacion.html':
+            content = fs.readFileSync(filename);
+            
+            break;
+        
         case 'error.html':
             content = ERROR;
             get_cookie(req);
