@@ -107,27 +107,26 @@ function carro(req){
       let num_acc = 0;
       
   
-      pares.forEach((element, index) => {
+        pares.forEach((element, index) => {
         let [nombre, valor] = element.split('=');
   
-        if (nombre.trim() === 'carrito') {
-          productos = valor.split(':');
-          productos.forEach((producto) => {
-            if (producto == 'accesorio'){
-              if (num_acc == 0) {
-                accesorio = productos_disp[0][0];
-              }
-              num_acc += 1;
-            
-          });
-  
-          if (num_acc != 0) {
-            accesorio += ' x ' + num_acc;
-          }
-          
-          carrito = cam1;
-        }
-      });
+            if (nombre.trim() === 'carrito') {
+                productos = valor.split(':');
+                productos.forEach((producto) => {
+                    if (producto == 'accesorio'){
+                        if (num_acc == 0) {
+                            accesorio = productos_disp[0][0];
+                        }
+                    num_acc += 1;
+                    }
+                });
+    
+                if (num_acc != 0) {
+                        accesorio += ' x ' + num_acc;
+                }
+                carrito = cam1;
+            }
+        });
       return carrito || null;
     }
 }
@@ -249,25 +248,93 @@ const server = http.createServer((req, res) => {
         case 'pedidos':
             content = fs.readFileSync('compra_res.html', 'utf-8'); 
 
-            let user_p = myURL.searchParams.get('usuario');
+           
             let direccion = myURL.searchParams.get('direccion');
             let tarjeta = myURL.searchParams.get('tarjeta');
-            let pedido = myURL.searchParams.get('pedido');
-            console.log(" Usuario: " + user_p);
+        
             console.log(" Direccion: " + direccion);
-            console.log(" tarjeta ---> " + tarjeta);
-            res.setHeader('Set-Cookie', user_p);
+            console.log(" tarjeta ---> " + tarjeta)
 
             info_pedidos = JSON.parse(TIENDA_JSON);
-            info_pedidos = info_pedidos["pedidos"][1];
-          
-            console.log("Productos en la tienda: " + info_pedidos);
+            info_pedidos = info_pedidos["pedidos"];
+        
 
-            content = content.replace("USUARIO", user_p);
             content = content.replace("DIRECCION", direccion);
             content = content.replace("TARJETA", tarjeta);
             content = content.replace("PEDIDO", pedido);
             mime[type]= "text/html";
+
+
+            carrito = carro(req);
+            producto_unidades = carrito.split('<br>');
+            console.log(producto_unidades);
+
+            //Arrays para guardar los productos
+            let list_productos = [];
+            let list_unidades = [];
+
+            //Obtener numero de productos adquiridos y actualizar stock
+            producto_unidades.forEach((element, index) => {
+                let [producto, unidades] = element.split(' x ');
+                list_productos.push(producto);
+                list_unidades.push(unidades);
+            });
+            
+            //Actualizar la base de datos el stock de los productos.
+            info_pedidos.forEach((element, index)=>{
+                console.log("Producto " + (index + 1) + ": " + element.nombre);
+                console.log(list_productos[index]);
+                console.log();
+                if (element.nombre == list_productos[index]){
+                element.stock = element.stock - list_unidades[index];
+                }
+            });
+            console.log();
+            
+            //Guardar datos del pedido en el registro tienda.json
+            
+            let pedido = {
+                "user": get_user(req),
+                "dirección": direccion,
+                "tarjeta": tarjeta,
+                "productos": producto_unidades
+            }
+            //Convertir a JSON y registrarlo
+            let myTienda = JSON.stringify(tienda, null, 4);
+            fs.writeFileSync(FICHERO_JSON_OUT, myTienda);
+        
+            //Confirmar pedido
+            console.log('Pedido procesado correctamente');
+            content = fs.readFileSync('compra_res.html', 'utf-8');
+
+            break;
+
+        case 'carrito':
+            content = fs.readFileSync('compra.html', 'utf-8');
+            let carrito = carro(req);
+            content = content.replace("PRODUCTOS", carrito);
+            break;
+
+        case 'añadoAcc':
+            content = ADD_OK;
+            if (carrito_existe) {
+                add_carrito(req, res, 'cam1');
+            }else{
+                res.setHeader('Set-Cookie', 'carrito=cam1');
+                carrito_existe = true;
+            }
+            //Si se esta registrado se muestra el acceso al carrito,
+            //-sino se muestra el acceso al login.
+            user_registrado = get_user(req);
+            if (user_registrado) {
+            //Mostrar enlace formulario Login
+            content = ADD_OK.replace("HTML_EXTRA", 
+                        `<form action="/carrito" method="get"><input class="button" type="submit" value="IR A LA CESTA"/></form>`);
+            }else{
+            //Mostrar enlace formulario Login
+            content = ADD_OK.replace("HTML_EXTRA", 
+                        `<a href="/login"><img src="imagen/login.png" alt="user" id="login"></a>`);
+            }
 
             break;
 
