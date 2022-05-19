@@ -8,24 +8,26 @@
         <link rel="stylesheet" href="login.css">
     </head>
     <body>
-        <a href="tienda.html"><button id="princi">PÁGINA PRINCIPAL</button></a>
-        <br>
+        <div id="realizar">
+            <a href="tienda.html"><button id="princi">PÁGINA PRINCIPAL</button></a>
+            <br>
 
-        <h3 id="titulo">Carro de compra:</h3>
-        <P id="cesta">Accesorio: Collar cuero rosa 25€</P>
-        <p></p>
-        <h3>Realización del pedido</h3>
-        <form action="/pedidos" method="get">
-            Dirección de envío:
-            <input id = "caja" type="text" name="direccion"/>
+            <h3 id="titulo">Carro de compra:</h3>
+            <P id="cesta">Accesorio: Collar cuero rosa 25€</P>
             <p></p>
-            Número de la tarjeta de credito:
-            <input id = "caja" type="text" name="tarjeta"/>
-            <p></p>
-            <a href="compra_res.html">
-                <button>Finalizar compra</button>
-            </a>
-        </form> 
+            <h3>Realización del pedido</h3>
+            <form action="/pedidos" method="get">
+                Dirección de envío:
+                <input id = "caja" type="text" name="direccion"/>
+                <p></p>
+                Número de la tarjeta de credito:
+                <input id = "caja" type="text" name="tarjeta"/>
+                <p></p>
+                <a href="compra_res.html">
+                    <button>Finalizar compra</button>
+                </a>
+            </form> 
+        </div>
 
         
         
