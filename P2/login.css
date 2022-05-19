@@ -122,7 +122,6 @@ h3{
 }
 
 #datos{
-    margin-top: 20px;
     font-family: 'disney';
     color:red;
     font-weight: bold;
@@ -131,5 +130,13 @@ h3{
     margin-top: 50px;
 }
 
+#gracias{
+    font-size: 50px;
+}
+
+#datitos{
+    font-family: '101';
+    font-size: 30px;
+}
 
 
