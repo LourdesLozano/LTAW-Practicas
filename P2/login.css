@@ -81,6 +81,18 @@ h4{
     background-color: rgb(252, 206, 206);
     font-size: 20px;
     margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+#cesta{
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-bottom: 50px;
+    border:solid;
+    border-radius: 20px;
+    background-color: rgba(241, 184, 184, 0.608);
+    padding: 60px;
+    width: 600px;
 }
 
 
