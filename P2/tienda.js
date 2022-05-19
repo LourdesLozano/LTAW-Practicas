@@ -31,6 +31,19 @@ const TIENDA_JSON = fs.readFileSync('tienda.json','utf-8');
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
+let productos_disp = [];
+let product_list = [];
+let productoss = JSON.parse(TIENDA_JSON);
+console.log("Lista de productos disponibles");
+console.log("-----------------------------");
+productoss["productos"].forEach((element, index)=>{
+  console.log("Articulo " + (index + 1) + ": " + element.nombre +
+              ", Stock: " + element.stock + ", Precio: " + element.precio);
+  productos_disp.push([element.nombre, element.descripcion, element.stock, 
+                       element.precio]);
+  product_list.push(element.nombre);
+});
+
 function get_cookie(req){
 
     //-- Leer las cookies
@@ -263,6 +276,10 @@ const server = http.createServer((req, res) => {
             get_compra(req, res, "");
             break; 
         case 'compraJug.html':
+            content = fs.readFileSync(filename,'utf-8');
+            get_compra(req, res, "");
+            break; 
+        case 'compraCam.html':
             content = fs.readFileSync(filename,'utf-8');
             get_compra(req, res, "");
             break; 
