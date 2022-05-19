@@ -34,6 +34,18 @@ let productos = info["productos"];
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
 
+let productos_disp = [];
+let product_list = [];
+console.log("Lista de productos disponibles");
+console.log("-----------------------------");
+productos.forEach((element, index)=>{
+  console.log("Articulo " + (index + 1) + ": " + element.nombre +
+              ", Stock: " + element.stock + ", Precio: " + element.precio);
+  productos_disp.push([element.nombre, element.descripcion, element.stock, 
+                       element.precio]);
+  product_list.push(element.nombre);
+});
+
 function get_cookie(req){
 
     //-- Leer las cookies
@@ -380,4 +392,4 @@ const server = http.createServer((req, res) => {
 server.listen(port);
 
 //-- Mensaje de inicio
-console.log("Server esta activo. \nEscuchando en puerto: " + port);
+console.log("\nEscuchando en puerto: " + port);
