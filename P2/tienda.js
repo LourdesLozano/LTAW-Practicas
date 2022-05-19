@@ -63,19 +63,17 @@ function get_compra(req, res, producto){
     const cookie = req.headers.cookie;
 
     if(cookie){
-            //-- par de nombre valor 
-            let par = cookie.split(";");
-            par.forEach((element,index)=>{
-                let [nombre, valor] = element.split("=");
+        //-- par de nombre valor 
+        let par = cookie.split(";");
+        par.forEach((element,index)=>{
+            let [nombre, valor] = element.split("=");
 
 
-                if (nombre.trim() === 'carrito') {
-                    res.setHeader('Set-Cookie', element + ': ' + producto);
-                }
+            if (nombre.trim() === 'carrito') {
+                res.setHeader('Set-Cookie', element + ': ' + producto);
+            }
 
-            });
-    }else{
-        content = content.replace("HTML_EXTRA", "Tienes que registrarte antes de realizar un pedido");
+        });
     }
 }
 
@@ -157,7 +155,6 @@ const server = http.createServer((req, res) => {
                 let info_productos = JSON.parse(TIENDA_JSON);
                 productos = info_productos["productos"];
                 
-                console.log("Productos en la tienda: " + productos[1]["nombre"]);
                 content_type = "application/json";
     
                 let param1 = myURL.searchParams.get('param1');
@@ -228,6 +225,60 @@ const server = http.createServer((req, res) => {
         case 'error.css':
             content = fs.readFileSync(filename);
             break;
+        case 'tienda.html':
+            content = TIENDA;
+            get_cookie(req);
+            break; 
+        case 'accesorios.html':
+            content = fs.readFileSync(filename);
+            get_cookie(req);
+            break;
+        case 'alimentos.html':
+            content = fs.readFileSync(filename);
+            get_cookie(req);
+            break;
+        case 'juguetes.html':
+            content = fs.readFileSync(filename);
+            get_cookie(req);
+            break;
+        case 'camas.html':
+            content = fs.readFileSync(filename);
+            get_cookie(req);
+            break;
+        case 'error.html':
+            content = ERROR;
+            get_cookie(req);
+            break;
+        case 'login.html':
+            content = FORMULARIO;
+            get_cookie(req);
+            break; 
+        case 'login_res.html':
+            content = RESPUESTA;
+            get_cookie(req);
+            break; 
+        case 'compraAcc.html':
+            content = fs.readFileSync(filename,'utf-8');
+            get_compra(req, res, "");
+            break; 
+        case 'compraAli.html':
+            content = fs.readFileSync(filename,'utf-8');
+            get_compra(req, res, "");
+            break; 
+        case 'compra_res.html':
+            content = fs.readFileSync(filename,'utf-8');
+            //get_compra(req, res, "");
+            break; 
+
+
+
+        //------- Letras
+        case 'disney.otf':
+            content = fs.readFileSync(filename);
+            break;
+        case '101PUPS.TTF':
+            content = fs.readFileSync(filename);
+            break;
         //------- Imagenes
         case 'img/fondo.jpg':
             content = fs.readFileSync(filename);
@@ -285,54 +336,8 @@ const server = http.createServer((req, res) => {
         break;
         
             
-        //------- Letras
-        case 'disney.otf':
-            content = fs.readFileSync(filename);
-            break;
-        case '101PUPS.TTF':
-            content = fs.readFileSync(filename);
-            break;
-        //------- ficheros html
-        case 'tienda.html':
-            content = TIENDA;
-            get_cookie(req);
-            break; 
-        case 'accesorios.html':
-            content = fs.readFileSync(filename);
-            get_cookie(req);
-            break;
-        case 'alimentos.html':
-            content = fs.readFileSync(filename);
-            get_cookie(req);
-            break;
-        case 'juguetes.html':
-            content = fs.readFileSync(filename);
-            get_cookie(req);
-            break;
-        case 'camas.html':
-            content = fs.readFileSync(filename);
-            get_cookie(req);
-            break;
-        case 'error.html':
-            content = ERROR;
-            get_cookie(req);
-            break;
-        case 'login.html':
-            content = FORMULARIO;
-            get_cookie(req);
-            break; 
-        case 'login_res.html':
-            content = RESPUESTA;
-            get_cookie(req);
-            break; 
-        case 'compra.html':
-            content = fs.readFileSync(filename,'utf-8');
-            get_compra(req, res, "");
-            break; 
-        case 'compra_res.html':
-            content = fs.readFileSync(filename,'utf-8');
-            //get_compra(req, res, "");
-            break; 
+        
+       
 
            
        
