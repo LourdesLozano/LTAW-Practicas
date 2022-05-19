@@ -28,7 +28,8 @@ const TIENDA = fs.readFileSync('tienda.html','utf-8');
 
 const TIENDA_JSON = fs.readFileSync('tienda.json','utf-8');
 
-const MI_COMPRA = fs.readFileSync('mi_compra.html','utf-8');
+let info = JSON.parse(TIENDA_JSON);
+let productos = info["productos"];
 
 //-- Mensaje de arranque
 console.log("Arrancando servidor...");
@@ -69,11 +70,6 @@ function get_compra(req, res, producto){
             let par = cookie.split(";");
             par.forEach((element,index)=>{
                 let [nombre, valor] = element.split("=");
-
-                if (nombre.trim() === 'user') {
-                    user = valor;
-                    content = content.replace("USUARIO", user);
-                }
 
                 if (nombre.trim() === 'carrito') {
                     res.setHeader('Set-Cookie', element + ': ' + producto);
@@ -159,31 +155,31 @@ const server = http.createServer((req, res) => {
     
             break;
 
-            case 'productos':
-                let info_productos = JSON.parse(TIENDA_JSON);
-                productos = info_productos["productos"];
+        case 'productos':
+            let info_productos = JSON.parse(TIENDA_JSON);
+            productos = info_productos["productos"];
+            
+            console.log("Productos en la tienda: " + productos[1]["nombre"]);
+            content_type = "application/json";
+
+            let param1 = myURL.searchParams.get('param1');
+            param1 = param1.toUpperCase();
+
+            let result = [];
+
+            for (let prod of productos) {
                 
-                console.log("Productos en la tienda: " + productos[1]["nombre"]);
-                content_type = "application/json";
-    
-                let param1 = myURL.searchParams.get('param1');
-                param1 = param1.toUpperCase();
-    
-                let result = [];
-    
-                for (let prod of productos) {
-                   
-                    prodU = prod["nombre"].toUpperCase();
-                    if (prodU.startsWith(param1)) {
-                        result.push(prod);
-                    }
+                prodU = prod["nombre"].toUpperCase();
+                if (prodU.startsWith(param1)) {
+                    result.push(prod);
                 }
-    
-                //-- Pasar una variable a formato JSON. Se hace con el método:
-                console.log(result[0]);
-                content = JSON.stringify(result);
-                mime[type] ="text/html";
-                break;
+            }
+
+            //-- Pasar una variable a formato JSON. Se hace con el método:
+            console.log(result[0]);
+            content = JSON.stringify(result);
+            mime[type] ="text/html";
+            break;
         
         case 'client.js':
             fs.readFile(filename, 'utf-8', (err,data) => {
@@ -301,6 +297,7 @@ const server = http.createServer((req, res) => {
         case '101PUPS.TTF':
             content = fs.readFileSync(filename);
             break;
+
         //------- ficheros html
         case 'tienda.html':
             content = TIENDA;
@@ -342,12 +339,11 @@ const server = http.createServer((req, res) => {
             content = fs.readFileSync(filename,'utf-8');
             get_compra(req, res, "");
             break; 
-        case 'pedido':
-            content = MI_COMPRA;
-            let pedido = get_carrito(req);
-            content = content.replace("PRODUCTOS", pedido);
+        case 'compra_res.html':
+            content = fs.readFileSync(filename,'utf-8');
+            get_compra(req, res, "");
             break;
-
+        
            
        
     
