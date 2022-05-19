@@ -203,9 +203,6 @@ const server = http.createServer((req, res) => {
             info_pedidos = JSON.parse(TIENDA_JSON);
             info_pedidos = info_pedidos["pedidos"];
           
-            console.log("Productos en la tienda: " + info_pedidos);
-
-            
             content = content.replace("DIRECCION", direccion);
             content = content.replace("TARJETA", tarjeta);
    
