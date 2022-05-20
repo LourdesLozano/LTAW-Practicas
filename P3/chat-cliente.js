@@ -1,20 +1,36 @@
-//-- Elementos del interfaz
-const display = document.getElementById("display");
-const msg_entry = document.getElementById("msg_entry");
+//-- Cuadrados chat
+const display = document.getElementById('display');
+const mensaje = document.getElementById('mensaje');
+const enviar = document.getElementById('enviar');
 
-//-- Crear un websocket. Se establece la conexión con el servidor
+//-- Conexión con el server
 const socket = io();
 
 
-socket.on("message", (msg)=>{
-  display.innerHTML += '<p style="color:blue">' + msg + '</p>';
+//-- Mensaje recibido
+socket.on('message', (msg) =>{
+    display.innerHTML += '<p>' + ' > ' + msg + '</p>';
 });
 
-//-- Al apretar el botón se envía un mensaje al servidor
-msg_entry.onchange = () => {
-  if (msg_entry.value)
-    socket.send(msg_entry.value);
-  
-  //-- Borrar el mensaje actual
-  msg_entry.value = "";
+
+//-- Envío de mensaje al pulsar enviar
+enviar.onclick = () => {
+    if (mensaje.value){
+        socket.send(mensaje.value);
+        console.log('Mensaje enviado');
+        
+    }
+    //-- Borrar mensaje
+    mensaje.value = "";
+}
+
+//-- Envío del mensaje al pulsar enter
+mensaje.onchange = () => {
+    if (mensaje.value){
+        socket.send(mensaje.value);
+        console.log('Mensaje enviado');
+       
+    }
+    //-- Borrar mensaje
+    mensaje.value = "";
 }

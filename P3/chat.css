@@ -6,29 +6,3 @@
 #display{
     color: black;
 }
-
-body::-webkit-scrollbar {
-    width: 12px;
-}
-  
-body::-webkit-scrollbar-track {
-    background: rgb(0, 0, 0);
-}
-  
-body::-webkit-scrollbar-thumb {
-    background-color: rgb(128, 175, 177);
-    border-radius: 50px;
-}
-
-div::-webkit-scrollbar {
-    width: 12px;
-}
-  
-div::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.377);
-}
-  
-div::-webkit-scrollbar-thumb {
-    background-color: rgb(128, 175, 177);
-    border-radius: 50px;
-}

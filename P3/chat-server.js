@@ -5,22 +5,20 @@ const colors = require('colors');
 
 const PUERTO = 9090;
 
-const welcome = 'Bienvenido';
-const bye = '¡Adiós!';
 
-const usuario = 'Nuevo usuario';
+const welcome = 'Biwnvenidooooo';
+const bye = '¡Adiós!';
+const usuario = 'Alguien nuevo quiere cotillear';
 
 //-- Server
 const app = express();
 const server = http.Server(app);
 const io = socket(server);
 
-let connect_count = 0;
 
 //-- Entrada web
 app.get('/', (req, res) => {
-    let path = __dirname + '/chat.html';
-    res.sendFile(path);
+    res.send('/chat.html">aquí</a></p>');
 });
 
 app.use('/', express.static(__dirname +'/'));
@@ -32,7 +30,7 @@ app.use(express.static('public'));
 io.on('connection', (socket) => {
   
     //-- Nuevo usuario  
-    console.log('-- ¡ALERTA! NUEVA MARUJA --'.pink);
+    console.log('-- Nuevo suuario --'.pink);
     connect_count += 1;
     socket.send(welcome);
     socket.broadcast.emit('message', usuario);
@@ -44,9 +42,14 @@ io.on('connection', (socket) => {
     connect_count -= 1;
   });  
 
-  
+  //-- Mensaje a todos los usuarios
+  socket.on("message", (msg)=> {
+    console.log('Mensaje: ' + msg.yellow);
 
+    
+    
    
+  });
 });
 
 //-- Lanzar el server
