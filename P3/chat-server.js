@@ -3,22 +3,28 @@ const express = require('express');
 const socket = require('socket.io');
 const colors = require('colors');
 
+const PUERTO = 9090;
+
+const welcome = 'Bienvenido';
+const bye = '¡Adiós!';
+
+const usuario = 'Nuevo usuario';
+
+//-- Server
 const app = express();
 const server = http.Server(app);
 const io = socket(server);
 
-const PUERTO = 9090;
+let connect_count = 0;
 
-//-- Constantes chat
-const welcome = '¡BIENVENIDO AL CHAT!';
-const usuario = 'Alguien nuevo quiere cotillear';
-
-
+//-- Entrada web
 app.get('/', (req, res) => {
     let path = __dirname + '/chat.html';
     res.sendFile(path);
 });
+
 app.use('/', express.static(__dirname +'/'));
+
 //-- Directorio público 
 app.use(express.static('public'));
 
@@ -26,19 +32,21 @@ app.use(express.static('public'));
 io.on('connection', (socket) => {
   
     //-- Nuevo usuario  
-    console.log('-- ¡Nuevo usuario --'.pink);
+    console.log('-- ¡ALERTA! NUEVA MARUJA --'.pink);
     connect_count += 1;
     socket.send(welcome);
-    socket.broadcast.emit('message', usuario); 
+    socket.broadcast.emit('message', usuario);
 
-    //-- Se va usuario
+    //-- Desconexión
     socket.on('disconnect', function(){
-        console.log('-- FIN CONEXIÓN --'.pink);
-        socket.broadcast.emit('message', bye);
-        connect_count -= 1;
-    });
+    console.log('-- FIN CONEXIÓN --'.pink);
+    socket.broadcast.emit('message', bye);
+    connect_count -= 1;
+  });  
 
   
+
+   
 });
 
 //-- Lanzar el server
