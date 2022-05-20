@@ -26,10 +26,17 @@ app.use(express.static('public'));
 io.on('connection', (socket) => {
   
     //-- Nuevo usuario  
-    console.log('-- ¡ALERTA! NUEVA MARUJA --'.pink);
+    console.log('-- ¡Nuevo usuario --'.pink);
     connect_count += 1;
     socket.send(welcome);
     socket.broadcast.emit('message', usuario); 
+
+    //-- Se va usuario
+    socket.on('disconnect', function(){
+        console.log('-- FIN CONEXIÓN --'.pink);
+        socket.broadcast.emit('message', bye);
+        connect_count -= 1;
+    });
 
   
 });
