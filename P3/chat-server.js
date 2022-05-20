@@ -29,7 +29,7 @@ app.use('/', express.static(__dirname +'/'));
 
 
 //-- Websockets
-io.on('connect', (socket) => {
+io.on('connection', (socket) => {
   
     //-- Nuevo usuario  
     console.log('-- Nuevo usuario--'.pink);

@@ -11,8 +11,6 @@ let newUser = 'Usuario';
 const socket = io();
 
 
-
-
 //-- Mensaje recibido
 socket.on('message', (msg) =>{
     display.innerHTML += '<p>' +  msg + '</p>';
