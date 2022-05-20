@@ -54,18 +54,25 @@ io.on('connection', (socket) => {
       console.log('Comandos'.blue);
       switch(msg){
         case '/help':
-          console.log('Lista de comandos'.blue);
+          console.log('Lista de comandos'.yellow);
           socket.send(commandos);
           break;
         case '/list':
-          console.log('Lista de usuarios'.blue);
-          socket.send('Hay un total de ' + connect_count + ' marujas en la ciudad.');
+          console.log('Lista de usuarios'.yellow);
+          socket.send('Hay un total de ' + connect_count + ' usuarios');
           break;
         case '/hello':
-          console.log('Holi'.blue);
+          console.log('Hola'.yellow);
           socket.send(hello);
           break;
-       
+        case '/date':
+          console.log('Fecha'.yellow);
+          socket.send(date);
+          break;
+        default:
+          console.log('Not Found'.red);
+          socket.send('Comando no reconocido, prueba de nuevo. Los comandos están en /help');
+          break;
       }
     } else {
       io.send(msg);
