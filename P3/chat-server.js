@@ -35,14 +35,13 @@ io.on('connection', (socket) => {
     connect_count += 1;
     socket.send(welcome);
     io.send(usuario);
-    socket.broadcast.emit('message', usuario);
 
     //-- Desconexión
     socket.on('disconnect', function(){
     console.log('-- FIN CONEXIÓN --'.pink);
     socket.broadcast.emit('message', bye);
     connect_count -= 1;
-  });  
+    });  
 
   //-- Mensaje a todos los usuarios
   socket.on("message", (msg)=> {
