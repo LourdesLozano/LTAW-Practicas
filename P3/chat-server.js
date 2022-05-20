@@ -26,8 +26,6 @@ app.get('/', (req, res) => {
 
 app.use('/', express.static(__dirname +'/'));
 
-//-- Directorio público 
-app.use(express.static('public'));
 
 //-- Websockets
 io.on('connection', (socket) => {
