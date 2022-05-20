@@ -2,10 +2,19 @@
 const display = document.getElementById('display');
 const mensaje = document.getElementById('mensaje');
 const enviar = document.getElementById('enviar');
+const user = document.getElementById("user");
 
 
 //-- Conexión con el server
 const socket = io();
+
+// nickname
+//Cuando se introduce nombre usuario
+user.onchange = () => {
+    if(user.value){
+      user = user.value;
+    }
+};
 
 
 //-- Mensaje recibido
