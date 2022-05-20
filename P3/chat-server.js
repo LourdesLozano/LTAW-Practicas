@@ -6,10 +6,10 @@ const colors = require('colors');
 const PUERTO = 9090;
 
 const commandos = 'Los comandos disponibles son: /help, /list, /hello y /date';
-const welcome = '-- Bienvenido';
-const bye = '¡Adiós!';
+const welcome = '~~~~~ BIENVENIDO ~~~~~';
+const bye = '~~ Un usuario se ha marchado ~~';
 const hello = 'Holaaaaaa';
-const usuario = 'Nuevo usuario';
+const usuario = '~~ Nuevo usuario ~~';
 
 //-- Server
 const app = express();

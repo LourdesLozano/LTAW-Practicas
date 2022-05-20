@@ -3,6 +3,7 @@
     height: 800px;
     background-color: coral;
     overflow-y: scroll;
+    padding: 20px
 }
 #display{
     color: black;
