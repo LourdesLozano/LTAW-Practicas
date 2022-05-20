@@ -8,18 +8,18 @@ const user = document.getElementById("user");
 //-- Conexión con el server
 const socket = io();
 
-let newUser = 'usuario';
+let newUser = 'Usuario';
 
 
 //-- Mensaje recibido
 socket.on('message', (msg) =>{
-    display.innerHTML += '<p>' + msg + '</p>';
+    display.innerHTML += '<p>' +  msg + '</p>';
 });
 
 //-- Envío de mensaje al pulsar enviar
 enviar.onclick = () => {
     if (mensaje.value){
-        socket.send(' > ' + mensaje.value);
+        socket.send(' > ' + newUser + mensaje.value);
         console.log('Mensaje enviado');
       
     }
@@ -30,17 +30,16 @@ enviar.onclick = () => {
 //-- Envío del mensaje al pulsar enter
 mensaje.onchange = () => {
     if (mensaje.value){
-        socket.send(' > ' + newUser + ': ' + mensaje.value);
+        socket.send(' > ' + newUser + mensaje.value);
         console.log('Mensaje enviado');
     }
     //-- Borrar mensaje
     mensaje.value = "";
 }
 
-// nickname
-//Cuando se introduce nombre usuario
 user.onchange = () => {
-    if(user.value){
-      user = user.value;
+    if(msg_user.value){
+      newUser = user.value;
     }
 };
+
