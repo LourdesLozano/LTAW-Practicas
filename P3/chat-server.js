@@ -48,12 +48,8 @@ io.on('connection', (socket) => {
         console.log('Mensaje: ' + msg.magenta);
 
         const date = new Date(Date.now());
-
         let comandos = msg.split(' ')[3];
-       
-       
-        console.log("mensajeeeee", comandos)
-
+      
         if (comandos.startsWith('/')) {
             
             switch(comandos){
