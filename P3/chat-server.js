@@ -17,7 +17,6 @@ const usuario = 'Alguien nuevo quiere cotillear';
 app.get('/', (req, res) => {
     let path = __dirname + '/chat.html';
     res.sendFile(path);
-    console.log("Se ha solicitado el acceso al html");
 });
 app.use('/', express.static(__dirname +'/'));
 //-- Directorio público 
