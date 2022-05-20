@@ -11,6 +11,7 @@ const socket = io();
 //-- Mensaje recibido
 socket.on('message', (msg) =>{
     display.innerHTML += '<p>' + ' > ' + msg + '</p>';
+    console.log("escribeee....??");
 });
 
 
