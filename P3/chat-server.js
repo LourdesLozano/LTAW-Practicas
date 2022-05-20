@@ -22,13 +22,14 @@ let connect_count = 0;
 app.get('/', (req, res) => {
     let path = __dirname + '/chat.html';
     res.sendFile(path);
-    console.log("Acceso a " + path);});
+    console.log("Acceso al chat");
+});
 
 app.use('/', express.static(__dirname +'/'));
 
 
 //-- Websockets
-io.on('connection', (socket) => {
+io.on('connect', (socket) => {
   
     //-- Nuevo usuario  
     console.log('-- Nuevo usuario--'.pink);
@@ -38,45 +39,45 @@ io.on('connection', (socket) => {
 
     //-- Desconexión
     socket.on('disconnect', function(){
-    console.log('-- FIN CONEXIÓN --'.pink);
-    socket.broadcast.emit('message', bye);
-    connect_count -= 1;
+        console.log('-- FIN CONEXIÓN --'.pink);
+        io.send(bye);
+        connect_count -= 1;
     });  
 
-  //-- Mensaje a todos los usuarios
-  socket.on("message", (msg)=> {
-    console.log('Mensaje: ' + msg.pink);
+    //-- Mensaje a todos los usuarios
+    socket.on("message", (msg)=> {
+        console.log('Mensaje: ' + msg.pink);
 
-    const date = new Date(Date.now());
+        const date = new Date(Date.now());
 
-    if (msg.startsWith('/')) {
-      console.log('Comandos'.blue);
-      switch(msg){
-        case '/help':
-          console.log('Lista de comandos'.blue);
-          socket.send(commandos);
-          break;
-        case '/list':
-          console.log('Lista de usuarios'.blue);
-          socket.send('totla de usuarios ' + connect_count);
-          break;
-        case '/hello':
-          console.log('Holi'.blue);
-          socket.send(hello);
-          break;
-        case '/date':
-          console.log('Fecha'.blue);
-          socket.send(date);
-          break;
-        default:
-          console.log('Not Found'.blue);
-          socket.send('Comando no reconocido. Los comandos están en /help');
-          break;
-      }
-    } else {
-      io.send(msg);
-    }; 
-  });
+        if (msg.startsWith('/')) {
+        console.log('Comandos'.blue);
+        switch(msg){
+            case '/help':
+            console.log('Lista de comandos'.blue);
+            socket.send(commandos);
+            break;
+            case '/list':
+            console.log('Lista de usuarios'.blue);
+            socket.send('totla de usuarios ' + connect_count);
+            break;
+            case '/hello':
+            console.log('Holi'.blue);
+            socket.send(hello);
+            break;
+            case '/date':
+            console.log('Fecha'.blue);
+            socket.send(date);
+            break;
+            default:
+            console.log('Not Found'.blue);
+            socket.send('Comando no reconocido. Los comandos están en /help');
+            break;
+        }
+        } else {
+        io.send(msg);
+        }; 
+    });
 });
 
 //-- Lanzar el server
