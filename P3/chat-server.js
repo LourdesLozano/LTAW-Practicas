@@ -30,52 +30,57 @@ app.use('/', express.static(__dirname +'/'));
 
 //-- Websockets
 io.on('connection', (socket) => {
-  
     //-- Nuevo usuario  
-    console.log('-- Nuevo usuario--'.pink);
+    console.log('-- Nuevo usuario--'.blue);
     connect_count += 1;
     socket.send(welcome);
-    io.send(usuario);
+    socket.broadcast.emit('message', usuario);
 
     //-- Desconexión
     socket.on('disconnect', function(){
-        console.log('-- FIN CONEXIÓN --'.pink);
-        io.send(bye);
+        console.log('-- FIN CONEXIÓN --'.yellow);
+        socket.broadcast.emit('message', bye);
         connect_count -= 1;
     });  
 
     //-- Mensaje a todos los usuarios
     socket.on("message", (msg)=> {
-        console.log('Mensaje: ' + msg.pink);
+        console.log('Mensaje: ' + msg.magenta);
 
         const date = new Date(Date.now());
 
-        if (msg.startsWith('/')) {
-        console.log('Comandos'.blue);
-        switch(msg){
-            case '/help':
-            console.log('Lista de comandos'.blue);
-            socket.send(commandos);
-            break;
-            case '/list':
-            console.log('Lista de usuarios'.blue);
-            socket.send('totla de usuarios ' + connect_count);
-            break;
-            case '/hello':
-            console.log('Holi'.blue);
-            socket.send(hello);
-            break;
-            case '/date':
-            console.log('Fecha'.blue);
-            socket.send(date);
-            break;
-            default:
-            console.log('Not Found'.blue);
-            socket.send('Comando no reconocido. Los comandos están en /help');
-            break;
-        }
+        let comandos = msg.split(' ')[3];
+       
+       
+        console.log("mensajeeeee", comandos)
+
+        if (comandos.startsWith('/')) {
+            
+            switch(comandos){
+                case '/help':
+                    console.log('Lista de comandos'.blue);
+                    socket.send(commandos);
+                break;
+                case '/list':
+                    console.log('Lista de usuarios'.blue);
+                    socket.send('totla de usuarios ' + connect_count);
+                break;
+                case '/hello':
+                    console.log('Holi'.blue);
+                    socket.send(hello);
+                break;
+                case '/date':
+                    console.log('Fecha'.blue);
+                    socket.send(date);
+                break;
+                default:
+                    console.log("el mensaje essss: ", msg)
+                    console.log('Not Found'.blue);
+                    socket.send('Comando no reconocido. Los comandos están en /help');
+                break;
+            }
         } else {
-        io.send(msg);
+            io.send(msg);
         }; 
     });
 });
