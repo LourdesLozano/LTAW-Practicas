@@ -34,6 +34,7 @@ io.on('connection', (socket) => {
     console.log('-- Nuevo usuario--'.pink);
     connect_count += 1;
     socket.send(welcome);
+    io.send(usuario);
     socket.broadcast.emit('message', usuario);
 
     //-- Desconexión

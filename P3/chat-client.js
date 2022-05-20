@@ -8,13 +8,7 @@ const user = document.getElementById("user");
 //-- Conexión con el server
 const socket = io();
 
-// nickname
-//Cuando se introduce nombre usuario
-user.onchange = () => {
-    if(user.value){
-      user = user.value;
-    }
-};
+let newUser = 'usuario';
 
 
 //-- Mensaje recibido
@@ -36,9 +30,17 @@ enviar.onclick = () => {
 //-- Envío del mensaje al pulsar enter
 mensaje.onchange = () => {
     if (mensaje.value){
-        socket.send(mensaje.value);
+        socket.send(newUser + ': ' + mensaje.value);
         console.log('Mensaje enviado');
     }
     //-- Borrar mensaje
     mensaje.value = "";
 }
+
+// nickname
+//Cuando se introduce nombre usuario
+user.onchange = () => {
+    if(user.value){
+        newUser = user.value;
+    }
+};
