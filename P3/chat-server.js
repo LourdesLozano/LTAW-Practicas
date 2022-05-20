@@ -5,10 +5,10 @@ const colors = require('colors');
 
 const PUERTO = 9090;
 
-const commandos = 'Comandos: /help, /list, /hello y /date';
-const welcome = 'Bienvenidooo';
+const commandos = 'Los comandos disponibles son: /help, /list, /hello y /date';
+const welcome = '-- Bienvenido';
 const bye = '¡Adiós!';
-const hello = 'Informacion disponible';
+const hello = 'Holaaaaaa';
 const usuario = 'Nuevo usuario';
 
 //-- Server
@@ -22,8 +22,7 @@ let connect_count = 0;
 app.get('/', (req, res) => {
     let path = __dirname + '/chat.html';
     res.sendFile(path);
-    console.log("Acceso a " + path);
-});
+    console.log("Acceso a " + path);});
 
 app.use('/', express.static(__dirname +'/'));
 
@@ -32,7 +31,7 @@ app.use('/', express.static(__dirname +'/'));
 io.on('connection', (socket) => {
   
     //-- Nuevo usuario  
-    console.log('-- Nuevo usuario --'.pink);
+    console.log('-- Nuevo usuario--'.pink);
     connect_count += 1;
     socket.send(welcome);
     socket.broadcast.emit('message', usuario);
@@ -46,7 +45,7 @@ io.on('connection', (socket) => {
 
   //-- Mensaje a todos los usuarios
   socket.on("message", (msg)=> {
-    console.log('Mensaje: ' + msg.yellow);
+    console.log('Mensaje: ' + msg.pink);
 
     const date = new Date(Date.now());
 
@@ -54,24 +53,24 @@ io.on('connection', (socket) => {
       console.log('Comandos'.blue);
       switch(msg){
         case '/help':
-          console.log('Lista de comandos'.yellow);
+          console.log('Lista de comandos'.blue);
           socket.send(commandos);
           break;
         case '/list':
-          console.log('Lista de usuarios'.yellow);
-          socket.send('Hay un total de ' + connect_count + ' usuarios');
+          console.log('Lista de usuarios'.blue);
+          socket.send('totla de usuarios ' + connect_count);
           break;
         case '/hello':
-          console.log('Hola'.yellow);
+          console.log('Holi'.blue);
           socket.send(hello);
           break;
         case '/date':
-          console.log('Fecha'.yellow);
+          console.log('Fecha'.blue);
           socket.send(date);
           break;
         default:
-          console.log('Not Found'.red);
-          socket.send('Comando no reconocido, prueba de nuevo. Los comandos están en /help');
+          console.log('Not Found'.blue);
+          socket.send('Comando no reconocido. Los comandos están en /help');
           break;
       }
     } else {
