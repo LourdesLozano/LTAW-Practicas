@@ -29,7 +29,7 @@ mensaje.onchange = () => {
     if (mensaje.value){
         socket.send(mensaje.value);
         console.log('Mensaje enviado');
-       
+        audio.play();
     }
     //-- Borrar mensaje
     mensaje.value = "";

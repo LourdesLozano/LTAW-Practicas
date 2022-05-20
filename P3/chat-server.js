@@ -8,7 +8,8 @@ const PUERTO = 9090;
 
 const welcome = 'Biwnvenidooooo';
 const bye = '¡Adiós!';
-const usuario = 'Alguien nuevo quiere cotillear';
+const usuario = 'Usuario nuevo';
+
 
 //-- Server
 const app = express();
@@ -18,7 +19,9 @@ const io = socket(server);
 
 //-- Entrada web
 app.get('/', (req, res) => {
-    res.send('/chat.html">aquí</a></p>');
+    console.log("eeeee");
+    let path = __dirname + '/chat.html';
+    res.sendFile(path);
 });
 
 app.use('/', express.static(__dirname +'/'));
@@ -30,7 +33,7 @@ app.use(express.static('public'));
 io.on('connection', (socket) => {
   
     //-- Nuevo usuario  
-    console.log('-- Nuevo suuario --'.pink);
+    console.log('-- Nuevo user--'.pink);
     connect_count += 1;
     socket.send(welcome);
     socket.broadcast.emit('message', usuario);
