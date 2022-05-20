@@ -57,7 +57,11 @@ io.on('connection', (socket) => {
           console.log('Lista de comandos'.blue);
           socket.send(commandos);
           break;
-        
+        case '/list':
+          console.log('Lista de usuarios'.blue);
+          socket.send('Hay un total de ' + connect_count + ' marujas en la ciudad.');
+          break;
+       
       }
     } else {
       io.send(msg);
