@@ -7,7 +7,6 @@ const app = express();
 const server = http.Server(app);
 const io = socket(server);
 
-
 const PUERTO = 9090;
 
 //-- Constantes chat

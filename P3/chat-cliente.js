@@ -7,10 +7,12 @@ const enviar = document.getElementById('enviar');
 
 const socket = io();
 
+
 //-- Mensaje recibido
 socket.on('message', (msg) =>{
     display.innerHTML += '<p>' + ' > ' + msg + '</p>';
 });
+
 
 //-- Envío de mensaje al pulsar enviar
 enviar.onclick = () => {
