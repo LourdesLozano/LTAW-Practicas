@@ -61,6 +61,10 @@ io.on('connection', (socket) => {
           console.log('Lista de usuarios'.blue);
           socket.send('Hay un total de ' + connect_count + ' marujas en la ciudad.');
           break;
+        case '/hello':
+          console.log('Holi'.blue);
+          socket.send(hello);
+          break;
        
       }
     } else {
