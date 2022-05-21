@@ -1,3 +1,8 @@
+
+@font-face {
+    font-family: 'pirata';
+    src: url("pirata.ttf");
+}
 body{
     background: no-repeat;
     background-image: url(fondo2.jpeg);
