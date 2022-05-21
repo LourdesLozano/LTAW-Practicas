@@ -19,8 +19,7 @@ socket.on('message', (msg) =>{
 //-- Envío de mensaje al pulsar enviar
 enviar.onclick = () => {
     if (mensaje.value){
-        // socket.send('  <h3><img src="icono.png"/>' +  newUser  + ': </h3>' + mensaje.value);
-        socket.send('<p id="signo"> > </p>' + newUser +  ': ' + mensaje.value);
+        socket.send('<img src="icono.png" /> ' + newUser +  ': ' + mensaje.value);
         console.log('Mensaje enviado');
       
     }
@@ -31,7 +30,7 @@ enviar.onclick = () => {
 //-- Envío del mensaje al pulsar enter
 mensaje.onchange = () => {
     if (mensaje.value){
-        socket.send('<p id="signo"> > </p>' + newUser + ': ' + mensaje.value);
+        socket.send('<img src="icono.png" /> ' + newUser + ': ' + mensaje.value);
         console.log('Mensaje enviado');
     }
     //-- Borrar mensaje
