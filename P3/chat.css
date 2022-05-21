@@ -27,11 +27,14 @@ body{
 #user{
     width: 800px;
     color:tomato;
+    font-weight: bold;
+    font-size: 20px;
     
 }
 #usuario{
     color:white;
-    font-size: 20px;
+    font-size: 30px;
     font-family: "pirata";
+    
 }
 
