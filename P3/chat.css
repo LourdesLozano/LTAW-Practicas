@@ -1,13 +1,13 @@
 body{
     background: no-repeat;
-    background-image: url(fondo.jpg);
+    background-image: url(fondo2.jpeg);
     background-size: cover;
 }
 
 #ventana{
     width: 1000px;
     height: 800px;
-    background-color: coral;
+    background-color: rgba(229, 111, 111, 0.834);
     overflow-y: scroll;
     padding: 20px
 }
