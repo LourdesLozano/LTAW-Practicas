@@ -37,7 +37,7 @@ p{
     color: rgb(154, 0, 0);
 }
 #user{
-    width: 800px;
+    width: 200px;
     color:tomato;
     font-weight: bold;
     font-size: 20px;
@@ -56,4 +56,6 @@ p{
 #bye{
     color:rgb(228, 238, 92);
 }
-
+#mensaje{
+    width: 800px;
+}
