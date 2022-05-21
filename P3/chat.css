@@ -12,6 +12,9 @@ h3{
     color:white;
     font-family: "pirata";
 }
+p{
+    font-size: 20px;
+}
 
 #ventana{
     width: 1000px;
