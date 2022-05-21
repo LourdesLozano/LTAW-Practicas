@@ -1,5 +1,7 @@
-#body{
+body{
+    background: no-repeat;
     background-image: url(fondo.jpg);
+    background-size: cover;
 }
 
 #ventana{
