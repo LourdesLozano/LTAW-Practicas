@@ -12,6 +12,9 @@ h3{
     color:white;
     font-family: "pirata";
 }
+h4{
+    list-style-image: url("icono.png");
+}
 p{
     font-size: 20px;
 }
