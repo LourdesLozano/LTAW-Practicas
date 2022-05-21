@@ -6,7 +6,7 @@ const colors = require('colors');
 const PUERTO = 9090;
 
 const commandos = 'Los comandos disponibles son: /help, /list, /hello y /date';
-const welcome = '~~~~~ BIENVENIDO ~~~~~';
+const welcome = '<h3>~~~~~ BIENVENIDO ~~~~~</h3>';
 const bye = '~~ Un usuario se ha marchado ~~';
 const hello = 'Holaaaaaa';
 const usuario = '~~ Nuevo usuario ~~';

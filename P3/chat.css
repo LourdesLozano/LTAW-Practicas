@@ -8,6 +8,9 @@ body{
     background-image: url(fondo2.jpeg);
     background-size: cover;
 }
+h3{
+    color:white;
+}
 
 #ventana{
     width: 1000px;
