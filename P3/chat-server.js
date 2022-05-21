@@ -7,9 +7,9 @@ const PUERTO = 9090;
 
 const commandos = 'Los comandos disponibles son: /help, /list, /hello y /date';
 const welcome = '<h3>~~~~~ BIENVENIDO ~~~~~</h3>';
-const bye = '<h3>~~~ Un usuario se ha marchado ~~</h3>';
-const hello = 'Holaaaaaa';
-const usuario = '<h3>~~ Nuevo usuario ~~</h3>';
+const bye = '<h4 id="bye">~~~ Un usuario se ha marchado ~~</h3>';
+const hello = 'Holaaaa Holaaa Holaa Hola';
+const usuario = '<h4 id="new">~~ Nuevo usuario ~~</h4>';
 
 //-- Server
 const app = express();
