@@ -24,4 +24,14 @@ body{
     font-size: 50px;
     color: white;
 }
+#user{
+    width: 800px;
+    color:tomato;
+    
+}
+#usuario{
+    color:white;
+    font-size: 20px;
+    font-family: "pirata";
+}
 
