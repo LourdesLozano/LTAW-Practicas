@@ -40,6 +40,13 @@ mensaje.onchange = () => {
     mensaje.value = "";
 }
 
+mensaje.oninput = () => {
+    if(!escribiendo){
+      escribiendo = true;
+      socket.send(newUser + ' está escribiendo..');
+    };
+};
+
 user.onchange = () => {
     if(user.value){
       newUser = user.value;
