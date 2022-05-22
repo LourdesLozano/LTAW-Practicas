@@ -22,6 +22,7 @@ enviar.onclick = () => {
     if (mensaje.value){
         socket.send('<img src="icono.png" /> ' + newUser +  ': ' + mensaje.value);
         console.log('Mensaje enviado');
+        escribiendo = false;
       
     }
     //-- Borrar mensaje
@@ -33,6 +34,7 @@ mensaje.onchange = () => {
     if (mensaje.value){
         socket.send('<img src="icono.png" /> ' + newUser + ': ' + mensaje.value);
         console.log('Mensaje enviado');
+        escribiendo = false;
     }
     //-- Borrar mensaje
     mensaje.value = "";
