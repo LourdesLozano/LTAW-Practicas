@@ -5,6 +5,7 @@ const enviar = document.getElementById('enviar');
 const user = document.getElementById("user");
 
 let newUser = 'Usuario';
+let escribiendo = false;
 
 
 //-- Conexión con el server
