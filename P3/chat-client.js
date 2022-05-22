@@ -43,7 +43,7 @@ mensaje.onchange = () => {
 mensaje.oninput = () => {
     if(!escribiendo){
       escribiendo = true;
-      socket.send('<h5> >>>>>>>>>>>>>>>>>' + newUser + ' está escribiendo..</h5>');
+      socket.send('<h5> >>>>>>>>>> ' + newUser + ': ' +' está escribiendo..</h5>');
     };
 };
 
