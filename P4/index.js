@@ -10,6 +10,7 @@ const info1 = document.getElementById("info1");
 const info2 = document.getElementById("info2");
 const info3 = document.getElementById("info3");
 const info4 = document.getElementById("info4");
+const arquitectura = document.getElementById("info5");
 const usuarios_conect = document.getElementById("usuarios_conect");
 const code = document.getElementById("qrcode");
 
@@ -19,6 +20,7 @@ info2.textContent = process.versions.electron;
 info3.textContent = process.versions.chrome;
 info4.textContent = process.cwd();
 usuarios_conect.innerHTML = 0;
+arquitectura.textContent = process.arch;
 
 electron.ipcRenderer.on('ip', (event, msg) => {
     console.log("Recibido: " + msg);
