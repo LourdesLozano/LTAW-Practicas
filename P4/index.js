@@ -9,13 +9,16 @@ const info1 = document.getElementById("info1");
 const info2 = document.getElementById("info2");
 const info3 = document.getElementById("info3");
 const info4 = document.getElementById("info4");
+const directorio = document.getElementById("info5");
 const usuarios_conect = document.getElementById("usuarios_conect");
+
 
 //-- Acceder a la API de node para obtener la info
 info1.textContent = process.versions.node;
 info2.textContent = process.versions.electron;
 info3.textContent = process.versions.chrome;
 info4.textContent = process.cwd();
+directorio.textContent = "users/admin/Desktop/LTAW-Practicas/P4"
 usuarios_conect.innerHTML = 0;
 
 electron.ipcRenderer.on('ip', (event, msg) => {
