@@ -49,7 +49,8 @@ mensaje.onchange = () => {
 mensaje.oninput = () => {
     if(!escribiendo){
         escribiendo = true;
-        texto.innerHTML += '>>>> ' + newUser + 'está escribiendo...';
+        texto.innerHTML += '>>>> ' + newUser + ' está escribiendo...';
+        texto.innerHTML += ' <h5></h5>';
     };
 };
 
