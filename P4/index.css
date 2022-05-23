@@ -103,7 +103,7 @@ li{
     color:rgb(255, 255, 255);
     font-weight: 800;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 15px;
+    
     
 }
 
@@ -115,9 +115,17 @@ input{
     border-radius: 20px;
 }
 
+
 #qrcode{
     width: 80px;
     margin-top: -20px;
 
+}
+
+#btn_test{
+    margin-top: -36px;
+}
+#prueba{
+    margin-top: -10px;
 }
 
