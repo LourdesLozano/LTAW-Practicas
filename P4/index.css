@@ -75,4 +75,5 @@ li{
     background-color: rgb(133, 23, 23, 0.834);
     padding: 10px;
     border-radius: 10px;
+    overflow-y: scroll;
 }
