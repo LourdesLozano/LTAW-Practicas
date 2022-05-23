@@ -16,7 +16,9 @@ h2{
     font-family: 'pirata';
     color:rgb(133, 23, 23)
 }
-
+ul {
+    list-style-image: url(icono.png);
+}
 #Izquierda{
     float: left;
     width: 400px;
