@@ -1,10 +1,10 @@
 
 
 
-#izquierda{
+#Izquierda{
     float: left;
     width: 400px;
-    height: 600px;
+    height: 450px;
     margin: 10px;
     background-color: plum;
 }
