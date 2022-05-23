@@ -90,11 +90,6 @@ io.on('connection', (socket) => {
     });
 });
 
-//-- Lanzar el server
-server.listen(PUERTO);
-console.log('Escuchando en puerto: ' + PUERTO);
-
-
 // --------- ELECTRON -----------
 electron.app.on('ready', () => {
     console.log("¡PREPARADO!");
@@ -102,19 +97,28 @@ electron.app.on('ready', () => {
     //-- Crear la ventana principal de nuestra aplicación
     main = new electron.BrowserWindow({
         width: 800,   //-- Anchura 
-        height: 800,  //-- Altura
+        height: 700,  //-- Altura
   
         //-- ACCESO AL SISTEMA
         webPreferences: {
-          nodeIntegration: true,
-          contextIsolation: false
+            nodeIntegration: true,
+            contextIsolation: false
         }
     });
-    
+    //-- Quitar menú por defecto
+    main.setMenuBarVisibility(false)
+  
+    //-- Cargar interfaz gráfica en HTML
+    let interfaz = "index.html"
+    main.loadFile(interfaz);
+  
+    main.on('ready-to-show', () => {
+        main.webContents.send('ip', 'http://' + ip.address() + ':' + PUERTO);
+    });
 });
   
-  //-- Esperar a recibir los mensajes de botón apretado (Test) del proceso de 
-  //-- renderizado. Al recibirlos se escribe una cadena en la consola
+//-- Esperar a recibir los mensajes de botón apretado (Test) del proceso de 
+//-- renderizado. Al recibirlos se escribe una cadena en la consola
 electron.ipcMain.handle('test', (event, msg) => {
     console.log(">Mensaje: " + msg);
     //-- Enviar mensaje de prueba
@@ -122,3 +126,9 @@ electron.ipcMain.handle('test', (event, msg) => {
     win.webContents.send('msg', msg);
 
 });
+
+
+//-- Lanzar el server
+server.listen(PUERTO);
+console.log('Escuchando en puerto: ' + PUERTO);
+
