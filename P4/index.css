@@ -36,7 +36,6 @@ li{
     font-family: 'pirata';
 }
 
-
 input{
     color:rgb(5, 45, 18);
     width: 100px;
@@ -120,8 +119,6 @@ input{
     
 }
 
-
-
 #qrcode{
     width: 80px;
     margin-top: -20px;
@@ -131,6 +128,7 @@ input{
 #btn_test{
     margin-top: -36px;
 }
+
 #prueba{
     margin-top: -10px;
 }
