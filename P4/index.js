@@ -1,4 +1,5 @@
 const electron = require('electron');
+const qrcode = require('qrcode');
 
 console.log("Hola desde el proceso de la web...");
 
@@ -10,6 +11,7 @@ const info2 = document.getElementById("info2");
 const info3 = document.getElementById("info3");
 const info4 = document.getElementById("info4");
 const usuarios_conect = document.getElementById("usuarios_conect");
+const code = document.getElementById("qrcode");
 
 //-- Acceder a la API de node para obtener la info
 info1.textContent = process.versions.node;
@@ -21,6 +23,10 @@ usuarios_conect.innerHTML = 0;
 electron.ipcRenderer.on('ip', (event, msg) => {
     console.log("Recibido: " + msg);
     info4.textContent = msg;
+    //Generamos codigo qr de la url
+    qrcode.toDataURL(url, function(err, url){
+        code.src = url;
+    });
 });
 
 btn_test.onclick = () => {
