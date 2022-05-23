@@ -11,7 +11,10 @@ body{
 
 h1{
      font-family: 'pirata';
- }
+}
+h2{
+    font-family: 'pirata';
+}
 
 #Izquierda{
     float: left;
