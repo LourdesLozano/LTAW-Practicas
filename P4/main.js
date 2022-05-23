@@ -30,7 +30,6 @@ app.get('/', (req, res) => {
 
 app.use('/', express.static(__dirname +'/'));
 
-
 //-- Websockets
 io.on('connection', (socket) => {
     //-- Nuevo usuario  
@@ -116,7 +115,7 @@ electron.app.on('ready', () => {
         main.webContents.send('ip', 'http://' + ip.address() + ':' + PUERTO);
     });
 });
-  
+
 //-- Esperar a recibir los mensajes de botón apretado (Test) del proceso de 
 //-- renderizado. Al recibirlos se escribe una cadena en la consola
 electron.ipcMain.handle('test', (event, msg) => {
