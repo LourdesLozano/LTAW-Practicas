@@ -9,7 +9,7 @@
     "homepage": "",
     "license": "LGPL",
     "scripts": {
-        "start": "electron .",
+        "start": "Electron.",
         "pack": "electron-builder --dir",
         "dist": "electron-builder",
         "postinstall": "electron-builder install-app-deps"
