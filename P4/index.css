@@ -82,7 +82,7 @@ li{
     color:white;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgba(87, 171, 167, 0.677);
-    width: 300px;
+    width: 330px;
     height: 210px;
     overflow-y: scroll;
     align-content: center;
@@ -96,6 +96,3 @@ input{
     background-color: rgb(23, 95, 133);
 }
 
-.boton{
-    text-align: center;
-}
