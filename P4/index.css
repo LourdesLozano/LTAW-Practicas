@@ -10,11 +10,13 @@ body{
 }
 
 h1{
-     font-family: 'pirata';
+    font-family: 'pirata';
+    font-size: 40px;
 }
 h2{
     font-family: 'pirata';
-    color:rgb(133, 23, 23)
+    color:rgb(133, 23, 23);
+    font-size: 30px;
 }
 ul {
     list-style-image: url(icono.png);
@@ -23,7 +25,7 @@ ul {
     float: left;
     width: 400px;
     height: 450px;
-    margin: 10px;
+    margin: 15px;
     background-color: rgba(243, 199, 66, 0.834);
     padding: 10px;
     border-radius: 10px;
