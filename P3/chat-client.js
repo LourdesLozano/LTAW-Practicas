@@ -40,7 +40,6 @@ mensaje.onchange = () => {
         console.log('Mensaje enviado');
         audio.play();
         escribiendo = false;
-        
     }
     //-- Borrar mensaje
     mensaje.value = "";
@@ -49,8 +48,6 @@ mensaje.onchange = () => {
 mensaje.oninput = () => {
     if(!escribiendo){
         escribiendo = true;
-        texto.innerHTML += '>>>> ' + newUser + ' está escribiendo...';
-        texto.innerHTML += ' <h5></h5>';
     };
 };
 
