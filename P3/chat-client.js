@@ -35,7 +35,7 @@ enviar.onclick = () => {
 //-- Envío del mensaje al pulsar enter
 mensaje.onchange = () => {
     if (mensaje.value){
-        socket.send('<img src="icono.png" /> ~~~~ ' + newUser + ': ' + mensaje.value);
+        socket.send('<img src="icono.png" /> >>> ' + newUser + ': ' + mensaje.value);
         console.log('Mensaje enviado');
         audio.play();
         escribiendo = false;
@@ -47,10 +47,7 @@ mensaje.onchange = () => {
 mensaje.oninput = () => {
     if(!escribiendo){
         escribiendo = true;
-    
         socket.send('<h5><img src="icono.png" />  ' + newUser + '  ' + 'está escribiendo...');
-       
-
     };
 };
 

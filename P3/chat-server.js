@@ -45,11 +45,11 @@ io.on('connection', (socket) => {
 
     //-- Mensaje a todos los usuarios
     socket.on("message", (msg)=> {
-        let mymensaje = msg.slice(22);
+        let mymensaje = msg.slice(27);
         console.log('Mensaje: ' + mymensaje.magenta);
 
         const date = new Date(Date.now());
-        let comandos = msg.split(' ')[4];
+        let comandos = msg.split(' ')[5];
         console.log("comandoooo",comandos);
 
         if (comandos.startsWith('/')) {
