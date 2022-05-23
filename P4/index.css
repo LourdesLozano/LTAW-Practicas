@@ -75,12 +75,17 @@ li{
     background-color: rgb(133, 23, 23, 0.834);
     padding: 10px;
     border-radius: 10px;
-    overflow-y: scroll;
+    
 }
 #display{
     font-size: 12px;
     color:white;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(87, 171, 167, 0.677);
+    width: 300px;
+    height: 200px;
+    overflow-y: scroll;
+    align-items: center;
 }
 
 input{
