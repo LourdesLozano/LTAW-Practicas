@@ -9,4 +9,11 @@ const info1 = document.getElementById("info1");
 const info2 = document.getElementById("info2");
 const info3 = document.getElementById("info3");
 const info4 = document.getElementById("info4");
-const connect_count = document.getElementById("usuarios_conect");
+const usuarios_conect = document.getElementById("usuarios_conect");
+
+//-- Acceder a la API de node para obtener la info
+info1.textContent = process.versions.node;
+info2.textContent = process.versions.electron;
+info3.textContent = process.versions.chrome;
+info4.textContent = process.cwd();
+usuarios_conect.innerHTML = 0;
