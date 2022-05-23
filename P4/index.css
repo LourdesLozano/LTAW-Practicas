@@ -71,7 +71,7 @@ li{
 #Izquierda{
     float: left;
     width: 350px;
-    height: 450px;
+    height: 480px;
     margin: 6px;
     background-color: rgba(243, 199, 66, 0.834);
     padding: 10px;
@@ -81,7 +81,7 @@ li{
 #Derecha{
     float: right;
     width: 350px;
-    height: 450px;
+    height: 480px;
     margin: 6px;
     background-color: rgb(133, 23, 23, 0.834);
     padding: 10px;
