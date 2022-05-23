@@ -85,9 +85,9 @@ li{
     margin: 6px;
     background-color: rgb(133, 23, 23, 0.834);
     padding: 10px;
-    border-radius: 10px;
-    
+    border-radius: 10px;  
 }
+
 #display{
     font-size: 12px;
     color:white;
@@ -104,7 +104,6 @@ li{
     font-weight: 800;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 10px;
-    
 }
 
 input{
