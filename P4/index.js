@@ -1,4 +1,5 @@
 const electron = require('electron');
+const qrcode = require('qrcode');
 
 console.log("Hola desde el proceso de la web...");
 
@@ -12,7 +13,7 @@ const info4 = document.getElementById("info4");
 const directorio = document.getElementById("info5");
 const arquitectura = document.getElementById("info6");
 const usuarios_conect = document.getElementById("usuarios_conect");
-const code = require('qrcode');
+const code = document.getElementById("qrcode");
 
 
 //-- Acceder a la API de node para obtener la info
