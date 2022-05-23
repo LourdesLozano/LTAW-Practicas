@@ -26,7 +26,7 @@ electron.ipcRenderer.on('ip', (event, msg) => {
 
 btn_test.onclick = () => {
     console.log("Botón apretado!");
-    electron.ipcRenderer.invoke('test', "Probando, 1, 2, 3...");
+    electron.ipcRenderer.invoke('test', "Mensaje de prueba...");
 }
 
 //-- Mensaje recibido del proceso MAIN
