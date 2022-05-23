@@ -17,3 +17,8 @@ info2.textContent = process.versions.electron;
 info3.textContent = process.versions.chrome;
 info4.textContent = process.cwd();
 usuarios_conect.innerHTML = 0;
+
+electron.ipcRenderer.on('ip', (event, msg) => {
+    console.log("Recibido: " + msg);
+    info4.textContent = msg;
+});
