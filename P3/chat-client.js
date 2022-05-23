@@ -43,7 +43,7 @@ mensaje.onchange = () => {
 mensaje.oninput = () => {
     if(!escribiendo){
       escribiendo = true;
-      socket.send('<img src="icono.png" /> ' + newUser + ': ' + '..está escribiendo...' );
+      socket.send('<img src="icono.png" /> ' + newUser + ': ' + 'está escribiendo...' );
     };
 };
 
