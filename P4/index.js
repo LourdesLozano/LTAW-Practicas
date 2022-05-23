@@ -24,7 +24,7 @@ electron.ipcRenderer.on('ip', (event, msg) => {
     console.log("Recibido: " + msg);
     info4.textContent = msg;
     //Generamos codigo qr de la url
-    qrcode.toDataURL(url, function(err, url){
+    qrcode.toDataURL(info4.textContent, function(err, url){
         code.src = url;
     });
 });
