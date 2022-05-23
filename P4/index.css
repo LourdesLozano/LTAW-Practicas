@@ -2,7 +2,12 @@
     font-family: 'pirata';
     src: url("pirata.ttf");
 }
- h1{
+
+body{
+    background-color: rgb(102, 94, 94);
+}
+
+h1{
      font-family: 'pirata';
  }
 
