@@ -4,7 +4,10 @@
 }
 
 body{
-    background-image: url('fondo3.jpg');
+    background: no-repeat;
+    background-image: url(fondo3.jpg);
+    background-size: cover;
+
 }
 
 h1{
