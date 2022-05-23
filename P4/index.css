@@ -18,6 +18,11 @@ h2{
     color:rgb(133, 23, 23);
     font-size: 30px;
 }
+p{
+    font-family: 'pirata';
+    color:rgb(243, 199, 66));
+    font-size: 30px;
+}
 ul {
     list-style-image: url(icono.png);
 }
@@ -25,8 +30,18 @@ ul {
     float: left;
     width: 400px;
     height: 450px;
-    margin: 15px;
+    margin: 6px;
     background-color: rgba(243, 199, 66, 0.834);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#Derecha{
+    float: right;
+    width: 400px;
+    height: 450px;
+    margin: 6px;
+    background-color: rgb(133, 23, 23,  0.834);
     padding: 10px;
     border-radius: 10px;
 }
