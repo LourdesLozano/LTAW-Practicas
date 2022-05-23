@@ -3,6 +3,7 @@ const display = document.getElementById('display');
 const mensaje = document.getElementById('mensaje');
 const enviar = document.getElementById('enviar');
 const user = document.getElementById("user");
+const audio = new Audio('espada.mp3');
 
 let newUser = 'Usuario';
 let escribiendo = false;
