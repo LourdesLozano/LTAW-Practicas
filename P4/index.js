@@ -1,5 +1,4 @@
 const electron = require('electron');
-const qrcode = require('qrcode');
 
 console.log("Hola desde el proceso de la web...");
 
@@ -10,28 +9,18 @@ const info1 = document.getElementById("info1");
 const info2 = document.getElementById("info2");
 const info3 = document.getElementById("info3");
 const info4 = document.getElementById("info4");
-const directorio = document.getElementById("info5");
-const arquitectura = document.getElementById("info6");
 const usuarios_conect = document.getElementById("usuarios_conect");
-const code = document.getElementById("qrcode");
-
 
 //-- Acceder a la API de node para obtener la info
 info1.textContent = process.versions.node;
 info2.textContent = process.versions.electron;
 info3.textContent = process.versions.chrome;
 info4.textContent = process.cwd();
-directorio.textContent = "users/admin/Desktop/LTAW-Practicas/P4"
-arquitectura.textContent = process.arch;
 usuarios_conect.innerHTML = 0;
-
 
 electron.ipcRenderer.on('ip', (event, msg) => {
     console.log("Recibido: " + msg);
     info4.textContent = msg;
-    qrcode.toDataURL(info4.textContent, function(err, url){
-        code.src = url;
-    });
 });
 
 
