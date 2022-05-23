@@ -4,7 +4,6 @@ const mensaje = document.getElementById('mensaje');
 const enviar = document.getElementById('enviar');
 const user = document.getElementById("user");
 const audio = new Audio('espada.mp3');
-const texto = document.getElementById('texto');
 
 let newUser = 'Usuario';
 let escribiendo = false;
@@ -48,6 +47,8 @@ mensaje.onchange = () => {
 mensaje.oninput = () => {
     if(!escribiendo){
         escribiendo = true;
+        socket.send('<img src="icono.png" /> ' + newUser + ': ' + 'está escribiendo...');
+
     };
 };
 

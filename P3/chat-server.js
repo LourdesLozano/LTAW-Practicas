@@ -52,10 +52,6 @@ io.on('connection', (socket) => {
         let comandos = msg.split(' ')[4];
         console.log("comandoooo",comandos);
 
-        if(comandos == "está"){
-            socket.send("<h5>" + msg + "</h5>");
-        }
-      
         if (comandos.startsWith('/')) {
             
             switch(comandos){
