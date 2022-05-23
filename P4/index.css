@@ -55,23 +55,12 @@ li{
     color:rgb(255, 255, 255);
     font-weight: 800;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-}
-#info5{
-    color:rgb(23, 95, 133);
-    font-weight: 800;
-    font-family: Arial, Helvetica, sans-serif;
-}
-#info6{
-    color:rgb(23, 95, 133);
-    font-weight: 800;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 #Izquierda{
     float: left;
     width: 350px;
-    height: 480px;
+    height: 450px;
     margin: 6px;
     background-color: rgba(243, 199, 66, 0.834);
     padding: 10px;
@@ -81,7 +70,7 @@ li{
 #Derecha{
     float: right;
     width: 350px;
-    height: 480px;
+    height: 450px;
     margin: 6px;
     background-color: rgb(133, 23, 23, 0.834);
     padding: 10px;
@@ -94,17 +83,10 @@ li{
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgba(87, 171, 167, 0.677);
     width: 330px;
-    height: 240px;
+    height: 270px;
     overflow-y: scroll;
     align-content: center;
     padding: 10px;
-}
-#usuarios_conect{
-    color:rgb(255, 255, 255);
-    font-weight: 800;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 10px;
-    
 }
 
 input{
@@ -113,19 +95,5 @@ input{
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(16, 109, 59);
     border-radius: 20px;
-}
-
-
-#qrcode{
-    width: 80px;
-    margin-top: -20px;
-
-}
-
-#btn_test{
-    margin-top: -36px;
-}
-#prueba{
-    margin-top: -10px;
 }
 
