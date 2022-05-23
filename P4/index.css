@@ -33,7 +33,17 @@ li{
 #info1{
     color:rgb(23, 95, 133);
     font-weight: 800;
-    
+    font-family: 'pirata';
+}
+#info2{
+    color:rgb(23, 95, 133);
+    font-weight: 800;
+    font-family: 'pirata';
+}
+#info3{
+    color:rgb(23, 95, 133);
+    font-weight: 800;
+    font-family: 'pirata';
 }
 
 #Izquierda{
