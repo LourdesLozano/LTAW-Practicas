@@ -25,7 +25,6 @@ directorio.textContent = "users/admin/Desktop/LTAW-Practicas/P4"
 arquitectura.textContent = process.arch;
 usuarios_conect.innerHTML = 0;
 
-
 electron.ipcRenderer.on('ip', (event, msg) => {
     console.log("Recibido: " + msg);
     info4.textContent = msg;
@@ -33,7 +32,6 @@ electron.ipcRenderer.on('ip', (event, msg) => {
         code.src = url;
     });
 });
-
 
 btn_test.onclick = () => {
     console.log("Botón apretado!");
