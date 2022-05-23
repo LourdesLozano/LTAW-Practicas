@@ -94,5 +94,6 @@ input{
     width: 100px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(23, 95, 133);
+    border-radius: 20px;
 }
 
