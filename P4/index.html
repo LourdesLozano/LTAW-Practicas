@@ -10,13 +10,10 @@
     </head>
     <body>
         <h1 align="center">ELECTRON CHAT</h1>
-        
         <br>
         <div id="Izquierda">
-
             <h2>Información</h2>
             <ul>
-                <li>Arquitectura: <span id="info6"></span></li>
                 <li>Versión de Node: <span id="info1"></span> </li>
                 <li>Versión de Electron: <span id="info2"></span></li>
                 <li>Versión de Chrome: <span id="info3"></span></li>
@@ -35,8 +32,24 @@
                 <td><p>Usuarios: </p></td>
                 <td><p id="usuarios_conect"></p></td>
             </table>
+            </ul>
+
+            <h2>Dirección IP: </h2>
+            <ul>
+                <li>IP: <span id="info4"></span></li>
+            </ul>
+            
+
+            <h2>Usuarios</h2>
+            <ul>
+                <li id="usuarios_conect"></li>
+            </ul>
+            
+            <br>
+        </div>
+        <div id="Derecha">
             <div class="boton">
-                <p id="prueba">Prueba: 
+                <p>Prueba: 
                 <input type="button" value="Test" id="btn_test">
                 </p>
             </div>
