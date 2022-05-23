@@ -23,6 +23,7 @@ enviar.onclick = () => {
     if (mensaje.value){
         socket.send('<img src="icono.png" /> ' + newUser +  ': ' + mensaje.value);
         console.log('Mensaje enviado');
+        audio.play();
         escribiendo = false;
       
     }
@@ -35,6 +36,7 @@ mensaje.onchange = () => {
     if (mensaje.value){
         socket.send('<img src="icono.png" /> ' + newUser + ': ' + mensaje.value);
         console.log('Mensaje enviado');
+        audio.play();
         escribiendo = false;
     }
     //-- Borrar mensaje
