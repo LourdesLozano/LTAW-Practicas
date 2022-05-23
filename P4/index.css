@@ -99,6 +99,12 @@ li{
     align-content: center;
     padding: 10px;
 }
+#usuarios_conect{
+    color:rgb(23, 95, 133);
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -15px;
+}
 
 input{
     color:rgb(5, 45, 18);
