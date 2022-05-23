@@ -22,3 +22,9 @@ electron.ipcRenderer.on('ip', (event, msg) => {
     console.log("Recibido: " + msg);
     info4.textContent = msg;
 });
+
+
+btn_test.onclick = () => {
+    console.log("Botón apretado!");
+    electron.ipcRenderer.invoke('test', "Probando, 1, 2, 3...");
+}
