@@ -26,6 +26,16 @@ p{
 ul {
     list-style-image: url(icono.png);
 }
+li{
+    font-weight: bold;
+}
+
+#info1{
+    color:rgb(23, 95, 133);
+    font-weight: 800;
+    
+}
+
 #Izquierda{
     float: left;
     width: 350px;
