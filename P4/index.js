@@ -20,7 +20,7 @@ info2.textContent = process.versions.electron;
 info3.textContent = process.versions.chrome;
 info4.textContent = process.cwd();
 directorio.textContent = "users/admin/Desktop/LTAW-Practicas/P4"
-arquitectura.textContent = process.versions.arch;
+arquitectura.textContent = process.arch;
 usuarios_conect.innerHTML = 0;
 
 electron.ipcRenderer.on('ip', (event, msg) => {
