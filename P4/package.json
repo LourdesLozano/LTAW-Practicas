@@ -10,6 +10,7 @@
         "electron": "^18.2.3",
         "http": "^0.0.1-security",
         "ip": "^1.1.8",
+        "process": "^0.11.10",
         "qrcode": "^1.5.0",
         "qrcode-terminal": "^0.12.0"
     }
