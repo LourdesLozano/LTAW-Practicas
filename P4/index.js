@@ -27,10 +27,14 @@ usuarios_conect.innerHTML = 0;
 
 electron.ipcRenderer.on('ip', (event, msg) => {
     console.log("Recibido: " + msg);
-    info4.textContent = msg;
+    //info4.textContent = msg;
+    url = ("http://" + msg[6] + ":" + msg[7] + "/" + msg[8]);
+    dir_ip.textContent = url;
+
+    
     //Generamos codigo qr de la url
     qrcode.toDataURL(url, function(err, url){
-        code.src = url;
+        code.src = msg;
     });
 });
 
