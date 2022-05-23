@@ -28,3 +28,14 @@ btn_test.onclick = () => {
     console.log("Botón apretado!");
     electron.ipcRenderer.invoke('test', "Probando, 1, 2, 3...");
 }
+
+//-- Mensaje recibido del proceso MAIN
+electron.ipcRenderer.on('msg', (event, msg) => {
+    console.log("Recibido: " + msg);
+    display.innerHTML += msg + "<br>";
+});
+
+electron.ipcRenderer.on('usuarios_conect', (event, msg) => {
+    console.log("Usuarios: " + msg);
+    usuarios_conect.textContent = msg;
+});

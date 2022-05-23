@@ -18,7 +18,7 @@ const app = express();
 const server = http.Server(app);
 const io = socket(server);
 
-let connect_count = 0;
+let usuarios_conect = 0;
 let main = null;
 
 //-- Entrada web
@@ -35,8 +35,8 @@ app.use('/', express.static(__dirname +'/'));
 io.on('connection', (socket) => {
     //-- Nuevo usuario  
     console.log('-- Nuevo usuario--'.blue);
-    connect_count += 1;
-    main.webContents.send('connect_count', connect_count);
+    usuarios_conect += 1;
+    main.webContents.send('usuarios_conect', usuarios_conect);
     socket.send(welcome);
     socket.broadcast.emit('message', usuario);
 
@@ -44,7 +44,7 @@ io.on('connection', (socket) => {
     socket.on('disconnect', function(){
         console.log('-- FIN CONEXIÓN --'.yellow);
         socket.broadcast.emit('message', bye);
-        connect_count -= 1;
+        usuarios_conect -= 1;
         main.webContents.send('msg', bye);
 
     });  
@@ -68,7 +68,7 @@ io.on('connection', (socket) => {
                 break;
                 case '/list':
                     console.log('Lista de usuarios'.blue);
-                    socket.send('totla de usuarios ' + connect_count);
+                    socket.send('totla de usuarios ' + usuarios_conect);
                 break;
                 case '/hello':
                     console.log('Holi'.blue);
