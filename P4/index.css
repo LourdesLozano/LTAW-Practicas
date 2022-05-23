@@ -83,14 +83,14 @@ li{
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgba(87, 171, 167, 0.677);
     width: 350px;
-    height: 250px;
+    height: 230px;
     overflow-y: scroll;
     align-content: center;
 }
 
 input{
     color:rgb(5, 31, 45);
-    width: 300px;
+    width: 200px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(23, 95, 133);
 }
