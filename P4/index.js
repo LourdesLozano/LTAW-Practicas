@@ -15,7 +15,6 @@ const arquitectura = document.getElementById("info6");
 const usuarios_conect = document.getElementById("usuarios_conect");
 const code = document.getElementById("qrcode");
 
-
 //-- Acceder a la API de node para obtener la info
 info1.textContent = process.versions.node;
 info2.textContent = process.versions.electron;
@@ -25,7 +24,6 @@ directorio.textContent = "users/admin/Desktop/LTAW-Practicas/P4"
 arquitectura.textContent = process.arch;
 usuarios_conect.innerHTML = 0;
 
-
 electron.ipcRenderer.on('ip', (event, msg) => {
     console.log("Recibido: " + msg);
     info4.textContent = msg;
@@ -33,7 +31,6 @@ electron.ipcRenderer.on('ip', (event, msg) => {
         code.src = url;
     });
 });
-
 
 btn_test.onclick = () => {
     console.log("Botón apretado!");
