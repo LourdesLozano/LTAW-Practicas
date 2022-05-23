@@ -82,15 +82,15 @@ li{
     color:white;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgba(87, 171, 167, 0.677);
-    width: 300px;
-    height: 200px;
+    width: 350px;
+    height: 250px;
     overflow-y: scroll;
     align-content: center;
 }
 
 input{
     color:rgb(5, 31, 45);
-    width: 180px;
+    width: 300px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(23, 95, 133);
 }
