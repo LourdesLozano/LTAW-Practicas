@@ -23,6 +23,7 @@ p{
 }
 button{
     border-radius: 10px;
+    border-color: rgb(233, 89, 89);
     font-family: 'pirata';
     font-size: 25px;
     background-color: rgb(154, 0, 0);
