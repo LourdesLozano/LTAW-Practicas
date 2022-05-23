@@ -27,6 +27,7 @@ ul {
     list-style-image: url(icono.png);
 }
 li{
+    color:rgb(5, 31, 45);
     font-weight: bold;
 }
 
