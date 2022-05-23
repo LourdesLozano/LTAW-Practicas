@@ -93,3 +93,32 @@ io.on('connection', (socket) => {
 //-- Lanzar el server
 server.listen(PUERTO);
 console.log('Escuchando en puerto: ' + PUERTO);
+
+
+// --------- ELECTRON -----------
+electron.app.on('ready', () => {
+    console.log("¡PREPARADO!");
+  
+    //-- Crear la ventana principal de nuestra aplicación
+    main = new electron.BrowserWindow({
+        width: 800,   //-- Anchura 
+        height: 800,  //-- Altura
+  
+        //-- ACCESO AL SISTEMA
+        webPreferences: {
+          nodeIntegration: true,
+          contextIsolation: false
+        }
+    });
+    
+});
+  
+  //-- Esperar a recibir los mensajes de botón apretado (Test) del proceso de 
+  //-- renderizado. Al recibirlos se escribe una cadena en la consola
+electron.ipcMain.handle('test', (event, msg) => {
+    console.log(">Mensaje: " + msg);
+    //-- Enviar mensaje de prueba
+    io.send(msg);
+    win.webContents.send('msg', msg);
+
+});
