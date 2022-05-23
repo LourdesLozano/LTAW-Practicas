@@ -10,6 +10,7 @@ const info2 = document.getElementById("info2");
 const info3 = document.getElementById("info3");
 const info4 = document.getElementById("info4");
 const directorio = document.getElementById("info5");
+const arquitectura = document.getElementById("info6");
 const usuarios_conect = document.getElementById("usuarios_conect");
 
 
