@@ -11,6 +11,7 @@ const info2 = document.getElementById("info2");
 const info3 = document.getElementById("info3");
 const info4 = document.getElementById("info4");
 const arquitectura = document.getElementById("info5");
+const directorio = document.getElementById("info6");
 const usuarios_conect = document.getElementById("usuarios_conect");
 const code = document.getElementById("qrcode");
 
@@ -21,6 +22,7 @@ info3.textContent = process.versions.chrome;
 info4.textContent = process.cwd();
 usuarios_conect.innerHTML = 0;
 arquitectura.textContent = process.arch;
+directorio.textContent = "Users/Desktop/LTAW-Practicas/P4";
 
 electron.ipcRenderer.on('ip', (event, msg) => {
     console.log("Recibido: " + msg);
