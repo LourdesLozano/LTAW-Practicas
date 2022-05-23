@@ -3,21 +3,34 @@
     "description": "Estas es mi primera aplicación de escritorio en Electron",
     "version": "0.1.0",
     "main": "main.js",
+    "author": {
+        "name": "mdelaosa"
+    },
+    "homepage": "",
+    "license": "LGPL",
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder",
+        "postinstall": "electron-builder install-app-deps"
+    },
+    "build": {
+        "appId": "mi-electron-app-1-id",
+        "linux": {
+            "target": [
+                "AppImage"
+            ],
+            "category": "Utility"
+        }
+    },
+    "devDependencies": {
+        "electron": "^12.2.3"
     },
     "dependencies": {
-        "colors": "^1.4.0",
-        "electron": "^18.2.3",
-        "express": "^4.18.1",
-        "http": "^0.0.1-security",
-        "ip": "^1.1.8",
+        "express": "^4.17.1",
+        "ip": "^1.1.5",
         "process": "^0.11.10",
-        "qartjs": "^1.2.0",
-        "qr": "^0.2.4",
-        "qrcode": "^1.5.0",
-        "qrcode-terminal": "^0.12.0",
-        "socket.io": "^4.5.1",
+        "socket.io": "^4.1.2",
         "websocket": "^1.0.34"
     }
 }
