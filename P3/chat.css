@@ -22,7 +22,7 @@ p{
     color:white;
 }
 button{
-    
+    border-radius: 10px;
     background-color: rgb(15, 105, 75);
 }
 
