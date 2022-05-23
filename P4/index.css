@@ -20,7 +20,7 @@ h2{
 }
 p{
     font-family: 'pirata';
-    color:rgb(243, 199, 66));
+    color:rgb(243, 199, 66);
     font-size: 30px;
 }
 ul {
@@ -28,7 +28,7 @@ ul {
 }
 #Izquierda{
     float: left;
-    width: 400px;
+    width: 300px;
     height: 450px;
     margin: 6px;
     background-color: rgba(243, 199, 66, 0.834);
@@ -38,10 +38,10 @@ ul {
 
 #Derecha{
     float: right;
-    width: 400px;
+    width: 300px;
     height: 450px;
     margin: 6px;
-    background-color: rgb(133, 23, 23,  0.834);
+    background-color: rgb(133, 23, 23, 0.834);
     padding: 10px;
     border-radius: 10px;
 }
