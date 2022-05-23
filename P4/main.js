@@ -19,6 +19,7 @@ const server = http.Server(app);
 const io = socket(server);
 
 let connect_count = 0;
+let main = null;
 
 //-- Entrada web
 app.get('/', (req, res) => {
@@ -35,6 +36,7 @@ io.on('connection', (socket) => {
     //-- Nuevo usuario  
     console.log('-- Nuevo usuario--'.blue);
     connect_count += 1;
+    main.webContents.send('connect_count', connect_count);
     socket.send(welcome);
     socket.broadcast.emit('message', usuario);
 
@@ -43,6 +45,8 @@ io.on('connection', (socket) => {
         console.log('-- FIN CONEXIÓN --'.yellow);
         socket.broadcast.emit('message', bye);
         connect_count -= 1;
+        main.webContents.send('msg', bye);
+
     });  
 
     //-- Mensaje a todos los usuarios
@@ -52,7 +56,8 @@ io.on('connection', (socket) => {
 
         const date = new Date(Date.now());
         let comandos = msg.split(' ')[5];
-        console.log("comandoooo",comandos);
+
+        main.webContents.send('msg', msg); 
 
         if (comandos.startsWith('/')) {
             
