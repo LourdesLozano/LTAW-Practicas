@@ -123,7 +123,7 @@ electron.ipcMain.handle('test', (event, msg) => {
     console.log(">Mensaje: " + msg);
     //-- Enviar mensaje de prueba
     io.send(msg);
-    win.webContents.send('msg', msg);
+    main.webContents.send('msg', msg);
 
 });
 
