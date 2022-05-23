@@ -1,0 +1,10 @@
+
+
+
+#izquierda{
+    float: left;
+    width: 400px;
+    height: 600px;
+    margin: 10px;
+    background-color: plum;
+}
